@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Setup
+
+1. Install Docker Desktop and Composer
+2. Change directory to `backend/example-app`
+3. `composer install`
+4. `docker-compose up`
+5. If command 4 does not work, do `./vendor/bin/sail up --build` for initial setup, then `docker-compose up` should work
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
