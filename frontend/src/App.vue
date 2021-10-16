@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <router-link to="/horses">Horses</router-link>
-    </div>
+    </div> -->
     <router-view />
+    <div class="footer">Brought to you by HIDE (MTU)</div>
   </div>
 </template>
 
 <style>
+html,
+body {
+  /* background-color: #ea9999; */
+  background-color: #ffe5e5;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,5 +34,12 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.footer {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
