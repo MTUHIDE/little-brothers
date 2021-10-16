@@ -27,5 +27,6 @@ export default {};
 <style lang="scss" scoped>
 .navbar {
   background-color: #e37070 !important;
+  box-shadow: rgb(0 0 0 / 28%) 0px 4px 8px 0px;
 }
 </style>
