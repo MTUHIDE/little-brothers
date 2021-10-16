@@ -7,22 +7,26 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-button size="lg">Calendar</b-button>
+        <b-button size="lg" to="/driver/calendar">Calendar</b-button>
       </b-col>
     </b-row>
     <b-row>
       <b-col>
-        <b-button size="lg">Update</b-button>
+        <b-button size="lg" to="/driver/update">Update</b-button>
       </b-col>
     </b-row>
     <b-row>
       <b-col>
-        <b-button size="lg">Previous Updates</b-button>
+        <b-button size="lg" to="/driver/prev-updates">Previous Updates</b-button>
       </b-col>
     </b-row>
     <b-row>
-      <b-col><b-button>About</b-button></b-col>
-      <b-col><b-button variant="danger">Logout</b-button></b-col>
+      <b-col>
+        <b-button to="/driver/about">About</b-button>
+      </b-col>
+      <b-col>
+        <b-button variant="danger">Logout</b-button>
+      </b-col>
     </b-row>
   </b-container>
 </template>
