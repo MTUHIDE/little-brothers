@@ -4,18 +4,18 @@
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <router-link to="/horses">Horses</router-link>
     </div> -->
-    <TheNavbar />
+    <DriverNavbar v-if="$route.meta.driver" />
     <router-view />
     <div class="footer">Brought to you by HIDE (MTU)</div>
   </div>
 </template>
 
 <script>
-import TheNavbar from '@/components/TheNavbar.vue';
+import DriverNavbar from '@/components/TheNavbar.vue';
 
 export default {
   components: {
-    TheNavbar,
+    DriverNavbar,
   },
 };
 </script>

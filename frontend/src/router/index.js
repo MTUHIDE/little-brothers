@@ -29,6 +29,7 @@ const routes = [
     path: '/driver',
     name: 'DriverHome',
     component: DriverHome,
+    meta: { driver: true },
   },
 ];
 
