@@ -5,6 +5,7 @@
       <router-link to="/horses">Horses</router-link>
     </div> -->
     <DriverNavbar v-if="$route.meta.driver" />
+    <router-link to="/login">Login</router-link>
     <router-view />
     <div class="footer">Brought to you by HIDE (MTU)</div>
   </div>
