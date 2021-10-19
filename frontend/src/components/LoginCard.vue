@@ -1,47 +1,41 @@
 <template>
-<div>
-  <div class="center">
-   <div class="login-form">
-    <div id="disabledWrapper">
-     <form id="loginForm" action="" method="post">
+  <div>
+    <div class="center">
+      <div class="login-form">
+        <div id="disabledWrapper">
+          <form id="loginForm" action="" method="post">
+            <b-form-group has-error>
+              <img alt="LBFE logo" src="../assets/little_brothers_upper_michigan_logo.png" />
+              <br />
+              <h2 class="text-center">Welcome to Little Brothers!</h2>
+              <h4 class="text-center">Login to get started</h4>
+              <br />
 
-     <b-form-group has-error>
-       <img alt="LBFE logo" src="../assets/little_brothers_upper_michigan_logo.png" />
-       <br>
-       <h2 class="text-center">Welcome to Little Brothers!</h2>
-       <h4 class="text-center">Login to get started</h4>
-       <br>
+              <label for="Username"><strong>Username</strong></label>
+              <b-form-input v-model="text" placeholder="Username" required="required"></b-form-input>
+              <div class="invalid-feedback"></div>
+            </b-form-group>
 
-       <label for="Username"><strong>Username</strong></label>
-        <b-form-input v-model="text" placeholder="Username" required="required"></b-form-input>
-       <div class="invalid-feedback">
-       </div>
-     </b-form-group>
-
-        <div class="form-group has-error">
-          <label for="Password"><strong>Password</strong></label>
-          <input type="password" name="password" class="form-control" placeholder="Password" required="required">
-            <div class="invalid-feedback">
+            <div class="form-group has-error">
+              <label for="Password"><strong>Password</strong></label>
+              <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+              <div class="invalid-feedback"></div>
             </div>
+            <b-form-group has-error> </b-form-group>
+
+            <b-form-group>
+              <b-button variant="primary btn-block" value="login">Log in</b-button>
+            </b-form-group>
+          </form>
         </div>
-        <b-form-group has-error>
-
-        </b-form-group>
-
-        <b-form-group>
-          <b-button variant="primary btn-block" value="login">Log in</b-button>
-        </b-form-group>
-
-    </form>
+      </div>
     </div>
-   </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
-  name: "LoginCard"
+  name: 'LoginCard',
 };
 </script>
 
@@ -53,38 +47,39 @@ This file is the style sheet for the login page.
 */
 
 .login-form {
-		width: 340px;
-    	margin: 50px auto;
-	}
+  width: 340px;
+  margin: 50px auto;
+}
 
-	/* Align MTU logo to center */
-	.login-form img {
-		display: block;
-		width: 70%;
-		height: auto;
+/* Align MTU logo to center */
+.login-form img {
+  display: block;
+  width: 70%;
+  height: auto;
 
-		margin-left: auto;
-		margin-right: auto;
-		background: #f7f7f7;
-		float: center;
-	}
-    .login-form form {
-    	margin-bottom: 15px;
-        background: #f7f7f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
-    }
-    .login-form h2 {
-        margin: 0 0 15px;
-    }
-    .form-control, .btn {
-        min-height: 38px;
-        border-radius: 2px;
-    }
-    .btn {
-        font-size: 15px;
-        font-weight: bold;
-    }
+  margin-left: auto;
+  margin-right: auto;
+  background: #f7f7f7;
+  float: center;
+}
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.login-form h2 {
+  margin: 0 0 15px;
+}
+.form-control,
+.btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+}
 
 .center {
   margin: 0;
@@ -104,15 +99,14 @@ label {
   pointer-events: none;
   background-color: #bbb;
   opacity: 0.5;
-    margin-bottom: -200px;
+  margin-bottom: -200px;
 }
 .disabledWrapper {
-   position: relative;
-   cursor: not-allowed;
+  position: relative;
+  cursor: not-allowed;
 }
 
 .invalid-feedback {
-	display: block !important;
+  display: block !important;
 }
-
 </style>

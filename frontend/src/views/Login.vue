@@ -11,7 +11,7 @@ import LoginCard from '@/components/LoginCard.vue';
 export default {
   name: 'Login',
   components: {
-    LoginCard
+    LoginCard,
   },
 };
 </script>
