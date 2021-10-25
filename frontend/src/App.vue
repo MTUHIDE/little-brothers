@@ -4,8 +4,9 @@
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <router-link to="/horses">Horses</router-link>
     </div> -->
-    <router-link to="/login">Login</router-link>
-    <router-link to="/driver">Driver</router-link>
+    <router-link to="/login">Login</router-link>  |
+    <router-link to="/driver">Driver</router-link>  |
+    <router-link to="/appointment">Appointments</router-link>
     <DriverNavbar v-if="$route.meta.driver" />
     <router-view />
     <div class="footer">Brought to you by HIDE (MTU)</div>

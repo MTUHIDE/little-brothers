@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Content from '../views/Content.vue';
 import DriverHome from '../views/driver/DriverHome.vue';
 import Login from '../views/Login.vue';
+import AddEdit from '../views/appointment/AddEdit.vue'
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const routes = [
     name: 'DriverHome',
     component: DriverHome,
     meta: { driver: true },
+  },
+  {
+    path: '/appointment',
+    name: 'AddEdit',
+    component: AddEdit,
   },
 ];
 
