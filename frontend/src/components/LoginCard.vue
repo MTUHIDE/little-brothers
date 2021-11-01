@@ -24,7 +24,7 @@
             <b-form-group has-error> </b-form-group>
 
             <b-form-group>
-              <b-button variant="primary btn-block" value="login">Log in</b-button>
+              <ButtonBlock buttonBlockText="Log in" />
             </b-form-group>
           </form>
         </div>
@@ -34,17 +34,41 @@
 </template>
 
 <script>
+// @ is an alias to /src
+import ButtonBlock from '../components/ButtonBlock.vue';
+
 export default {
   name: 'LoginCard',
+  components: {
+    ButtonBlock
+  },
+
 };
 </script>
 
 <style lang="scss" scoped>
-/*
-This file is the style sheet for the login page.
-@author Tom Berg
-@Date Last Modified: 1/23/2020
-*/
+.btn-watermelon {
+  color: #fff;
+  background-color: #FF3B3F;
+  border-color: #FF3B3F;
+}
+
+.btn-watermelon:hover {
+    color: #fff;
+    background-color: #c93033;
+    border-color: #c93033;
+}
+
+.btn-watermelon:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255 65 83 / 50%) !important;
+}
+
+.btn-watermelon:active {
+  background-color: #c93033 !important;
+  border-color: #c93033 !important;
+}
+
+
 
 .login-form {
   width: 340px;
