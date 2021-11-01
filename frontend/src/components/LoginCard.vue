@@ -12,13 +12,13 @@
               <br />
 
               <label for="Username"><strong>Username</strong></label>
-              <b-form-input v-model="text" placeholder="Username" required="required"></b-form-input>
+              <b-form-input placeholder="Username" required="required"></b-form-input>
               <div class="invalid-feedback"></div>
             </b-form-group>
 
             <div class="form-group has-error">
               <label for="Password"><strong>Password</strong></label>
-              <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+              <b-form-input placeholder="Username" required="required"></b-form-input>
               <div class="invalid-feedback"></div>
             </div>
             <b-form-group has-error> </b-form-group>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  padding-top: 0;
+}
+
 .btn-watermelon {
   color: #fff;
   background-color: #FF3B3F;
