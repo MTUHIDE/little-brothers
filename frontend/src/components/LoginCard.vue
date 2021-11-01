@@ -18,7 +18,7 @@
 
             <div class="form-group has-error">
               <label for="Password"><strong>Password</strong></label>
-              <b-form-input placeholder="Username" required="required"></b-form-input>
+              <b-form-input placeholder="Password" required="required"></b-form-input>
               <div class="invalid-feedback"></div>
             </div>
             <b-form-group has-error> </b-form-group>
