@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DriverNavbar from '@/components/TheNavbar.vue';
+import DriverNavbar from '@/components/DriverNavbar.vue';
 
 export default {
   components: {
