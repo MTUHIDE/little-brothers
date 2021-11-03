@@ -1,21 +1,19 @@
 
    
 <template>
-  <div class="text-center section">
-    <h2 class="h2">Custom Calendars</h2>
-    <p class="text-lg font-medium text-gray-600 mb-6">
-      Roll your own calendars using scoped slots
-    </p>
+  <div class="text-center">
+    <img class="center" alt="LBFE logo" src="../assets/little_brothers_upper_michigan_logo.png" />
+    <h2 class="h2">Hello {username}!<br><br></h2>
     <vc-calendar 
-      class="custom-calendar max-w-full"
+      class="custom-calendar max-w-full vc-whole"
       :masks="masks"
       :attributes="attributes"
       disable-page-swipe
       
     >
       <template v-slot:day-content="{ day, attributes }">
-        <div class="flex flex-col h-full z-10">
-          <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
+        <div class="flex flex-col h-full z-10 vc-day">
+          <span>{{ day.day }}</span>
           <div class="flex-grow overflow-y-auto overflow-x-auto">
             <p
               v-for="attr in attributes"
@@ -123,7 +121,26 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
+
+  .vc-whole >>> .vc-weeks {
+      position: relative;
+      min-height: 32px;
+      gap: 1px;
+      background-color: black;
+      padding: 1px;
+  }
+
+/* deep selector = ">>>" */
+  .vc-whole >>> .vc-weekday, 
+  .vc-whole >>> .vc-day {
+    background-color: white;
+  }
+
+  .center {
+  margin: auto;
+  }
+
 .section {
   background-color: whitesmoke;
 }
@@ -133,7 +150,7 @@ export default {
 ::-webkit-scrollbar-track {
   display: none;
 }
-/deep/ .custom-calendar.vc-container {
+.custom-calendar.vc-container {
   --day-border: 10px solid #13dfdf;
   --day-border-highlight: 1px solid #b8c2cc;
   --day-width: 90px;
@@ -142,42 +159,5 @@ export default {
   --weekday-border: 1px solid #000000;
   border-radius: 10;
   width: 100%;
-  & .vc-header {
-    background-color: #f1f5f8;
-    padding: 10px 0;
-  }
-  & .vc-weeks {
-    padding: 0;
-  }
-  & .vc-weekday {
-    background-color: var(--weekday-bg);
-    border-bottom: var(--weekday-border);
-    border-top: var(--weekday-border);
-    padding: 5px 0;
-  }
-  & .vc-day {
-    padding: 0 5px 3px 5px;
-    text-align: left;
-    height: var(--day-height);
-    min-width: var(--day-width);
-    background-color: black;
-    border: var(--day-border);
-    &.weekday-1,
-    &.weekday-7 {
-      background-color: #eff8ff;
-    }
-    &:not(.on-bottom) {
-      border-bottom: var(--day-border);
-      &.weekday-1 {
-        border-bottom: var(--day-border-highlight);
-      }
-    }
-    &:not(.on-right) {
-      border-right: var(--day-border);
-    }
-  }
-  & .vc-day-dots {
-    margin-bottom: 5px;
-  }
 }
 </style>
