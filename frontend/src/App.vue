@@ -27,7 +27,8 @@ export default {
 html,
 body {
   /* background-color: #ea9999; */
-  background-color: #ffe5e5;
+  background-color: #EFEFEF;
+  min-height: 100vh;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

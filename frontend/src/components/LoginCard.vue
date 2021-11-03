@@ -12,19 +12,19 @@
               <br />
 
               <label for="Username"><strong>Username</strong></label>
-              <b-form-input v-model="text" placeholder="Username" required="required"></b-form-input>
+              <b-form-input placeholder="Username" required="required"></b-form-input>
               <div class="invalid-feedback"></div>
             </b-form-group>
 
             <div class="form-group has-error">
               <label for="Password"><strong>Password</strong></label>
-              <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+              <b-form-input placeholder="Password" required="required"></b-form-input>
               <div class="invalid-feedback"></div>
             </div>
             <b-form-group has-error> </b-form-group>
 
             <b-form-group>
-              <b-button variant="primary btn-block" value="login">Log in</b-button>
+              <ButtonBlock buttonBlockText="Log in" />
             </b-form-group>
           </form>
         </div>
@@ -34,17 +34,45 @@
 </template>
 
 <script>
+// @ is an alias to /src
+import ButtonBlock from '../components/ButtonBlock.vue';
+
 export default {
   name: 'LoginCard',
+  components: {
+    ButtonBlock
+  },
+
 };
 </script>
 
 <style lang="scss" scoped>
-/*
-This file is the style sheet for the login page.
-@author Tom Berg
-@Date Last Modified: 1/23/2020
-*/
+h2 {
+  padding-top: 0;
+}
+
+.btn-watermelon {
+  color: #fff;
+  background-color: #FF3B3F;
+  border-color: #FF3B3F;
+}
+
+.btn-watermelon:hover {
+    color: #fff;
+    background-color: #c93033;
+    border-color: #c93033;
+}
+
+.btn-watermelon:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255 65 83 / 50%) !important;
+}
+
+.btn-watermelon:active {
+  background-color: #c93033 !important;
+  border-color: #c93033 !important;
+}
+
+
 
 .login-form {
   width: 340px;
