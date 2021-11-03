@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Content from '../views/Content.vue';
 import DriverHome from '../views/driver/DriverHome.vue';
+import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import Login from '../views/Login.vue';
 
 Vue.use(VueRouter);
@@ -35,6 +36,12 @@ const routes = [
     path: '/driver',
     name: 'DriverHome',
     component: DriverHome,
+    meta: { driver: true },
+  },
+  {
+    path: '/driver/calendar',
+    name: 'DriverCalendar',
+    component: DriverCalendar,
     meta: { driver: true },
   },
 ];
