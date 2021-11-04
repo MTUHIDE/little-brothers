@@ -1,4 +1,5 @@
-
+<!-- While scrolling through different months, if the month has no apointments in it, it will be super condensed
+until an appointment is added. -->
    
 <template>
   <div class="text-center">
@@ -13,7 +14,7 @@
     >
       <template v-slot:day-content="{ day, attributes }">
         <div class="flex flex-col h-full z-10 vc-day">
-          <span>{{ day.day }}</span>
+          <span class="align-left">{{ day.day }}</span>
           <div class="flex-grow overflow-y-auto overflow-x-auto">
             <p
               v-for="attr in attributes"
@@ -115,6 +116,14 @@ export default {
           },
           dates: new Date(year, month, 25),
         },
+        { /* if you take this appointment out, the month of december will be horizontally condensed */
+          key: 9,
+          customData: {
+            title: 'Visit great grandma again.',
+            class: 'bg-red-600 text-white',
+          },
+          dates: new Date(year, 12, 5),
+        },
       ],
     };
   },
@@ -122,6 +131,10 @@ export default {
 </script>
 
 <style scoped>
+
+.align-left {
+  text-align: left;
+}
 
   .vc-whole >>> .vc-weeks {
       position: relative;
@@ -132,32 +145,17 @@ export default {
   }
 
 /* deep selector = ">>>" */
-  .vc-whole >>> .vc-weekday, 
   .vc-whole >>> .vc-day {
     background-color: white;
+    height: 75px;
   }
 
   .center {
   margin: auto;
   }
 
-.section {
-  background-color: whitesmoke;
-}
 ::-webkit-scrollbar {
   width: 0px;
 }
-::-webkit-scrollbar-track {
-  display: none;
-}
-.custom-calendar.vc-container {
-  --day-border: 10px solid #13dfdf;
-  --day-border-highlight: 1px solid #b8c2cc;
-  --day-width: 90px;
-  --day-height: 90px;
-  --weekday-bg: #f8fafc;
-  --weekday-border: 1px solid #000000;
-  border-radius: 10;
-  width: 100%;
-}
+
 </style>

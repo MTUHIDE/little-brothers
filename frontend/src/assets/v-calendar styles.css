@@ -584,9 +584,9 @@
     grid-template-columns: repeat(7,1fr) auto
 }
 
-.vc-weekday[data-v-74ad501d] {
+.vc-weekday {
     text-align: center;
-    color: var(--gray-500);
+    color: white;
     font-size: var(--text-sm);
     font-weight: var(--font-bold);
     line-height: 14px;
@@ -597,7 +597,7 @@
     user-select: none
 }
 
-.vc-is-dark .vc-header[data-v-74ad501d] {
+.vc-is-dark .vc-header {
     color: var(--gray-200)
 }
 
@@ -605,7 +605,7 @@
     color: var(--gray-100)
 }
 
-.vc-is-dark .vc-weekday[data-v-74ad501d] {
+.vc-is-dark .vc-weekday {
     color: var(--accent-200)
 }
 
@@ -1481,7 +1481,6 @@ code,kbd,pre,samp {
 
 audio,canvas,embed,iframe,img,object,svg,video {
     display: block;
-    vertical-align: middle
 }
 
 img,video {
