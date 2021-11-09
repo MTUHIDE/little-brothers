@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Content from '../views/Content.vue';
+import DriverAbout from '../views/driver/DriverAbout.vue'
 import DriverHome from '../views/driver/DriverHome.vue';
 import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import Login from '../views/Login.vue';
@@ -48,6 +49,12 @@ const routes = [
     path: '/driver/calendar',
     name: 'DriverCalendar',
     component: DriverCalendar,
+    meta: { driver: true },
+  },
+  {
+    path: '/driver/about',
+    name: 'DriverAbout',
+    component: DriverAbout,
     meta: { driver: true },
   },
 ];
