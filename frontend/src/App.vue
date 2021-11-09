@@ -9,7 +9,7 @@
       <router-link to="/driver">Driver </router-link>
       <router-link to="/calendar">Calendar </router-link>
       <router-link to="/about">About </router-link>
-      <DriverNavbar v-if="$route.meta.driver" />
+      <DriverNavbar v-if="$route.meta.driver" style="z-index: 50" />
       <router-view />
     </div>
     <footer>Brought to you by HIDE (MTU)</footer>
