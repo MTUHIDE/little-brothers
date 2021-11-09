@@ -1,8 +1,7 @@
 <template>
-  <div class="justify-center">
-    <b-card
+  <div class="d-flex justify-content-center">
+    <b-card 
       title="About"
-      tag="aboutInfo"
       style="max-width: 20rem;"
       class="justify-center"
       bg-variant="red-400"
