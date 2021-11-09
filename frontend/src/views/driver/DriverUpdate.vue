@@ -20,7 +20,7 @@
       </b-button>
     </div>
     <div class="save-btn-area">
-      <b-button variant="secondary">Back</b-button>
+      <b-button variant="secondary" to="/driver">Back</b-button>
       <b-button variant="primary">Save</b-button>
     </div>
   </div>
