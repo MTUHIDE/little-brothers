@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Content from '../views/Content.vue';
 import DriverHome from '../views/driver/DriverHome.vue';
 import DriverCalendar from '../views/driver/DriverCalendar.vue';
+import DriverUpdate from '../views/driver/DriverUpdate.vue';
 import Login from '../views/Login.vue';
 import Calendar from '../views/Calendar.vue';
 
@@ -48,6 +49,12 @@ const routes = [
     path: '/driver/calendar',
     name: 'DriverCalendar',
     component: DriverCalendar,
+    meta: { driver: true },
+  },
+  {
+    path: '/driver/update',
+    name: 'DriverUpdate',
+    component: DriverUpdate,
     meta: { driver: true },
   },
 ];
