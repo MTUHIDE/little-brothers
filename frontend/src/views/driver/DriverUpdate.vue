@@ -98,6 +98,7 @@ h1 {
 }
 
 .save-btn-area {
+  width: 90%;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
