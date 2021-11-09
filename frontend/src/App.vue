@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
+    <div class="main-content">
+      <!-- <div id="nav">
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <router-link to="/horses">Horses</router-link>
     </div> -->
-    <router-link to="/login">Login </router-link>
-    <router-link to="/driver">Driver </router-link>
-    <router-link to="/calendar">Calendar</router-link>
-    <DriverNavbar v-if="$route.meta.driver" />
-    <router-view />
-    <div class="footer">Brought to you by HIDE (MTU)</div>
+      <router-link to="/login">Login </router-link>
+      <router-link to="/driver">Driver </router-link>
+      <router-link to="/calendar">Calendar</router-link>
+      <DriverNavbar v-if="$route.meta.driver" />
+      <router-view />
+    </div>
+    <footer>Brought to you by HIDE (MTU)</footer>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
 html,
 body {
   /* background-color: #ea9999; */
-  background-color: #EFEFEF;
+  background-color: #efefef;
   min-height: 100vh;
 }
 #app {
@@ -36,6 +38,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.main-content {
+  min-height: 100%;
+  margin-bottom: -32px;
+}
+.main-content:after {
+  content: '';
+  display: block;
+}
+footer,
+.main-content:after {
+  height: 32px;
 }
 
 #nav {
@@ -51,10 +65,11 @@ body {
   color: #42b983;
 }
 
-.footer {
+/* .footer {
   position: absolute;
-  /* bottom: 32px; */
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-}
+  margin-top: 100px;
+} */
 </style>
