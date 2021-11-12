@@ -8,6 +8,7 @@ import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import DriverUpdate from '../views/driver/DriverUpdate.vue';
 import Login from '../views/Login.vue';
 import Calendar from '../views/Calendar.vue';
+import AddEdit from '../views/appointment/AddEdit.vue'
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     name: 'DriverUpdate',
     component: DriverUpdate,
     meta: { driver: true },
+  },
+  {
+    path: '/appointment',
+    name: 'AddEdit',
+    component: AddEdit,
   },
 ];
 
