@@ -2,7 +2,7 @@
   <b-container>
     <b-row class="mt-md">
       <b-col>
-        <h1>Welcome &lt;Name&gt;!</h1>
+        <h1>Welcome {{ $store.state.driverName }}!</h1>
       </b-col>
     </b-row>
     <b-row>
