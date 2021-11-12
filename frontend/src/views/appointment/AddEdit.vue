@@ -1,8 +1,10 @@
+// TODO: Create the client page to sit next to the appointments
+
 <template>
     <div>
         <b-row>
             <b-col>
-                <appointment></appointment>
+                <Appointment :editMode="true"></Appointment>
             </b-col>
         </b-row>
     </div>
