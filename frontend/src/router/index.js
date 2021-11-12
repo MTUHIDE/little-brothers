@@ -8,7 +8,6 @@ import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import DriverUpdate from '../views/driver/DriverUpdate.vue';
 import Login from '../views/Login.vue';
 import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
-import Calendar from '../views/Calendar.vue';
 import AddEdit from '../views/appointment/AddEdit.vue'
 
 Vue.use(VueRouter);
