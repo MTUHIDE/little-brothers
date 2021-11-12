@@ -3,7 +3,7 @@ until an appointment is added. -->
    
 <template>
   <div class="text-center">
-    <img class="center" alt="LBFE logo" src="../assets/little_brothers_upper_michigan_logo.png" />
+    <img class="center" alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
     <h2 class="h2">Hello {username}!<br><br></h2>
     <vc-calendar 
       class="custom-calendar max-w-full vc-whole"

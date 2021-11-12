@@ -5,7 +5,7 @@ import Content from '../views/Content.vue';
 import DriverHome from '../views/driver/DriverHome.vue';
 import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import Login from '../views/Login.vue';
-import Calendar from '../views/Calendar.vue';
+import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
 
 Vue.use(VueRouter);
 
@@ -41,8 +41,8 @@ const routes = [
   },
   {
     path: '/calendar',
-    name: 'Calendar',
-    component: Calendar,
+    name: 'DesktopCalendar',
+    component: DesktopCalendar,
   },
   {
     path: '/driver/calendar',

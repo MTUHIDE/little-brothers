@@ -8,6 +8,7 @@
     <router-link to="/driver">Driver </router-link>
     <router-link to="/calendar">Calendar</router-link>
     <DriverNavbar v-if="$route.meta.driver" />
+    <DesktopNavbar v-else/>
     <router-view />
     <div class="footer">Brought to you by HIDE (MTU)</div>
   </div>
@@ -15,10 +16,12 @@
 
 <script>
 import DriverNavbar from '@/components/DriverNavbar.vue';
+import DesktopNavbar from '@/components/DesktopNavbar.vue';
 
 export default {
   components: {
     DriverNavbar,
+    DesktopNavbar,
   },
 };
 </script>
