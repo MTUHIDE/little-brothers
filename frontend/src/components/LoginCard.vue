@@ -26,8 +26,8 @@
             <b-form-group>
               <ButtonBlock buttonBlockText="Log in" />
             </b-form-group>
-            <b-button to="/driver" style="margin-bottom: 16px">Go to Driver site</b-button>
-            <b-button to="/calendar">Go to Admin site</b-button>
+            <b-button to="/driver" style="margin: 8px">Go to Driver site</b-button>
+            <b-button to="/calendar" style="margin: 8px">Go to Admin site</b-button>
           </form>
         </div>
       </div>
