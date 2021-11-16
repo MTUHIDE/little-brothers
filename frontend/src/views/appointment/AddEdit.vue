@@ -22,5 +22,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .row {
+        margin: 0;
+    }
 </style>
