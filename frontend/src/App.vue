@@ -1,17 +1,8 @@
 <template>
   <div id="app">
     <div class="main-content">
-      <!-- <div id="nav">
-      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
-      <router-link to="/horses">Horses</router-link>
-    </div> -->
-      <router-link to="/login">Login </router-link>
-      <router-link to="/driver">Driver </router-link>
-      <router-link to="/calendar">Calendar </router-link>
-      <router-link to="/appointment">Appointments</router-link>
-      <router-link to="/about">About </router-link>
       <DriverNavbar v-if="$route.meta.driver" style="z-index: 50" />
-      <DesktopNavbar v-else/>
+      <DesktopNavbar v-else-if="$route.meta.admin" />
       <router-view />
     </div>
     <footer>Brought to you by HIDE (MTU)</footer>

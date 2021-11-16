@@ -26,6 +26,8 @@
             <b-form-group>
               <ButtonBlock buttonBlockText="Log in" />
             </b-form-group>
+            <b-button to="/driver" style="margin-bottom: 16px">Go to Driver site</b-button>
+            <b-button to="/calendar">Go to Admin site</b-button>
           </form>
         </div>
       </div>
@@ -40,9 +42,8 @@ import ButtonBlock from '../components/ButtonBlock.vue';
 export default {
   name: 'LoginCard',
   components: {
-    ButtonBlock
+    ButtonBlock,
   },
-
 };
 </script>
 
@@ -53,14 +54,14 @@ h2 {
 
 .btn-watermelon {
   color: #fff;
-  background-color: #FF3B3F;
-  border-color: #FF3B3F;
+  background-color: #ff3b3f;
+  border-color: #ff3b3f;
 }
 
 .btn-watermelon:hover {
-    color: #fff;
-    background-color: #c93033;
-    border-color: #c93033;
+  color: #fff;
+  background-color: #c93033;
+  border-color: #c93033;
 }
 
 .btn-watermelon:focus {
@@ -71,8 +72,6 @@ h2 {
   background-color: #c93033 !important;
   border-color: #c93033 !important;
 }
-
-
 
 .login-form {
   width: 340px;
