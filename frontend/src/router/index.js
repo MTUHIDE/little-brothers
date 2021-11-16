@@ -7,7 +7,7 @@ import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import DriverUpdate from '../views/driver/DriverUpdate.vue';
 import Login from '../views/Login.vue';
 import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
-import AddEdit from '../views/appointment/AddEdit.vue';
+import AddEditAppointment from '../views/desktop/AddEditAppointment.vue';
 
 Vue.use(VueRouter);
 
@@ -49,8 +49,8 @@ const routes = [
   },
   {
     path: '/appointment',
-    name: 'AddEdit',
-    component: AddEdit,
+    name: 'AddEditAppointment',
+    component: AddEditAppointment,
     meta: { admin: true },
   },
 ];
