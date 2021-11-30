@@ -6,6 +6,7 @@ import DriverAbout from '../views/driver/DriverAbout.vue';
 import DriverHome from '../views/driver/DriverHome.vue';
 import DriverCalendar from '../views/driver/DriverCalendar.vue';
 import DriverUpdate from '../views/driver/DriverUpdate.vue';
+import DriverMoreInfo from '../views/driver/DriverMoreInfo.vue';
 import Login from '../views/Login.vue';
 import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
 import AddEdit from '../views/appointment/AddEdit.vue'
@@ -57,6 +58,12 @@ const routes = [
     path: '/driver/about',
     name: 'DriverAbout',
     component: DriverAbout,
+    meta: { driver: true },
+  },
+  {
+    path: '/driver/moreInfo',
+    name: 'DriverMoreInfo',
+    component: DriverMoreInfo,
     meta: { driver: true },
   },
   {
