@@ -10,6 +10,7 @@
             <!-- Top bar with back and savge/edit button -->
             <b-row>
                 <b-col>
+                    <Button buttonText="Back" to="\calendar"/>
                     <b-button to="/calendar">Back</b-button>
                 </b-col>
                 <b-col>

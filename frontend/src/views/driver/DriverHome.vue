@@ -1,3 +1,7 @@
+<script>
+export default {};
+</script>
+
 <template>
   <b-container>
     <b-row class="mt-md">
@@ -30,10 +34,6 @@
     </b-row>
   </b-container>
 </template>
-
-<script>
-export default {};
-</script>
 
 <style lang="scss" scoped>
 .container {

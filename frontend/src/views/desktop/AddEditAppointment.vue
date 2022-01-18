@@ -12,7 +12,7 @@
 
 
 <script>
-    import Appointment from '@/components/Appointment.vue';
+    import Appointment from '@/components/busforms/Appointment.vue';
 
     export default {
         components: {

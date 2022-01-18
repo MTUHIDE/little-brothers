@@ -1,0 +1,53 @@
+/* 
+    -- Main style sheet here for all components/views within this project --
+    - removes the need for duplicate styles
+    - easy look and feel changes
+*/
+
+/* -- Color Schema -- */
+:root {
+
+    /*
+    ######################
+    --     Desktop      -- 
+    ######################
+    */
+    
+    /* -- Page Color Schema -- */
+    --bg-color: #efefef;
+    --bg-accent-color: #6a6a6a;
+    --secondary-accent-color: #2e2e2e;
+
+    /* -- Default Schema -- */
+    --nb-color: #e37070;
+    --nb-color-hover: #af4949;
+    --nb-color-active: #7e2c2c;
+    
+    /* -- Admin Schema -- */
+    --nb-a-color: #0870b5;
+    --nb-a-color-hover: #065285;
+    --nb-a-color-active: #043250;
+
+    /* -- Text -- */
+    --nb-text-color: white;
+    --nb-text-color-hover: #6a6a6a;
+    --nb-text-color-active: #2e2e2e;
+
+}
+
+/*
+######################
+--     Buttons      -- 
+######################
+*/
+
+/* -- Universal fade -- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -1,3 +1,15 @@
+<script>
+// @ is an alias to /src
+import ButtonBlock from './ButtonBlock.vue';
+
+export default {
+  name: 'LoginCard',
+  components: {
+    ButtonBlock,
+  },
+};
+</script>
+
 <template>
   <div>
     <div class="center">
@@ -5,7 +17,7 @@
         <div id="disabledWrapper">
           <form id="loginForm" action="" method="post">
             <b-form-group has-error>
-              <img alt="LBFE logo" src="../assets/little_brothers_upper_michigan_logo.png" />
+              <img alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
               <br />
               <h2 class="text-center">Welcome to Little Brothers!</h2>
               <h4 class="text-center">Login to get started</h4>
@@ -34,18 +46,6 @@
     </div>
   </div>
 </template>
-
-<script>
-// @ is an alias to /src
-import ButtonBlock from '../components/ButtonBlock.vue';
-
-export default {
-  name: 'LoginCard',
-  components: {
-    ButtonBlock,
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 h2 {

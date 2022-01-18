@@ -2,8 +2,9 @@
 export default {
   data() {
     return {
-      message: 'This app is meant to help Little Brothers track driver tasks and locations in real time and record data. \n If you have any questions, contact Little Brother\'s help desk at',
-      contact: '906-123-4567',
+      items: [
+        { Driver: 'Driver1', time: '2:40', home_addr: '123 Street Avenue', dest_addr: '345 Road Street', mobility: 'wheelchair', notes: 'Deaf, need to wave through front window' },
+      ],
     };
   },
 };
@@ -12,13 +13,13 @@ export default {
 <template>
   <div class="d-flex justify-content-center">
     <b-card 
-      title="About"
+      title="DriverMoreInfo"
       style="max-width: 20rem;"
       class="justify-center"
       bg-variant="red-400"
     >
-      <b-card-text>{{message}}</b-card-text>
-      <b-card-text>{{contact}}</b-card-text>
+      <b-table class="drivetbl" stacked selectable @select="selected" hover sticky-header :items="items">    
+      </b-table>
       <b-button href="#" to="/driver" variant="primary">Back</b-button>
     </b-card>
   </div>

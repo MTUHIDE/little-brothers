@@ -1,36 +1,6 @@
 <!-- While scrolling through different months, if the month has no apointments in it, it will be super condensed
 until an appointment is added. -->
    
-<template>
-  <div class="text-center">
-    <img class="center" alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
-    <h2 class="h2">Hello {username}!<br><br></h2>
-    <vc-calendar 
-      class="custom-calendar max-w-full vc-whole"
-      :masks="masks"
-      :attributes="attributes"
-      disable-page-swipe
-      
-    >
-      <template v-slot:day-content="{ day, attributes }">
-        <div class="flex flex-col h-full z-10 vc-day">
-          <span class="align-left">{{ day.day }}</span>
-          <div class="flex-grow overflow-y-auto overflow-x-auto">
-            <p
-              v-for="attr in attributes"
-              :key="attr.key"
-              class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
-              :class="attr.customData.class"
-            >
-              {{ attr.customData.title }}
-            </p>
-          </div>
-        </div>
-      </template>
-    </vc-calendar>
-  </div>
-</template>
-
 <script>
 import '@/assets/v-calendar styles.css';
 
@@ -129,6 +99,36 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="text-center">
+    <img class="center" alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
+    <h2 class="h2">Hello {{username}}!<br><br></h2>
+    <vc-calendar 
+      class="custom-calendar max-w-full vc-whole"
+      :masks="masks"
+      :attributes="attributes"
+      disable-page-swipe
+      
+    >
+      <template v-slot:day-content="{ day, attributes }">
+        <div class="flex flex-col h-full z-10 vc-day">
+          <span class="align-left">{{ day.day }}</span>
+          <div class="flex-grow overflow-y-auto overflow-x-auto">
+            <p
+              v-for="attr in attributes"
+              :key="attr.key"
+              class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
+              :class="attr.customData.class"
+            >
+              {{ attr.customData.title }}
+            </p>
+          </div>
+        </div>
+      </template>
+    </vc-calendar>
+  </div>
+</template>
 
 <style scoped>
 
