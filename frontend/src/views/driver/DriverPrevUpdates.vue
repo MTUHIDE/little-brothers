@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <h1>Previous Updates</h1>
-    <b-table striped hover :items="prevUpdates">
-      <template #cell(driver)="row">
-        <b>{{ row.item.driver }}</b>
-      </template>
-    </b-table>
-    <b-button href="#" to="/driver" variant="primary">Back</b-button>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -50,6 +38,18 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <h1>Previous Updates</h1>
+    <b-table striped hover :items="prevUpdates">
+      <template #cell(driver)="row">
+        <b>{{ row.item.driver }}</b>
+      </template>
+    </b-table>
+    <b-button href="#" to="/driver" variant="primary">Back</b-button>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 h1 {

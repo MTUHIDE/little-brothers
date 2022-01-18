@@ -1,33 +1,31 @@
+<script>
+import Navbar from './components/navbar/Navbar.vue';
+require('./assets/main-style.css');
+
+export default {
+  components: {
+    Navbar
+  },
+};
+</script>
+
 <template>
   <div id="app">
+    <Navbar /> 
     <div class="main-content">
-      <DriverNavbar v-if="$route.meta.driver" style="z-index: 50" />
-      <DesktopNavbar v-else-if="$route.meta.admin" />
       <router-view />
     </div>
     <footer>Brought to you by HIDE (MTU)</footer>
   </div>
 </template>
 
-<script>
-import DriverNavbar from '@/components/DriverNavbar.vue';
-import DesktopNavbar from '@/components/DesktopNavbar.vue';
-
-export default {
-  components: {
-    DriverNavbar,
-    DesktopNavbar,
-  },
-};
-</script>
-
 <style>
 html,
 body {
-  /* background-color: #ea9999; */
-  background-color: #efefef;
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,37 +33,21 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
 .main-content {
   min-height: 100%;
+  margin-top: 100px;
   margin-bottom: -32px;
 }
+
 .main-content:after {
   content: '';
   display: block;
 }
+
 footer,
 .main-content:after {
   height: 32px;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-/* .footer {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 100px;
-} */
 </style>

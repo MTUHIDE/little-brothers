@@ -1,54 +1,3 @@
-<template>
-  <div>
-    <h1>Calendar</h1>
-
-    <b-table class="drivetbl" selectable @select="selected" hover sticky-header responsive="sm"
-    :items="items" :fields="fields" :tbody-tr-class="rowClass">
-      <template #cell(time)="row">
-      <b-button variant="link" href="./update" size="sm" class="mr-2">
-        {{row.item.time}}
-      </b-button>
-      </template>
-      
-      <template #cell(client_details)="row">
-      <b-button variant="link" size="sm" @click="row.toggleDetails" class="mr-2">
-        {{row.item.client}}
-      </b-button>
-      </template>
-      <template #row-details="row">
-        <b-card
-          class="justify-center"
-        >
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right">
-              <b>Home Address:</b> {{row.item.home_addr}}
-            </b-col>
-          </b-row>
-
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right">
-              <b>Destination Address:</b> {{row.item.dest_addr}}
-            </b-col>
-          </b-row>
-          
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right">
-              <b>Mobility:</b> {{row.item.mobility}}
-            </b-col>
-          </b-row>
-
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right">
-              <b>Notes:</b> {{row.item.notes}}
-            </b-col>
-          </b-row>
-        </b-card>
-      </template>
-    </b-table>
-    <b-button href="#" to="/driver" variant="primary">Back</b-button>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -129,6 +78,57 @@ export default {
   }
 };
 </script>
+
+<template>
+  <div>
+    <h1>Calendar</h1>
+
+    <b-table class="drivetbl" selectable @select="selected" hover sticky-header responsive="sm"
+    :items="items" :fields="fields" :tbody-tr-class="rowClass">
+      <template #cell(time)="row">
+      <b-button variant="link" href="./update" size="sm" class="mr-2">
+        {{row.item.time}}
+      </b-button>
+      </template>
+      
+      <template #cell(client_details)="row">
+      <b-button variant="link" size="sm" @click="row.toggleDetails" class="mr-2">
+        {{row.item.client}}
+      </b-button>
+      </template>
+      <template #row-details="row">
+        <b-card
+          class="justify-center"
+        >
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right">
+              <b>Home Address:</b> {{row.item.home_addr}}
+            </b-col>
+          </b-row>
+
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right">
+              <b>Destination Address:</b> {{row.item.dest_addr}}
+            </b-col>
+          </b-row>
+          
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right">
+              <b>Mobility:</b> {{row.item.mobility}}
+            </b-col>
+          </b-row>
+
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right">
+              <b>Notes:</b> {{row.item.notes}}
+            </b-col>
+          </b-row>
+        </b-card>
+      </template>
+    </b-table>
+    <b-button href="#" to="/driver" variant="primary">Back</b-button>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 table thead th {

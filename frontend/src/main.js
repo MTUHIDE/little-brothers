@@ -7,6 +7,7 @@ import router from "./router";
 import store from "./store";
 // const VCalendar = require('v-calendar');
 import VCalendar from 'v-calendar';
+import '@fortawesome/fontawesome-free/js/all'
 
 // Use v-calendar & v-date-picker components
 Vue.use(VCalendar, {

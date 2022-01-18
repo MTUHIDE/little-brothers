@@ -1,3 +1,25 @@
+<script>
+export default {
+  data() {
+    return {
+      clientName: '',
+      status: '',
+      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way'],
+    };
+  },
+  computed: {
+    driverName: {
+      get() {
+        return this.$store.state.driverName;
+      },
+      set(val) {
+        this.$store.commit('updateDriverName', val);
+      },
+    },
+  },
+};
+</script>
+
 <template>
   <div class="driver-update">
     <h1>Update</h1>
@@ -25,28 +47,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      clientName: '',
-      status: '',
-      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way'],
-    };
-  },
-  computed: {
-    driverName: {
-      get() {
-        return this.$store.state.driverName;
-      },
-      set(val) {
-        this.$store.commit('updateDriverName', val);
-      },
-    },
-  },
-};
-</script>
 
 <style scoped>
 h1 {

@@ -1,3 +1,15 @@
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        { Driver: 'Driver1', time: '2:40', home_addr: '123 Street Avenue', dest_addr: '345 Road Street', mobility: 'wheelchair', notes: 'Deaf, need to wave through front window' },
+      ],
+    };
+  },
+};
+</script>
+
 <template>
   <div class="d-flex justify-content-center">
     <b-card 
@@ -12,18 +24,6 @@
     </b-card>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        { Driver: 'Driver1', time: '2:40', home_addr: '123 Street Avenue', dest_addr: '345 Road Street', mobility: 'wheelchair', notes: 'Deaf, need to wave through front window' },
-      ],
-    };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 table thead th {

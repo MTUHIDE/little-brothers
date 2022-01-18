@@ -1,3 +1,14 @@
+<script>
+export default {
+  data() {
+    return {
+      message: 'This app is meant to help Little Brothers track driver tasks and locations in real time and record data. \n If you have any questions, contact Little Brother\'s help desk at',
+      contact: '906-123-4567',
+    };
+  },
+};
+</script>
+
 <template>
   <div class="d-flex justify-content-center">
     <b-card 
@@ -12,17 +23,6 @@
     </b-card>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      message: 'This app is meant to help Little Brothers track driver tasks and locations in real time and record data. \n If you have any questions, contact Little Brother\'s help desk at',
-      contact: '906-123-4567',
-    };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 table thead th {

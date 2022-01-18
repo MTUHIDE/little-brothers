@@ -20,10 +20,10 @@ const routes = [
     component: Login,
   },
   {
-    path: '/driver',
-    name: 'DriverHome',
-    component: DriverHome,
-    meta: { driver: true },
+    path: '/appointment',
+    name: 'AddEditAppointment',
+    component: AddEditAppointment,
+    meta: { admin: true },
   },
   {
     path: '/calendar',
@@ -32,15 +32,21 @@ const routes = [
     meta: { admin: true },
   },
   {
-    path: '/driver/calendar',
-    name: 'DriverCalendar',
-    component: DriverCalendar,
+    path: '/driver',
+    name: 'DriverHome',
+    component: DriverHome,
     meta: { driver: true },
   },
   {
     path: '/driver/about',
     name: 'DriverAbout',
     component: DriverAbout,
+    meta: { driver: true },
+  },
+  {
+    path: '/driver/calendar',
+    name: 'DriverCalendar',
+    component: DriverCalendar,
     meta: { driver: true },
   },
   {
@@ -60,12 +66,6 @@ const routes = [
     name: 'DriverPrevUpdates',
     component: DriverPrevUpdates,
     meta: { driver: true },
-  },
-  {
-    path: '/appointment',
-    name: 'AddEditAppointment',
-    component: AddEditAppointment,
-    meta: { admin: true },
   },
 ];
 
