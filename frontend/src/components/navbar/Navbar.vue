@@ -16,22 +16,22 @@ export default {
 
     <!-- Navbar - Admin Items -->
     <div v-if="$route.meta.admin">
-      <NavbarLink to="/calendar" icon="fas fa-home" floatDir="left">Calendar</NavbarLink>
-      <NavbarLink to="/appointment" icon="fas fa-columns" floatDir="left">Add Appointment</NavbarLink>
+      <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left">Calendar</NavbarLink>
+      <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left">Add Appointment</NavbarLink>
       <NavbarLink to="/calendar" icon="fas fa-chart-bar" floatDir="left">Reports</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-users" floatDir="left">Updates Log</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-image" floatDir="left">Drivers</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-image" floatDir="left">Clients</NavbarLink>
+      <NavbarLink to="/calendar" icon="fas fa-edit" floatDir="left">Updates Log</NavbarLink>
+      <NavbarLink to="/calendar" icon="fas fa-shuttle-van" floatDir="left">Drivers</NavbarLink>
+      <NavbarLink to="/calendar" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
     </div>
 
     <!-- Navbar - Driver Items -->
     <div v-else-if="$route.meta.driver">
-      <NavbarLink to="/driver/calendar" icon="fas fa-home" floatDir="left">Calendar</NavbarLink>
-      <NavbarLink to="/driver/update" icon="fas fa-users" floatDir="left">Update</NavbarLink>
-      <NavbarLink to="/driver" icon="fas fa-image" floatDir="left">Clients</NavbarLink>
+      <NavbarLink to="/driver/calendar" icon="fas fa-calendar-alt" floatDir="left">Calendar</NavbarLink>
+      <NavbarLink to="/driver/update" icon="fas fa-edit" floatDir="left">Update</NavbarLink>
+      <NavbarLink to="/driver" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
     </div>
 
-    <NavbarLink to="/" icon="fas fa-image" floatDir="right">Logout</NavbarLink>
+    <NavbarLink to="/" icon="fas fa-bars" floatDir="right">Logout</NavbarLink>
 
   </div>
 </template>
