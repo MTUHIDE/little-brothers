@@ -1,29 +1,23 @@
 <script>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 
 export default {
   props: {
     to: { type: String, required: true },
     icon: { type: String, required: false },
+    text: { type: String, required: true },
     floatDir: { type: String, required: false}
   },
-  setup(props) {
-    const route = useRoute()
-    const isActive = computed(() => route.path === props.to)
-    return { isActive }
-  }
 }
 </script>
 
 <template>
-    <transition name="fade">
-      <span>
-        <router-link :to="to" class="link" :class="{ active: isActive }" :style="{ float: floatDir }">
-          <i class="icon" :class="icon" />
-          <slot />
-        </router-link>
-      </span>
+    <transition name="fade">  
+        <b-button variant="link" size="sm" :to="to" class="link" :style="{ float: floatDir}" value="link">
+          <span>
+            <i class="icon" :class="icon" />
+            {{text}}
+          </span>
+        </b-button>
     </transition>
 </template>
 
@@ -39,7 +33,6 @@ export default {
 
   margin: 0.1em;
   padding: 0.4em;
-  padding-right: 1.0em;
   border-radius: 0.25em;
   height:35px;
 
@@ -60,6 +53,5 @@ export default {
 .link .icon {
   flex-shrink: 0;
   width: 25px;
-  margin-right: 10px;
 }
 </style>

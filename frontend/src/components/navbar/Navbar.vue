@@ -7,33 +7,32 @@ export default {
     return { }
   }
 }
+
 </script>
 
 <template>
-  <div class="navbar">
+  <ul class="navbar" id="collapsable-navbar">
+      <img class="img" contain alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
 
-    <img class="img" contain alt="LBFE logo" src="@/assets/little_brothers_upper_michigan_logo.png" />
+      <!-- Navbar - Admin Items -->
+      <form v-if="$route.meta.admin">
+        <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
+        <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left" text="Add Appointment"/>
+        <NavbarLink to="/calendar" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
+        <NavbarLink to="/calendar" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
+        <NavbarLink to="/calendar" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
+        <NavbarLink to="/calendar" icon="fas fa-user" floatDir="left" text="Clients"/> 
+      </form>
 
-    <!-- Navbar - Admin Items -->
-    <div v-if="$route.meta.admin">
-      <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left">Calendar</NavbarLink>
-      <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left">Add Appointment</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-chart-bar" floatDir="left">Reports</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-edit" floatDir="left">Updates Log</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-shuttle-van" floatDir="left">Drivers</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
-    </div>
+      <!-- Navbar - Driver Items -->
+      <form v-else-if="$route.meta.driver">
+        <NavbarLink to="/driver/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
+        <NavbarLink to="/driver/update" icon="fas fa-edit" floatDir="left" text="Update"/>
+        <NavbarLink to="/driver" icon="fas fa-user" floatDir="left" text="Clients"/>
+      </form>
 
-    <!-- Navbar - Driver Items -->
-    <div v-else-if="$route.meta.driver">
-      <NavbarLink to="/driver/calendar" icon="fas fa-calendar-alt" floatDir="left">Calendar</NavbarLink>
-      <NavbarLink to="/driver/update" icon="fas fa-edit" floatDir="left">Update</NavbarLink>
-      <NavbarLink to="/driver" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
-    </div>
-
-    <NavbarLink to="/" icon="fas fa-bars" floatDir="right">Logout</NavbarLink>
-
-  </div>
+      <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/>
+  </ul>
 </template>
 
 <style scoped> 
