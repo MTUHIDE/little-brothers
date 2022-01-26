@@ -7,7 +7,7 @@
 <template>
     <div class="appointment"> 
         <b-container>
-            <!-- Top bar with back and savge/edit button -->
+            <!-- Top bar with back and save/edit button -->
             <b-row>
                 <b-col>
                     <Button buttonText="Back" to="\calendar"/>

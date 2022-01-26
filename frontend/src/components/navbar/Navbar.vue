@@ -18,10 +18,10 @@ export default {
     <div v-if="$route.meta.admin">
       <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left">Calendar</NavbarLink>
       <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left">Add Appointment</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-chart-bar" floatDir="left">Reports</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-edit" floatDir="left">Updates Log</NavbarLink>
+      <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left">Reports</NavbarLink>
+      <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left">Updates Log</NavbarLink>
       <NavbarLink to="/calendar" icon="fas fa-shuttle-van" floatDir="left">Drivers</NavbarLink>
-      <NavbarLink to="/calendar" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
+      <NavbarLink to="/clients" icon="fas fa-user" floatDir="left">Clients</NavbarLink>
     </div>
 
     <!-- Navbar - Driver Items -->

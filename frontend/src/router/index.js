@@ -10,6 +10,9 @@ import DriverMoreInfo from '../views/driver/DriverMoreInfo.vue';
 import Login from '../views/Login.vue';
 import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
 import AddEditAppointment from '../views/desktop/AddEditAppointment.vue';
+import ReportLog from '../views/desktop/ReportLog.vue';
+import UpdateLog from '../views/desktop/UpdateLog.vue';
+import Clients from '../views/desktop/Clients.vue'
 
 Vue.use(VueRouter);
 
@@ -29,6 +32,24 @@ const routes = [
     path: '/calendar',
     name: 'DesktopCalendar',
     component: DesktopCalendar,
+    meta: { admin: true },
+  },
+  {
+    path: '/reports',
+    name: 'ReportLog',
+    component: ReportLog,
+    meta: { admin: true },
+  },
+  {
+    path: '/updates',
+    name: 'UpdateLog',
+    component: UpdateLog,
+    meta: { admin: true },
+  },
+  {
+    path: '/clients',
+    name: 'Clients',
+    component: Clients,
     meta: { admin: true },
   },
   {
