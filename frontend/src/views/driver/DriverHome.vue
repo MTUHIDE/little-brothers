@@ -29,7 +29,7 @@ export default {};
         <b-button to="/driver/about">About</b-button>
       </b-col>
       <b-col>
-        <b-button variant="danger">Logout</b-button>
+        <b-button variant="danger" to="/">Logout</b-button>
       </b-col>
     </b-row>
   </b-container>
