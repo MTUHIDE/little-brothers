@@ -1,5 +1,5 @@
 // TODO: Create the client page to sit next to the appointments
-
+// ^ look into if we still should be doin this??
 <template>
     <div>
         <b-row>

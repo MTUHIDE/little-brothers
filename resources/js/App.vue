@@ -1,6 +1,6 @@
 <script>
 import Navbar from './components/navbar/Navbar.vue';
-require('./assets/main-style.css');
+require('../css/main-style.css');
 
 export default {
   components: {

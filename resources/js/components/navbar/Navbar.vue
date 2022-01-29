@@ -12,16 +12,16 @@ export default {
 
 <template>
   <ul class="navbar" id="collapsable-navbar">
-      <img class="img" contain alt="LBFE logo" src="/resources/js/assets/little_brothers_upper_michigan_logo.png" />
+      <img class="img" contain alt="LBFE logo" src="../../../../public/images/LBFE_LOGOV_red_upmichigan.png" />
 
       <!-- Navbar - Admin Items -->
       <form v-if="$route.meta.admin">
         <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
         <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left" text="Add Appointment"/>
-        <NavbarLink to="/calendar" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
-        <NavbarLink to="/calendar" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
-        <NavbarLink to="/calendar" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
-        <NavbarLink to="/calendar" icon="fas fa-user" floatDir="left" text="Clients"/>
+        <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
+        <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
+        <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
+        <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/> 
       </form>
 
       <!-- Navbar - Driver Items -->
@@ -35,7 +35,7 @@ export default {
   </ul>
 </template>
 
-<style scoped>
+<style scoped> 
   .navbar {
     color: var(--nb-text-color);
     background-color: var(--nb-color);

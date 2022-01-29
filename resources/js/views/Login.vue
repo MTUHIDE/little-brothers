@@ -5,7 +5,7 @@
 </template>
 
 <script>
-// /resources/js is an alias to /src
+// @ is an alias to /src
 import LoginCard from '../components/busforms/LoginCard.vue';
 export default {
   name: 'Login',

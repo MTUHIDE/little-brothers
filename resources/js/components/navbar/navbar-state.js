@@ -1,4 +1,2 @@
-import { ref } from 'vue'
-export const collapsed = ref(false)
-export const toggleNavbar = () => (collapsed.value = !collapsed.value)
-export const navbarHeight = 50
+// Most mobile devices are less than 500px in width
+export const togglecollapse = function() { if (window.innerWidth <= 500) { this.$root.$emit('bv::toggle::collapse', 'collapsed-id') } }
