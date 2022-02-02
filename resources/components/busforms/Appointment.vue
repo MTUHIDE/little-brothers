@@ -77,7 +77,7 @@
       <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>
        pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>
        clientNotes: {{clientNotes}}</p>
-    </div>  
+    </div>
   </div>
 </template>
 
@@ -103,7 +103,7 @@
       submitForm() {
         this.$axios.post('/api/appointment/store', {
           clientName: this.clientName,
-          dirverName: this.driverName,
+          driverName: this.driverName,
           appDate: this.appDate,
           pickupAddress: this.pickupAddress,
           dropoffAddress: this.dropoffAddress,

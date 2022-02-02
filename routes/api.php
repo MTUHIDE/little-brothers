@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::prefix('/item')->group(function() {
   Route::delete('/{id}', [ItemController::class, 'destroy']);
 });
 
-Route::get('/appointments', [AppointmentController::class, 'index']);
+Route::get('/appointments', [ItemController::class, 'index']);
 Route::prefix('/appointment')->group(function() {
-  Route::post('/store', [AppointmentController::class, 'store']);
-  Route::put('/{id}', [AppointmentController::class, 'update']);
-  Route::delete('/{id}', [AppointmentController::class, 'destroy']);
+  Route::post('/store', [ItemController::class, 'store']);
+  Route::put('/{id}', [ItemController::class, 'update']);
+  Route::delete('/{id}', [ItemController::class, 'destroy']);
 });
