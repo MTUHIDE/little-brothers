@@ -16,30 +16,24 @@ export default {
       <div class="login-form">
         <div id="disabledWrapper">
           <form id="loginForm" action="" method="post">
-            <b-form-group has-error>
-              <img alt="LBFE logo" src="../../../../public/images/LBFE_LOGOH_red_upmichigan.png" />
+              <img alt="LBFE logo" src="../../images/LBFE_LOGOH_red_upmichigan.png" />
               <br />
               <h2 class="text-center">Welcome to Little Brothers!</h2>
               <h4 class="text-center">Login to get started</h4>
               <br />
 
               <label for="Username"><strong>Username</strong></label>
-              <b-form-input placeholder="Username" required="required"></b-form-input>
+              <input placeholder="Username" />
               <div class="invalid-feedback"></div>
-            </b-form-group>
 
             <div class="form-group has-error">
               <label for="Password"><strong>Password</strong></label>
-              <b-form-input placeholder="Password" required="required"></b-form-input>
+              <input placeholder="Password" />
               <div class="invalid-feedback"></div>
             </div>
-            <b-form-group has-error> </b-form-group>
-
-            <b-form-group>
               <ButtonBlock buttonBlockText="Log in" />
-            </b-form-group>
-            <b-button to="/driver" style="margin: 8px">Go to Driver site</b-button>
-            <b-button to="/calendar" style="margin: 8px">Go to Admin site</b-button>
+            <button to="/driver" style="margin: 8px">Go to Driver site</button>
+            <button to="/calendar" style="margin: 8px">Go to Admin site</button>
           </form>
         </div>
       </div>

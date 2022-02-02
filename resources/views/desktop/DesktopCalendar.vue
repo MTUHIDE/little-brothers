@@ -2,7 +2,7 @@
 until an appointment is added. -->
    
 <script>
-import '../../../css/v-calendar styles.css';
+// TODO - fix calendar -- import '../../css/v-calendar styles.css';
 
 export default {
   data() {
@@ -102,7 +102,7 @@ export default {
 
 <template>
   <div class="text-center">
-    <img class="center" alt="LBFE logo" src="../../../../public/images/LBFE_LOGOH_red_upmichigan.png" />
+    <img class="center" alt="LBFE logo" src="../../images/LBFE_LOGOH_red_upmichigan.png" />
     <h2 class="h2">Hello {username}!<br><br></h2>
     <vc-calendar 
       class="custom-calendar max-w-full vc-whole"

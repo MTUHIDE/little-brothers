@@ -12,12 +12,12 @@ export default {
 
 <template>
     <transition name="fade">  
-        <b-button variant="link" size="sm" :to="to" class="link" :style="{ float: floatDir}" value="link">
+        <button variant="link" size="sm" :to="to" class="link" :style="{ float: floatDir}" value="link">
           <span>
             <i class="icon" :class="icon" />
             {{text}}
           </span>
-        </b-button>
+        </button>
     </transition>
 </template>
 
