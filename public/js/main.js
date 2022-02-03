@@ -9138,6 +9138,32 @@ throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an ap
 /******/ 			"/js/main": 0,
 /******/ 			"css/app": 0
 /******/ 		};
+
+/* code to fix image loading issue, credit to tinyfly on github*/
+
+mix.override(webpackConfig => {
+  // BUG: vue-loader doesn't handle file-loader's default esModule:true setting properly causing
+  // <img src="[object module]" /> to be output from vue templates.
+  // WORKAROUND: Override mixs and turn off esModule support on images.
+  // FIX: When vue-loader fixes their bug AND laravel-mix updates to the fixed version
+  // this can be removed
+  webpackConfig.module.rules.forEach(rule => {
+    if (rule.test.toString() === '/(\\.(png|jpe?g|gif|webp)$|^((?!font).)*\\.svg$)/') {
+      if (Array.isArray(rule.use)) {
+        rule.use.forEach(ruleUse => {
+          if (ruleUse.loader === 'file-loader') {
+            ruleUse.options.esModule = false;
+          }
+        });
+      }
+    }
+  });
+});
+
+
+
+
+
 /******/ 		
 /******/ 		// no chunk on demand loading
 /******/ 		

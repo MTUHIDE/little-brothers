@@ -12,7 +12,7 @@ export default {
 
 <template>
   <ul class="navbar" id="collapsable-navbar">
-      <img class="img" contain alt="LBFE logo" src="../../../../public/images/LBFE_LOGOV_red_upmichigan.png" />
+      <img class="img" contain alt="LBFE logo" src="/../../../../images/LBFE_white_upmichigan.png" />
 
       <!-- Navbar - Admin Items -->
       <form v-if="$route.meta.admin">
