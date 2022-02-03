@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -34,7 +34,18 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $newAppointment = new Appointment;
+      $newAppointment->appointment_notes = $request->appointment["notes"];
+      $newAppointment->appointment_date_time = $request->appointment["date_time"];
+      $newAppointment->pickup_address = $request->appointment["pickup_address"];
+      $newAppointment->destination_address = $request->appointment["destination_address"];
+      $newAppointment->driver_id = $request->appointment["driver_id"];
+      $newAppointment->client_id = $request->appointment["client_id"];
+      $newAppointment->is_cancelled = 0;
+      $newAppointment->save();
+
+      return $newAppointment;
+
     }
 
     /**
