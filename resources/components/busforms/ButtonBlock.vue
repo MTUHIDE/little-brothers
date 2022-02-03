@@ -1,6 +1,6 @@
 <template>
 <div>
-  <button class="btn-watermelon" block variant="primary" value="login">{{buttonBlockText}}</button>
+  <button class="btn-watermelon btn btn-primary" value="login">{{buttonBlockText}}</button>
 </div>
 </template>
 

@@ -34,6 +34,7 @@ export default {
               <ButtonBlock buttonBlockText="Log in" />
             <button to="/driver" style="margin: 8px">Go to Driver site</button>
             <button to="/calendar" style="margin: 8px">Go to Admin site</button>
+            <button type="button" class="btn btn-primary">Primary</button>
           </form>
         </div>
       </div>
