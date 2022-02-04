@@ -11,5 +11,3 @@ import "bootstrap";
 
 // Use v-calendar & v-date-picker components
 createApp(App).use(router).mount('#app');
-
-

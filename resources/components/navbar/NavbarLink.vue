@@ -11,8 +11,8 @@ export default {
 </script>
 
 <template>
-    <transition name="fade">  
-        <button variant="link" size="sm" :to="to" class="link" :style="{ float: floatDir}" value="link">
+    <transition name="fade">
+          <button type="button" class="btn btn-sm link" :to="to" :style="{ float: floatDir}" value="link">
           <span>
             <i class="icon" :class="icon" />
             {{text}}
@@ -39,7 +39,7 @@ export default {
   color:  var(--nb-text-color);
   text-decoration: none;
   text-align: left;
-  
+
 }
 
 .link:hover {

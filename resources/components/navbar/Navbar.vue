@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <ul class="navbar" id="collapsable-navbar">
+  <ul class="navbar flexbox" id="collapsable-navbar">
       <img class="img" contain alt="LBFE logo" src="../../images/LBFE_LOGOV_red_upmichigan.png" />
 
       <!-- Navbar - Admin Items -->
@@ -22,7 +22,7 @@ export default {
         <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
         <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
-        <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/> 
+        <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/>
       </form>
 
       <!-- Navbar - Driver Items -->
@@ -36,7 +36,12 @@ export default {
   </ul>
 </template>
 
-<style> 
+<style>
+  .flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .navbar {
     color: var(--nb-text-color);
     background-color: var(--nb-color);
@@ -50,13 +55,15 @@ export default {
     padding: 0.5em;
     transition: 0.3s ease;
     display: list-item;
-    flex-direction: column;
+    flex-wrap:nowrap;
+    /* flex-direction: column; */
     margin-bottom: 15px;
   }
 
   .img {
     display: -inline-flexbox;
-    width: 117px;
+    height: 50px;
+    width: auto;
     float: left;
   }
 </style>
