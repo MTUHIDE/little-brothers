@@ -25,70 +25,73 @@
 
 
             <!-- Form -->
-            <b-row>
-                <b-col>
-                    <b-row>
-                        <b-col>
-                            <label id="name">Client: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <input v-if=editing id="name" v-model="clientName">
-                            <p v-if=!editing>{{clientName}}</p>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label id="driver">Driver: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <select v-if=editing v-model="driverName">
-                                <option disabled>--Select a Driver--</option>
-                                <option>Driver 1</option>
-                                <option>Driver 2</option>
-                                <option>Driver 3</option>
-                            </select>
-                            <p v-if=!editing>{{driverName}}</p>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label id="dateTime">Date and Time: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <!-- TODO: fix formatting for date and time when not editing -->
-                            <input v-if=editing type="datetime-local" v-model="appDate">    
-                            <p v-if=!editing>{{appDate}}</p>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label id="pickup">Pick up address: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <textarea v-if=editing v-model="pickupAddress"></textarea>
-                            <p v-if=!editing>{{pickupAddress}}</p>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label id="dropoff">Drop off address: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <textarea v-if=editing v-model="dropoffAddress"></textarea>
-                            <p v-if=!editing>{{dropoffAddress}}</p>
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label id="notes">Notes: </label>
-                        </b-col>
-                        <b-col cols="8">
-                            <textarea v-if=editing v-model="clientNotes"></textarea>
-                            <p v-if=!editing>{{clientNotes}}</p>
-                        </b-col>
-                    </b-row>
-                </b-col>
-            </b-row>
+            <form @submit.prevent="submitAppointment">
+                <b-row>
+                    <b-col>
+                        <b-row>
+                            <b-col>
+                                <label id="name">Client: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <input v-if=editing id="name" v-model="clientName">
+                                <p v-if=!editing>{{clientName}}</p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <label id="driver">Driver: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <select v-if=editing v-model="driverName">
+                                    <option disabled>--Select a Driver--</option>
+                                    <option>Driver 1</option>
+                                    <option>Driver 2</option>
+                                    <option>Driver 3</option>
+                                </select>
+                                <p v-if=!editing>{{driverName}}</p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <label id="dateTime">Date and Time: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <!-- TODO: fix formatting for date and time when not editing -->
+                                <input v-if=editing type="datetime-local" v-model="appDate">    
+                                <p v-if=!editing>{{appDate}}</p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <label id="pickup">Pick up address: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <textarea v-if=editing v-model="pickupAddress"></textarea>
+                                <p v-if=!editing>{{pickupAddress}}</p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <label id="dropoff">Drop off address: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <textarea v-if=editing v-model="dropoffAddress"></textarea>
+                                <p v-if=!editing>{{dropoffAddress}}</p>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <label id="notes">Notes: </label>
+                            </b-col>
+                            <b-col cols="8">
+                                <textarea v-if=editing v-model="clientNotes"></textarea>
+                                <p v-if=!editing>{{clientNotes}}</p>
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                </b-row>
+            </form>
+            <!-- Form End -->
         </b-container>
     </div>
 </template>
@@ -104,10 +107,32 @@
         data() {
             return {
                 editing: this.editMode,
-                clientName: ""
+                clientName: "",
+                driverName: "",
+                appDate: "",
+                pickupAddress: "",
+                dropoffAddress: "",
+                clientNotes: ""
+            }
+        },
+        methods: {
+            submitAppointment() {
+                this.$axios.post('/api/appointment/store', {
+                    clientName: this.clientName,
+                    driverName: this.driverName,
+                    appDate: this.appDate,
+                    pickupAddress: this.pickupAddress,
+                    dropoffAddress: this.dropoffAddress,
+                    clientNotes: this.clientNotes
+                }).then(repsonse => {
+                    console.log(response);
+                }).catch((error) => {
+                    console.log(error)
+                })
             }
         }
     }
+
 </script>
 
 <style lang="scss" scoped>
