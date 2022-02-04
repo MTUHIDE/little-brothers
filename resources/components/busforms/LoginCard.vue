@@ -22,19 +22,18 @@ export default {
               <h4 class="text-center">Login to get started</h4>
               <br />
 
-              <label for="Username"><strong>Username</strong></label>
-              <input placeholder="Username" />
+              <label for="username" class="form-label"><strong>Username</strong></label>
+              <input type="text" class="form-control" id="username" placeholder="Username">
               <div class="invalid-feedback"></div>
 
             <div class="form-group has-error">
-              <label for="Password"><strong>Password</strong></label>
-              <input placeholder="Password" />
+              <label for="password" class="form-label"><strong>Password</strong></label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
               <div class="invalid-feedback"></div>
             </div>
-              <ButtonBlock buttonBlockText="Log in" />
-            <button to="/driver" style="margin: 8px">Go to Driver site</button>
-            <button to="/calendar" style="margin: 8px">Go to Admin site</button>
-            <button type="button" class="btn btn-primary">Primary</button>
+              <ButtonBlock class="mt-3 mb-3" buttonBlockText="Log in" />
+            <!-- <button to="/driver" style="margin: 8px">Go to Driver site</button>
+            <button to="/calendar" style="margin: 8px">Go to Admin site</button> -->
           </form>
         </div>
       </div>
