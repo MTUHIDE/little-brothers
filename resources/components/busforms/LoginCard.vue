@@ -32,8 +32,10 @@ export default {
               <div class="invalid-feedback"></div>
             </div>
               <ButtonBlock class="mt-3 mb-3" buttonBlockText="Log in" />
-            <button to="/driver" class="btn btn-primary my-2">Go to Driver site</button>
-            <button to="/calendar" class="btn btn-primary mt-2">Go to Admin site</button>
+            <!-- <button to="/driver" class="btn btn-primary my-2"></button>
+            <button to="/calendar" class="btn btn-primary mt-2"></button> -->
+            <router-link class="btn btn-primary mt-2" to="/driver">Go to Driver site</router-link>
+            <router-link class="btn btn-primary mt-2" to="/calendar">Go to Admin site</router-link>
           </form>
         </div>
       </div>

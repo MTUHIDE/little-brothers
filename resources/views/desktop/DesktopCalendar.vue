@@ -1,6 +1,6 @@
 <!-- While scrolling through different months, if the month has no apointments in it, it will be super condensed
 until an appointment is added. -->
-   
+
 <script>
 // TODO - fix calendar -- import '../../css/v-calendar styles.css';
 
@@ -104,12 +104,12 @@ export default {
   <div class="text-center">
     <img class="center" alt="LBFE logo" src="../../images/LBFE_LOGOH_red_upmichigan.png" />
     <h2 class="h2">Hello {username}!<br><br></h2>
-    <vc-calendar 
+    <!-- <vc-calendar
       class="custom-calendar max-w-full vc-whole"
       :masks="masks"
       :attributes="attributes"
       disable-page-swipe
-      
+
     >
       <template v-slot:day-content="{ day, attributes }">
         <div class="flex flex-col h-full z-10 vc-day">
@@ -126,7 +126,7 @@ export default {
           </div>
         </div>
       </template>
-    </vc-calendar>
+    </vc-calendar> -->
   </div>
 </template>
 

@@ -2,11 +2,11 @@
 // ^ look into if we still should be doin this??
 <template>
     <div>
-        <b-row>
-            <b-col>
+        <div class="row">
+            <div class="col-md-12">
                 <Appointment :editMode="true"></Appointment>
-            </b-col>
-        </b-row>
+            </div>
+        </div>
     </div>
 </template>
 
