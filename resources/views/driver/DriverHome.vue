@@ -3,36 +3,36 @@ export default {};
 </script>
 
 <template>
-  <b-container>
-    <b-row class="mt-md">
-      <b-col>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
         <h1>Welcome {{ $store.state.driverName }}!</h1>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-button size="lg" to="/driver/calendar">Calendar</b-button>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-button size="lg" to="/driver/update">Update</b-button>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-button size="lg" to="/driver/prev-updates">Previous Updates</b-button>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-button to="/driver/about">About</b-button>
-      </b-col>
-      <b-col>
-        <b-button variant="danger" to="/">Logout</b-button>
-      </b-col>
-    </b-row>
-  </b-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" to="/driver/calendar" class="btn btn-primary btn-lg">Calendar</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" to="/driver/update" class="btn btn-primary btn-lg">Update</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" to="/driver/prev-updates" class="btn btn-primary btn-lg">Previous Updates</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" to="/driver/about" class="btn btn-primary btn-lg">About</button>
+      </div>
+      <div class="col-md-12">
+        <button type="button" to="/" class="btn btn-danger btn-lg">Logout</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

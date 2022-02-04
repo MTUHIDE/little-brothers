@@ -10,17 +10,16 @@ export default {
 </script>
 
 <template>
+
   <div class="d-flex justify-content-center">
-    <b-card 
-      title="About"
-      style="max-width: 20rem;"
-      class="justify-center"
-      bg-variant="red-400"
-    >
-      <b-card-text>{{message}}</b-card-text>
-      <b-card-text>{{contact}}</b-card-text>
-      <b-button href="#" to="/driver" variant="primary">Back</b-button>
-    </b-card>
+    <div class="card" style="max-width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="card-text">{{message}}</p>
+        <p class="card-text">{{contact}}</p>
+        <button type="button" to="/driver" class="btn btn-primary">Back</button>
+      </div>
+  </div>
   </div>
 </template>
 
@@ -39,4 +38,3 @@ h1 {
   margin-top: 0;
 }
 </style>
-
