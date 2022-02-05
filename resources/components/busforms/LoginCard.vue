@@ -16,30 +16,28 @@ export default {
       <div class="login-form">
         <div id="disabledWrapper">
           <form id="loginForm" action="" method="post">
-            <b-form-group has-error>
-              <img alt="LBFE logo" src="/../../../../images/LBFE_LOGOH_red_upmichigan.png" />
+            <!-- <b-form-group has-error> -->
+              <!-- <img alt="LBFE logo" src="/../../../../images/LBFE_LOGOH_red_upmichigan.png" /> -->
+              <img alt="LBFE logo" src="../../images/LBFE_LOGOH_red_upmichigan.png" />
               <br />
               <h2 class="text-center">Welcome to Little Brothers!</h2>
               <h4 class="text-center">Login to get started</h4>
               <br />
 
-              <label for="Username"><strong>Username</strong></label>
-              <b-form-input placeholder="Username" required="required"></b-form-input>
+              <label for="username" class="form-label"><strong>Username</strong></label>
+              <input type="text" class="form-control" id="username" placeholder="Username">
               <div class="invalid-feedback"></div>
-            </b-form-group>
 
             <div class="form-group has-error">
-              <label for="Password"><strong>Password</strong></label>
-              <b-form-input placeholder="Password" required="required"></b-form-input>
+              <label for="password" class="form-label"><strong>Password</strong></label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
               <div class="invalid-feedback"></div>
             </div>
-            <b-form-group has-error> </b-form-group>
-
-            <b-form-group>
-              <ButtonBlock buttonBlockText="Log in" />
-            </b-form-group>
-            <b-button to="/driver" style="margin: 8px">Go to Driver site</b-button>
-            <b-button to="/calendar" style="margin: 8px">Go to Admin site</b-button>
+              <ButtonBlock class="mt-3 mb-3" buttonBlockText="Log in" />
+            <!-- <button to="/driver" class="btn btn-primary my-2"></button>
+            <button to="/calendar" class="btn btn-primary mt-2"></button> -->
+            <router-link class="btn btn-primary mt-2" to="/driver">Go to Driver site</router-link>
+            <router-link class="btn btn-primary mt-2" to="/calendar">Go to Admin site</router-link>
           </form>
         </div>
       </div>
