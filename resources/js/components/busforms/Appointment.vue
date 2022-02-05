@@ -23,9 +23,8 @@
             </b-row>
             <br/>
 
-
             <!-- Form -->
-            <form @submit.prevent="submitAppointment">
+            <b-form @submit.prevent="submitAppointment">
                 <b-row>
                     <b-col>
                         <b-row>
@@ -90,7 +89,9 @@
                         </b-row>
                     </b-col>
                 </b-row>
-            </form>
+
+                <b-button type="submit">Submit</b-button>
+            </b-form>
             <!-- Form End -->
         </b-container>
     </div>
