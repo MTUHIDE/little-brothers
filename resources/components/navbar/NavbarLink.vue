@@ -11,13 +11,13 @@ export default {
 </script>
 
 <template>
-    <transition name="fade">  
-        <b-button variant="link" size="sm" :to="to" class="link" :style="{ float: floatDir}" value="link">
+    <transition name="fade">
+          <router-link type="button" class="btn btn-sm link" :to="to" :style="{ float: floatDir}" value="link">
           <span>
             <i class="icon" :class="icon" />
             {{text}}
           </span>
-        </b-button>
+        </router-link>
     </transition>
 </template>
 
@@ -39,7 +39,7 @@ export default {
   color:  var(--nb-text-color);
   text-decoration: none;
   text-align: left;
-  
+
 }
 
 .link:hover {

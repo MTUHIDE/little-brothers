@@ -1,106 +1,94 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-
-import DriverAbout from '../views/driver/DriverAbout.vue';
-import DriverHome from '../views/driver/DriverHome.vue';
-import DriverCalendar from '../views/driver/DriverCalendar.vue';
-import DriverUpdate from '../views/driver/DriverUpdate.vue';
-import DriverPrevUpdates from '../views/driver/DriverPrevUpdates.vue';
-import DriverMoreInfo from '../views/driver/DriverMoreInfo.vue';
-import Login from '../views/Login.vue';
-import DesktopCalendar from '../views/desktop/DesktopCalendar.vue';
-import AddEditAppointment from '../views/desktop/AddEditAppointment.vue';
-import ReportLog from '../views/desktop/ReportLog.vue';
-import UpdateLog from '../views/desktop/UpdateLog.vue';
-import Clients from '../views/desktop/Clients.vue';
-import DriverList from '../views/desktop/DriverList.vue'
-
-Vue.use(VueRouter);
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login,
+    component: () => import('../../views/Login.vue')
   },
   {
     path: '/appointment',
     name: 'AddEditAppointment',
-    component: AddEditAppointment,
+    component: () => import('../../views/desktop/AddEditAppointment.vue'),
     meta: { admin: true },
   },
   {
     path: '/calendar',
     name: 'DesktopCalendar',
-    component: DesktopCalendar,
+    component: () => import('../../views/desktop/DesktopCalendar.vue'),
     meta: { admin: true },
   },
   {
     path: '/reports',
     name: 'ReportLog',
-    component: ReportLog,
+    component: () => import('../../views/desktop/ReportLog.vue'),
     meta: { admin: true },
   },
   {
     path: '/updates',
     name: 'UpdateLog',
-    component: UpdateLog,
+    component: () => import('../../views/desktop/UpdateLog.vue'),
     meta: { admin: true },
   },
   {
     path: '/clients',
     name: 'Clients',
-    component: Clients,
+    component: () => import('../../views/desktop/Clients.vue'),
     meta: { admin: true },
   },
   {
     path: '/drivers',
     name: 'DriverList',
-    component: DriverList,
+    component: () => import('../../views/desktop/DriverList.vue'),
     meta: { admin: true },
   },
   {
     path: '/driver',
     name: 'DriverHome',
-    component: DriverHome,
+    component: () => import('../../views/driver/DriverHome.vue'),
     meta: { driver: true },
   },
   {
     path: '/driver/about',
     name: 'DriverAbout',
-    component: DriverAbout,
+    component: () => import('../../views/driver/DriverAbout.vue'),
     meta: { driver: true },
   },
   {
     path: '/driver/calendar',
     name: 'DriverCalendar',
-    component: DriverCalendar,
+    component: () => import('../../views/desktop/DesktopCalendar.vue'),
     meta: { driver: true },
   },
   {
     path: '/driver/moreInfo',
     name: 'DriverMoreInfo',
-    component: DriverMoreInfo,
+    component: () => import('../../views/driver/DriverMoreInfo.vue'),
     meta: { driver: true },
   },
   {
     path: '/driver/update',
     name: 'DriverUpdate',
-    component: DriverUpdate,
+    component: () => import('../../views/driver/DriverUpdate.vue'),
     meta: { driver: true },
   },
   {
     path: '/driver/prev-updates',
     name: 'DriverPrevUpdates',
-    component: DriverPrevUpdates,
+    component: () => import('../../views/driver/DriverPrevUpdates.vue'),
     meta: { driver: true },
   },
 ];
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
-});
+// const router = createRouter({
+//   history: createWebHistory(process.env.BASE_URL),
+//   routes
+// })
 
-export default router;
+const router = createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: createWebHistory(process.env.BASE_URL),
+  routes, // short for `routes: routes`
+})
+
+export default router

@@ -1,8 +1,8 @@
 <!-- While scrolling through different months, if the month has no apointments in it, it will be super condensed
 until an appointment is added. -->
-   
+
 <script>
-import '../../../css/v-calendar styles.css';
+// TODO - fix calendar -- import '../../css/v-calendar styles.css';
 
 export default {
   data() {
