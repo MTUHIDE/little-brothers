@@ -5,71 +5,65 @@
 // TODO: Style the page. its ugly as is
 
 <template>
-    <div class="appointment">
-        <div class="container-fluid">
-            <!-- Top bar with back and save/edit button -->
+  <div class="appointment">
+    <div class="container-fluid">
+      <!-- Top bar with back and save/edit button -->
 
-                    <!-- <Button buttonText="Back" to="\calendar"/>
-                    <b-button to="/calendar">Back</b-button> -->
-                    <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+      <!-- <Button buttonText="Back" to="\calendar"/>
+      <b-button to="/calendar">Back</b-button> -->
+      <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+      <h1>Appointment</h1>
+      <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
+      <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
+      <div class="flexy">
+        <button type="button" to="/calendar" class="btn btn-secondary">Edit</button>
+        <button type="button" to="/calendar" class="btn btn-secondary">Save</button>
+      </div>
+      <br/>
 
-                    <h1>Appointment</h1>
-
-                    <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
-                    <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
-                    <div class="flexy">
-                      <button type="button" to="/calendar" class="btn btn-secondary">Edit</button>
-                      <button type="button" to="/calendar" class="btn btn-secondary">Save</button>
-                    </div>
-
-
-
-            <br/>
-
-            <div class="mb-3">
-              <label for="name" class="form-label">Client: </label>
-              <input name="name" type="text" class="form-control" v-if="editing" id="name" v-model="clientName">
-              <p v-if="!editing">{{clientName}}</p>
-            </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Client: </label>
+        <input name="name" type="text" class="form-control" v-if="editing" id="name" v-model="clientName">
+        <p v-if="!editing">{{clientName}}</p>
+      </div>
 
 
-              <div class="mb-3">
-              <label for="driver" class="form-label" >Driver: </label>
-              <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName">
-                <option disabled>--Select a Driver--</option>
-                <option>Driver 1</option>
-                <option>Driver 2</option>
-                <option>Driver 3</option>
-              </select>
+      <div class="mb-3">
+        <label for="driver" class="form-label" >Driver: </label>
+        <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName">
+          <option disabled>--Select a Driver--</option>
+          <option>Driver 1</option>
+          <option>Driver 2</option>
+          <option>Driver 3</option>
+        </select>
+        <p v-if="!editing">{{driverName}}</p>
+      </div>
 
-            <p v-if="!editing">{{driverName}}</p>
-          </div>
+      <div class="mb-3">
+       <label for="dateTime" class="form-label">Date and Time: </label>
+        <!-- TODO: fix formatting for date and time when not editing -->
+        <input id="dateTime" name="dateTime" class="form-control" v-if="editing" type="datetime-local" v-model="appDate">
+        <p v-if="!editing">{{appDate}}</p>
+      </div>
 
-            <div class="mb-3">
-             <label for="dateTime" class="form-label">Date and Time: </label>
-              <!-- TODO: fix formatting for date and time when not editing -->
-              <input id="dateTime" name="dateTime" class="form-control" v-if="editing" type="datetime-local" v-model="appDate">
-              <p v-if="!editing">{{appDate}}</p>
-            </div>
+      <div class="mb-3">
+        <label for="pickup" class="form-label">Pick up address: </label>
+        <textarea id="pickup" name="pickup" class="form-control" v-if="editing" v-model="pickupAddress"></textarea>
+        <p v-if="!editing">{{pickupAddress}}</p>
+      </div>
 
-            <div class="mb-3">
-              <label for="pickup" class="form-label">Pick up address: </label>
-              <textarea id="pickup" name="pickup" class="form-control" v-if="editing" v-model="pickupAddress"></textarea>
-              <p v-if="!editing">{{pickupAddress}}</p>
-          </div>
+      <div class="mb-3">
+        <label for="dropoff" class="form-label">Drop off address: </label>
+        <textarea id="dropoff" name="dropoff" class="form-control" v-if="editing" v-model="dropoffAddress"></textarea>
+      </div>
 
-          <div class="mb-3">
-            <label for="dropoff" class="form-label">Drop off address: </label>
-            <textarea id="dropoff" name="dropoff" class="form-control" v-if="editing" v-model="dropoffAddress"></textarea>
-          </div>
-
-          <div class="mb-3">
-            <label for="notes" class="form-label">Notes: </label>
-            <textarea id="notes" name="notes" class="form-control" v-if="editing" v-model="clientNotes"></textarea>
-            <p v-if="!editing">{{clientNotes}}</p>
-          </div>
-  </div>  </div>
-
+      <div class="mb-3">
+        <label for="notes" class="form-label">Notes: </label>
+        <textarea id="notes" name="notes" class="form-control" v-if="editing" v-model="clientNotes"></textarea>
+        <p v-if="!editing">{{clientNotes}}</p>
+      </div>
+    </div>  
+  </div>
 </template>
 
 <script>
