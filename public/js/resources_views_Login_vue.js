@@ -82,13 +82,16 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
+  "class": "d-grid gap-2"
+};
+var _hoisted_2 = {
   "class": "btn-watermelon btn btn-primary",
   value: "login"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.buttonBlockText), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.buttonBlockText), 1
   /* TEXT */
-  )]);
+  )])]);
 }
 
 /***/ }),
@@ -127,45 +130,41 @@ var _hoisted_4 = {
   method: "post"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<img alt=\"LBFE logo\" src=\"" + _images_LBFE_LOGOH_red_upmichigan_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" data-v-1f8687aa><br data-v-1f8687aa><h2 class=\"text-center\" data-v-1f8687aa>Welcome to Little Brothers!</h2><h4 class=\"text-center\" data-v-1f8687aa>Login to get started</h4><br data-v-1f8687aa><label for=\"Username\" data-v-1f8687aa><strong data-v-1f8687aa>Username</strong></label><input placeholder=\"Username\" data-v-1f8687aa><div class=\"invalid-feedback\" data-v-1f8687aa></div><div class=\"form-group has-error\" data-v-1f8687aa><label for=\"Password\" data-v-1f8687aa><strong data-v-1f8687aa>Password</strong></label><input placeholder=\"Password\" data-v-1f8687aa><div class=\"invalid-feedback\" data-v-1f8687aa></div></div>", 9);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<img alt=\"LBFE logo\" src=\"" + _images_LBFE_LOGOH_red_upmichigan_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" data-v-1f8687aa><br data-v-1f8687aa><h2 class=\"text-center\" data-v-1f8687aa>Welcome to Little Brothers!</h2><h4 class=\"text-center\" data-v-1f8687aa>Login to get started</h4><br data-v-1f8687aa><label for=\"username\" class=\"form-label\" data-v-1f8687aa><strong data-v-1f8687aa>Username</strong></label><input type=\"text\" class=\"form-control\" id=\"username\" placeholder=\"Username\" data-v-1f8687aa><div class=\"invalid-feedback\" data-v-1f8687aa></div><div class=\"form-group has-error\" data-v-1f8687aa><label for=\"password\" class=\"form-label\" data-v-1f8687aa><strong data-v-1f8687aa>Password</strong></label><input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\" data-v-1f8687aa><div class=\"invalid-feedback\" data-v-1f8687aa></div></div>", 9);
 
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    to: "/driver",
-    style: {
-      "margin": "8px"
-    }
-  }, "Go to Driver site", -1
-  /* HOISTED */
-  );
-});
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Go to Driver site");
 
-var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    to: "/calendar",
-    style: {
-      "margin": "8px"
-    }
-  }, "Go to Admin site", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn btn-primary"
-  }, "Primary", -1
-  /* HOISTED */
-  );
-});
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Go to Admin site");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ButtonBlock = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ButtonBlock");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ButtonBlock, {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-form-group has-error> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img alt=\"LBFE logo\" src=\"/../../../../images/LBFE_LOGOH_red_upmichigan.png\" /> "), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ButtonBlock, {
+    "class": "mt-3 mb-3",
     buttonBlockText: "Log in"
-  }), _hoisted_14, _hoisted_15, _hoisted_16])])])])]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button to=\"/driver\" class=\"btn btn-primary my-2\"></button>\r\n            <button to=\"/calendar\" class=\"btn btn-primary mt-2\"></button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "btn btn-primary mt-2",
+    to: "/driver"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_14];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "btn btn-primary mt-2",
+    to: "/calendar"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_15];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])])]);
 }
 
 /***/ }),
@@ -324,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ButtonBlock_vue_vue_type_template_id_6b31e6cc_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonBlock.vue?vue&type=template&id=6b31e6cc&scoped=true */ "./resources/components/busforms/ButtonBlock.vue?vue&type=template&id=6b31e6cc&scoped=true");
 /* harmony import */ var _ButtonBlock_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ButtonBlock.vue?vue&type=script&lang=js */ "./resources/components/busforms/ButtonBlock.vue?vue&type=script&lang=js");
 /* harmony import */ var _ButtonBlock_vue_vue_type_style_index_0_id_6b31e6cc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ButtonBlock.vue?vue&type=style&index=0&id=6b31e6cc&lang=scss&scoped=true */ "./resources/components/busforms/ButtonBlock.vue?vue&type=style&index=0&id=6b31e6cc&lang=scss&scoped=true");
-/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -332,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ButtonBlock_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ButtonBlock_vue_vue_type_template_id_6b31e6cc_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-6b31e6cc"],['__file',"resources/components/busforms/ButtonBlock.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ButtonBlock_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ButtonBlock_vue_vue_type_template_id_6b31e6cc_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-6b31e6cc"],['__file',"resources/components/busforms/ButtonBlock.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -354,7 +353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoginCard_vue_vue_type_template_id_1f8687aa_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginCard.vue?vue&type=template&id=1f8687aa&scoped=true */ "./resources/components/busforms/LoginCard.vue?vue&type=template&id=1f8687aa&scoped=true");
 /* harmony import */ var _LoginCard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginCard.vue?vue&type=script&lang=js */ "./resources/components/busforms/LoginCard.vue?vue&type=script&lang=js");
 /* harmony import */ var _LoginCard_vue_vue_type_style_index_0_id_1f8687aa_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoginCard.vue?vue&type=style&index=0&id=1f8687aa&lang=scss&scoped=true */ "./resources/components/busforms/LoginCard.vue?vue&type=style&index=0&id=1f8687aa&lang=scss&scoped=true");
-/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -362,7 +361,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_LoginCard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LoginCard_vue_vue_type_template_id_1f8687aa_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1f8687aa"],['__file',"resources/components/busforms/LoginCard.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_LoginCard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LoginCard_vue_vue_type_template_id_1f8687aa_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1f8687aa"],['__file',"resources/components/busforms/LoginCard.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -383,13 +382,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Login_vue_vue_type_template_id_727657e0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=727657e0 */ "./resources/views/Login.vue?vue&type=template&id=727657e0");
 /* harmony import */ var _Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js */ "./resources/views/Login.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_727657e0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/views/Login.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_727657e0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/views/Login.vue"]])
 /* hot reload */
 if (false) {}
 
