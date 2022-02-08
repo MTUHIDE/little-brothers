@@ -38,7 +38,6 @@ export default {
 </template>
 
 <style scoped>
-<style>
   .flexbox {
     display: flex;
     align-items: center;
