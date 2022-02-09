@@ -1,23 +1,15 @@
-// import "@babel/polyfill";
-import "mutationobserver-shim";
-import Vue from "vue";
-import "./plugins/bootstrap-vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-// const VCalendar = require('v-calendar');
-import VCalendar from 'v-calendar';
-import '@fortawesome/fontawesome-free/js/all'
-
-// Use v-calendar & v-date-picker components
-Vue.use(VCalendar, {
-  componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
-});
-
-Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+// import { createApp } from "vue";
+// import App from "./App.vue";
+// import router from "./router";
+// // this is gonna be nuked by the data table anyway --- import store from "./store";
+// import "mutationobserver-shim";
+// import '@fortawesome/fontawesome-free/js/all'
+//
+// import Bootstrap from "bootstrap";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap-vue/dist/bootstrap-vue.css";
+//
+// // Use v-calendar & v-date-picker components
+// createApp(App).use(router).use(Bootstrap).mount('#app');
+//
+//

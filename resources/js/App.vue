@@ -1,5 +1,5 @@
 <script>
-import Navbar from './components/navbar/Navbar.vue';
+import Navbar from '../components/navbar/Navbar.vue';
 require('../css/main-style.css');
 
 export default {
@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div id="app">
-    <Navbar /> 
+    <Navbar />
     <div class="main-content">
       <router-view />
     </div>
@@ -32,6 +32,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+label {
+  float: left;
 }
 
 .main-content {

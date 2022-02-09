@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -34,13 +35,35 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
+      // Ensure user data is provided and within length requirement
+      $validated = $request->validate([
+          'clientNotes' => 'required|max:255',
+          'appDate' => 'required|date_format:Y-m-d\TH:i',
+          'pickupAddress' => 'required|max:255',
+          'dropoffAddress' => 'required|max:255',
+      ]);
+
       $newAppointment = new Appointment;
-      $newAppointment->appointment_notes = $request->appointment["notes"];
-      $newAppointment->appointment_date_time = $request->appointment["date_time"];
-      $newAppointment->pickup_address = $request->appointment["pickup_address"];
-      $newAppointment->destination_address = $request->appointment["destination_address"];
-      $newAppointment->driver_id = $request->appointment["driver_id"];
-      $newAppointment->client_id = $request->appointment["client_id"];
+      $date_time = $request["appDate"];
+
+       // Format the date_time to fit MS SQL Server standard
+      $date_time = Carbon::createFromFormat('Y-m-d\TH:i', $date_time, 'America/Detroit');
+      $date_time->setTimezone('UTC');
+      $date_time = $date_time->format('Y-m-d H:i:s.v');
+      $newAppointment->appointment_notes = $request["clientNotes"];
+
+      // return $date_time;
+      $newAppointment->appointment_date_time = $date_time;
+      // return $appointment_date_time;
+
+      // $newAppointment->appointment_date_time;
+      $newAppointment->pickup_address = $request["pickupAddress"];
+      $newAppointment->destination_address = $request["dropoffAddress"];
+      // $newAppointment->driver_id = $request->appointment["driverName"];
+      // $newAppointment->client_id = $request->appointment["clientName"];
+      $newAppointment->driver_id = 1;
+      $newAppointment->client_id = 1;
       $newAppointment->is_cancelled = 0;
       $newAppointment->save();
 

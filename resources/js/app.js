@@ -1,23 +1,17 @@
-// import "@babel/polyfill";
-import "mutationobserver-shim";
-import Vue from "vue";
-import "./plugins/bootstrap-vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
-// const VCalendar = require('v-calendar');
-import VCalendar from 'v-calendar';
-import '@fortawesome/fontawesome-free/js/all'
+// import store from "./store";
+import "mutationobserver-shim";
+import '@fortawesome/fontawesome-free/js/all';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import axios2 from 'axios'
 
-// Use v-calendar & v-date-picker components
-Vue.use(VCalendar, {
-  componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
-});
 
-Vue.config.productionTip = false;
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+// import VCalendar from 'v-calendar';
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+
+createApp(App).use(router).use(VueAxios, { $axios: axios, axios2: axios2 }).mount('#app');

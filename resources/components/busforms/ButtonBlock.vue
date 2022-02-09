@@ -1,6 +1,9 @@
 <template>
 <div>
-  <b-button class="btn-watermelon" block variant="primary" value="login">{{buttonBlockText}}</b-button>
+  <div class="d-grid gap-2">
+    <button class="btn-watermelon btn btn-primary" value="login">{{buttonBlockText}}</button>
+</div>
+
 </div>
 </template>
 
