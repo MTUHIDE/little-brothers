@@ -35,13 +35,24 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
+      // Ensure user data is provided and within length requirement
+      $validated = $request->validate([
+          'clientNotes' => 'required|max:255',
+          'appDate' => 'required|date_format:Y-m-d\TH:i',
+          'pickupAddress' => 'required|max:255',
+          'dropoffAddress' => 'required|max:255',
+      ]);
+
       $newAppointment = new Appointment;
-      $newAppointment->appointment_notes = $request["clientNotes"];
       $date_time = $request["appDate"];
-// return $appointment_date_time;
+
+       // Format the date_time to fit MS SQL Server standard
       $date_time = Carbon::createFromFormat('Y-m-d\TH:i', $date_time, 'America/Detroit');
       $date_time->setTimezone('UTC');
       $date_time = $date_time->format('Y-m-d H:i:s.v');
+      $newAppointment->appointment_notes = $request["clientNotes"];
+
       // return $date_time;
       $newAppointment->appointment_date_time = $date_time;
       // return $appointment_date_time;
