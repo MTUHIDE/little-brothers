@@ -12,9 +12,16 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      // if($request->ajax())
+      // {
+        $data = Appointment::whereDate('appointment_date_time', '>=', $request->start)
+                       ->whereDate('appointment_date_time',   '<=', $request->end)
+                       ->get(['appointment_notes', 'client_id', 'driver_id', 'appointment_date_time']);
+            return response()->json($data);
+      // }
+    // return view('full-calender');
     }
 
     /**
