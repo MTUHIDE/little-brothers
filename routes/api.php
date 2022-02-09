@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,18 @@ Route::prefix('/appointment')->group(function() {
   Route::put('/{id}', [AppointmentController::class, 'update']);
   Route::delete('/{id}', [AppointmentController::class, 'destroy']);
 });
+
+Route::get('/drivers', [DriverController::class, 'index']);
+Route::prefix('/driver')->group( function(){
+    Route::post('/store', [DriverController::class, 'store']);
+    Route::put('/{id}', [DriverController::class, 'update']);
+    Route::delete('{id}', [DriverController::class, 'destroy']);
+});
+
+Route::get('clients', [ClientController::class, 'index']);
+Route::prefix('client')->group( function() {
+  Route::post('\store', [ClientController::class, 'store']);
+  Route::put('\{id}', [ClientController::class, 'update']);
+  Route::delete('\{id}', [ClientController::class, 'destroy']);
+});
+
