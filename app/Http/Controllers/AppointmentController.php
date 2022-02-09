@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -36,7 +37,16 @@ class AppointmentController extends Controller
     {
       $newAppointment = new Appointment;
       $newAppointment->appointment_notes = $request["clientNotes"];
-      $newAppointment->appointment_date_time = $request["appDate"];
+      $date_time = $request["appDate"];
+// return $appointment_date_time;
+      $date_time = Carbon::createFromFormat('Y-m-d\TH:i', $date_time, 'America/Detroit');
+      $date_time->setTimezone('UTC');
+      $date_time = $date_time->format('Y-m-d H:i:s.v');
+      // return $date_time;
+      $newAppointment->appointment_date_time = $date_time;
+      // return $appointment_date_time;
+
+      // $newAppointment->appointment_date_time;
       $newAppointment->pickup_address = $request["pickupAddress"];
       $newAppointment->destination_address = $request["dropoffAddress"];
       // $newAppointment->driver_id = $request->appointment["driverName"];
