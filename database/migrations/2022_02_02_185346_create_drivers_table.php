@@ -21,8 +21,6 @@ class CreateDriversTable extends Migration
             $table->string('driver_phone_number', 255);
             $table->string('driver_address', 255);
             $table->timestamps();
-
-            $table->primary('driver_id');
         });
     }
 

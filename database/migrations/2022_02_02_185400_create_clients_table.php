@@ -22,8 +22,6 @@ class CreateClientsTable extends Migration
             $table->string('client_notes', 255)->nullable();
             $table->bigIncrement('#ofcancels'); //Will need to talk to members
             $table->timestamps();
-
-            $table->primary('client_id');
         });
     }
 
