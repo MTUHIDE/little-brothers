@@ -69,7 +69,7 @@
         <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button>
       </form>
 
-      <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+      <!-- <button type="button" to="/calendar" class="btn btn-secondary">Back</button> -->
 
       <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
         <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
