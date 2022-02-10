@@ -11,21 +11,16 @@
 
       <!-- <Button buttonText="Back" to="\calendar"/>
       <b-button to="/calendar">Back</b-button> -->
-      <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+      
 
       <h1>Appointment</h1>
       <form @submit.prevent="submitForm">
-        <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
-        <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
-        <div class="flexy">
-          <button type="button" to="/calendar" class="btn btn-secondary">Edit</button>
-          <button type="button" to="/calendar" class="btn btn-secondary">Save</button>
-        </div>
+        
         <br/>
 
         <div class="mb-3">
           <label for="name" class="form-label">Client: </label>
-          <input name="name" type="text" class="form-control" v-if="editing" id="name" v-model="clientName">
+          <input name="name" type="text" class="form-control" v-if="editing" id="name" v-model="clientName" required>
           <!-- <p v-if="!editing">{{clientName}}</p> -->
           <!-- <p>{{clientName}}</p> -->
         </div>
@@ -33,7 +28,7 @@
 
         <div class="mb-3">
           <label for="driver" class="form-label" >Driver: </label>
-          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName">
+          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName" required>
             <option disabled>--Select a Driver--</option>
             <option>Driver 1</option>
             <option>Driver 2</option>
@@ -46,21 +41,21 @@
         <div class="mb-3">
          <label for="dateTime" class="form-label">Date and Time: </label>
           <!-- TODO: fix formatting for date and time when not editing -->
-          <input id="dateTime" name="dateTime" class="form-control" v-if="editing" type="datetime-local" v-model="appDate">
+          <input id="dateTime" name="dateTime" class="form-control" v-if="editing" type="datetime-local" v-model="appDate" required>
           <!-- <p v-if="!editing">{{appDate}}</p> -->
           <!-- <p>{{appDate}}</p> -->
         </div>
 
         <div class="mb-3">
           <label for="pickup" class="form-label">Pick up address: </label>
-          <textarea id="pickup" name="pickup" class="form-control" v-if="editing" v-model="pickupAddress"></textarea>
+          <textarea id="pickup" name="pickup" class="form-control" v-if="editing" v-model="pickupAddress" required></textarea>
           <!-- <p v-if="!editing">{{pickupAddress}}</p> -->
           <!-- <p>{{pickupAddress}}</p> -->
         </div>
 
         <div class="mb-3">
           <label for="dropoff" class="form-label">Drop off address: </label>
-          <textarea id="dropoff" name="dropoff" class="form-control" v-if="editing" v-model="dropoffAddress"></textarea>
+          <textarea id="dropoff" name="dropoff" class="form-control" v-if="editing" v-model="dropoffAddress" required></textarea>
           <!-- <p>{{dropoffAddress}}</p> -->
         </div>
 
@@ -71,12 +66,21 @@
           <!-- <p>{{clientNotes}}</p> -->
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button>
       </form>
 
-      <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>
+      <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+
+      <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
+        <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
+        <!-- <div class="flexy">
+          <button type="button" to="/calendar" class="btn btn-secondary">Edit</button>
+          <button type="button" to="/calendar" class="btn btn-secondary">Save</button>
+        </div> -->
+
+      <!-- <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>
        pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>
-       clientNotes: {{clientNotes}}</p>
+       clientNotes: {{clientNotes}}</p> -->
     </div>
   </div>
 </template>
@@ -129,5 +133,9 @@
   .appointment {
       width: 75%;
       margin: auto;
+  }
+
+  #appointSubmit {
+    margin-bottom: 10px;
   }
 </style>
