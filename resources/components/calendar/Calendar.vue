@@ -15,8 +15,8 @@ export default {
   },
   data() {
         const popupTriggers = ref({
-			buttonTrigger: false
-		});
+    			buttonTrigger: false
+    		});
         return {
             calendarOptions: {
             plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
@@ -26,7 +26,7 @@ export default {
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             initialView: 'dayGridMonth',
-            initialEvents: [], // Function call to database to load current viewable events
+            // initialEvents: '/api/appointments', // Function call to database to load current viewable events
             editable: true,
             selectable: true,
             selectMirror: true,
@@ -40,30 +40,14 @@ export default {
             eventAdd:
             eventChange:
             eventRemove:
-            */      
-           
-            events: [   // YYYY-MM-DD format...
-                    // TODO - This is temporary, get rid of it
-                    { title: 'event 1', date: '2022-02-03'},
-                    { title: 'event 3', date: '2022-02-03'},
-                    { title: 'event 2', date: '2022-02-03'},
-                    { title: 'event 6', date: '2022-02-03'},
-                    { title: 'event 1', date: '2022-02-03'},
-                    { title: 'event 3', date: '2022-02-03'},
-                    { title: 'event 2', date: '2022-02-03'},
-                    { title: 'event 6', date: '2022-02-03'},
-                    { title: 'event 1', date: '2022-02-03'},
-                    { title: 'event 3', date: '2022-02-03'},
-                    { title: 'event 2', date: '2022-02-03'},
-                    { title: 'event 6', date: '2022-02-03'},
-                    { title: 'event 4', date: '2022-02-02' }
-                ]
+            */
+            events: 'api/appointments'
             },
             popupTriggers
         }
     },
     methods: {
-        handleDateClick: function(arg) { 
+        handleDateClick: function(arg) {
             confirm('Mega test! - you clicked the date')
         },
         handleEventClick(clickInfo) {
@@ -72,16 +56,16 @@ export default {
         },
         handleEvents(events) {
             this.currentEvents = events
-        }
+        },
     }
 }
 </script>
 
 <template>
     <div class="cMonthView">
-        <FullCalendar :options="calendarOptions" />
-        <CalendarPopup 
-			v-if="popupTriggers.buttonTrigger" 
+        <FullCalendar :options="calendarOptions"/>
+        <CalendarPopup
+			v-if="popupTriggers.buttonTrigger"
 			:TogglePopup="() => TogglePopup('buttonTrigger')"
         >
 			<h2>Test Page Popup</h2>

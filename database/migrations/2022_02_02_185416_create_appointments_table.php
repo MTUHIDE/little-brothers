@@ -17,6 +17,7 @@ class CreateAppointmentsTable extends Migration
           $table->id();
           $table->dateTime('appointment_date_time', $precision = 0);
           $table->string('appointment_notes', 255)->nullable();
+          $table->string('appointment_title', 100);
           $table->string('pickup_address', 255);
           $table->string('destination_address', 255);
           $table->unsignedBigInteger('driver_id');
