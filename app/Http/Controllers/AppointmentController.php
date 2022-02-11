@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Appointment;
+use App\Models\Driver;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
@@ -16,9 +19,12 @@ class AppointmentController extends Controller
     {
       // if($request->ajax())
       // {
-        $data = Appointment::whereDate('appointment_date_time', '>=', $request->start)
+        $data = DB::table('appointments')
+                       ->join('drivers', 'appointments.driver_id', '=', 'drivers.id')
+                       ->join('clients', 'appointments.client_id', '=', 'clients.id')
+                       ->whereDate('appointment_date_time', '>=', $request->start)
                        ->whereDate('appointment_date_time',   '<=', $request->end)
-                       ->get(['appointment_notes', 'client_id', 'driver_id', 'appointment_date_time']);
+                       ->get(['appointment_notes', 'client_name', 'driver_name', 'appointment_date_time']);
             return response()->json($data);
       // }
     // return view('full-calender');
@@ -45,7 +51,7 @@ class AppointmentController extends Controller
 
       // Ensure user data is provided and within length requirement
       $validated = $request->validate([
-          'clientNotes' => 'required|max:255',
+          'clientNotes' => 'max:255',
           'appDate' => 'required|date_format:Y-m-d\TH:i',
           'pickupAddress' => 'required|max:255',
           'dropoffAddress' => 'required|max:255',
