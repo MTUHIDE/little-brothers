@@ -1,4 +1,5 @@
 <script>
+
 import '@fullcalendar/core/vdom' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -7,11 +8,13 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 import { ref } from 'vue';
 import CalendarPopup from './CalendarPopup.vue';
+import Appointment from '../../components/busforms/Appointment.vue';
 
 export default {
   components: {
     FullCalendar, // make the <FullCalendar> tag available
-    CalendarPopup
+    CalendarPopup,
+    Appointment
   },
   data() {
         const popupTriggers = ref({
@@ -26,7 +29,6 @@ export default {
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             initialView: 'dayGridMonth',
-            // initialEvents: '/api/appointments', // Function call to database to load current viewable events
             editable: true,
             selectable: true,
             selectMirror: true,
@@ -52,7 +54,7 @@ export default {
         },
         handleEventClick(clickInfo) {
             confirm(`Are you sure you want to look at the event '${clickInfo.event.title}'`)
-            //popupTriggers.value[buttonTrigger] = !popupTriggers.value[buttonTrigger]
+            //TogglePopup=() => TogglePopup('buttonTrigger')
         },
         handleEvents(events) {
             this.currentEvents = events
@@ -65,12 +67,8 @@ export default {
     <div class="cMonthView">
         <FullCalendar :options="calendarOptions"/>
         <CalendarPopup
-			v-if="popupTriggers.buttonTrigger"
-			:TogglePopup="() => TogglePopup('buttonTrigger')"
-        >
-			<h2>Test Page Popup</h2>
-            Hopefully one day we can be cool and this will be something special like an add appointment page or something cool because we like to be cool
-		</CalendarPopup>
+			v-if="false"
+        />
     </div>
 </template>
 
