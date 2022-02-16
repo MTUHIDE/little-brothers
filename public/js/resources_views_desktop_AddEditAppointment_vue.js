@@ -20,6 +20,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       editing: this.editMode,
       clientName: "",
+      title: "",
       driverName: "",
       appDate: "",
       pickupAddress: "",
@@ -30,6 +31,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     submitForm: function submitForm() {
       this.$axios.post('/api/appointment/store', {
+        title: this.title,
         clientName: this.clientName,
         driverName: this.driverName,
         appDate: this.appDate,
@@ -92,39 +94,26 @@ var _hoisted_2 = {
 };
 
 var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    to: "/calendar",
-    "class": "btn btn-secondary"
-  }, "Back", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Appointment", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "flexy"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    to: "/calendar",
-    "class": "btn btn-secondary"
-  }, "Edit"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    to: "/calendar",
-    "class": "btn btn-secondary"
-  }, "Save")], -1
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
+var _hoisted_5 = {
+  "class": "mb-3"
+};
+
 var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "title",
+    "class": "form-label"
+  }, "Title: ", -1
   /* HOISTED */
   );
 });
@@ -237,38 +226,50 @@ var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
-    "class": "btn btn-primary"
+    "class": "btn btn-primary",
+    id: "appointSubmit"
   }, "Submit", -1
   /* HOISTED */
   );
 });
 
 var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    to: "/calendar",
+    "class": "btn btn-secondary"
+  }, "Back", -1
   /* HOISTED */
   );
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\r\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\r\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     }, ["prevent"]))
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\r\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+  }, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+    key: 0,
+    name: "title",
+    type: "text",
+    "class": "form-control",
+    id: "title",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.title = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{clientName}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{clientName}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
     key: 0,
     name: "name",
     type: "text",
     "class": "form-control",
     id: "name",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.clientName = $event;
-    })
+    }),
+    required: ""
   }, null, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.clientName]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{clientName}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{clientName}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
@@ -276,9 +277,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "driver",
     name: "driver",
     "class": "form-select",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.driverName = $event;
-    })
+    }),
+    required: ""
   }, _hoisted_15, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.driverName]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{driverName}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{driverName}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: fix formatting for date and time when not editing "), $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
@@ -287,9 +289,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "dateTime",
     "class": "form-control",
     type: "datetime-local",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.appDate = $event;
-    })
+    }),
+    required: ""
   }, null, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.appDate]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{appDate}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{appDate}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
@@ -297,9 +300,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "pickup",
     name: "pickup",
     "class": "form-control",
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.pickupAddress = $event;
-    })
+    }),
+    required: ""
   }, null, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pickupAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{pickupAddress}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{pickupAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
@@ -307,9 +311,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "dropoff",
     name: "dropoff",
     "class": "form-control",
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.dropoffAddress = $event;
-    })
+    }),
+    required: ""
   }, null, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.dropoffAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{dropoffAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
@@ -317,20 +322,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "notes",
     name: "notes",
     "class": "form-control",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.clientNotes = $event;
     })
   }, null, 512
   /* NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.clientNotes]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{clientNotes}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{clientNotes}}</p> ")]), _hoisted_24], 32
   /* HYDRATE_EVENTS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("clientName: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.clientName) + " driverName: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.driverName) + " appDate: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.appDate), 1
-  /* TEXT */
-  ), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" pickupAddress: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.pickupAddress) + " dropoff: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.dropoffAddress), 1
-  /* TEXT */
-  ), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" clientNotes: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.clientNotes), 1
-  /* TEXT */
-  )])])]);
+  ), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\r\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\r\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\r\n       clientNotes: {{clientNotes}}</p> ")])]);
 }
 
 /***/ }),
@@ -384,7 +383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".flexy[data-v-acb49820] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.appointment[data-v-acb49820] {\n  width: 75%;\n  margin: auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".flexy[data-v-acb49820] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.appointment[data-v-acb49820] {\n  width: 75%;\n  margin: auto;\n}\n#appointSubmit[data-v-acb49820] {\n  margin-bottom: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

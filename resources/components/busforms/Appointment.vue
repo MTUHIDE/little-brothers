@@ -11,12 +11,19 @@
 
       <!-- <Button buttonText="Back" to="\calendar"/>
       <b-button to="/calendar">Back</b-button> -->
-      
+
 
       <h1>Appointment</h1>
       <form @submit.prevent="submitForm">
-        
+
         <br/>
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title: </label>
+          <input name="title" type="text" class="form-control" v-if="editing" id="title" v-model="title" required>
+          <!-- <p v-if="!editing">{{clientName}}</p> -->
+          <!-- <p>{{clientName}}</p> -->
+        </div>
 
         <div class="mb-3">
           <label for="name" class="form-label">Client: </label>
@@ -96,6 +103,7 @@
       return {
         editing: this.editMode,
         clientName: "",
+        title: "",
         driverName: "",
         appDate: "",
         pickupAddress: "",
@@ -106,6 +114,7 @@
     methods: {
       submitForm() {
         this.$axios.post('/api/appointment/store', {
+          title: this.title,
           clientName: this.clientName,
           driverName: this.driverName,
           appDate: this.appDate,

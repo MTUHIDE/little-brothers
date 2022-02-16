@@ -1,39 +1,40 @@
 <script>
-export default {
-	props: ['TogglePopup'],
-    setup () {
-		const popupTriggers = ref({
-			buttonTrigger: false,
-		});
-		const TogglePopup = (trigger) => {
-			popupTriggers.value[trigger] = !popupTriggers.value[trigger]
-		}
-    },
-    data() {
-        const popupTriggers = ref({
-                buttonTrigger: false
-        });
+import { ref } from 'vue';
 
-        return {
-            popupTriggers
-        }
-    }
-}
+    	export default {
+		props: ['TogglePopup'],
+
+		setup () {
+			const popupTriggers = ref({
+				buttonTrigger: false,
+			});
+			const TogglePopup = (trigger) => {
+				popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+			}
+		},
+		data() {
+			const popupTriggers = ref({
+					buttonTrigger: false
+			});
+
+			return {
+				popupTriggers,
+				TogglePopup
+			}
+		}
+	}
 </script>
 
 <template>
 	<div class="CalendarPopup">
 		<div class="popup-inner">
-			<slot />
-			<button class="popup-close" @click="TogglePopup()">
-				Close Popup
-			</button>
+			<slot/>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.popup {
+.CalendarPopup {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -47,7 +48,7 @@ export default {
 	justify-content: center;
 	.popup-inner {
 		background: #FFF;
-		padding: 32px;
+		padding: 80px;
 	}
 }
 </style>
