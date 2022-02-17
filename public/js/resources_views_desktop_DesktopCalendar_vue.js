@@ -15324,7 +15324,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   props: {
-    editMode: Boolean
+    editMode: {
+      type: Boolean,
+      required: false,
+      "default": false
+    },
+    activeBack: {
+      type: String,
+      required: false,
+      "default": "flex"
+    },
+    redirect: {
+      type: String,
+      required: true
+    }
   },
   data: function data() {
     return {
@@ -15397,6 +15410,11 @@ __webpack_require__.r(__webpack_exports__);
     var popupTriggers = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)({
       buttonTrigger: false
     });
+
+    var TogglePopup = function TogglePopup(trigger) {
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+    };
+
     return {
       calendarOptions: {
         plugins: [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_2__["default"], _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_3__["default"], _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_4__["default"]],
@@ -15423,7 +15441,8 @@ __webpack_require__.r(__webpack_exports__);
         */
         events: 'api/appointments'
       },
-      popupTriggers: popupTriggers
+      popupTriggers: popupTriggers,
+      TogglePopup: TogglePopup
     };
   },
   methods: {
@@ -15431,47 +15450,11 @@ __webpack_require__.r(__webpack_exports__);
       confirm('Mega test! - you clicked the date');
     },
     handleEventClick: function handleEventClick(clickInfo) {
-      confirm("Are you sure you want to look at the event '".concat(clickInfo.event.title, "'")); //TogglePopup=() => TogglePopup('buttonTrigger')
+      this.TogglePopup('buttonTrigger');
     },
     handleEvents: function handleEvents(events) {
       this.currentEvents = events;
     }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js ***!
-  \*************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['TogglePopup'],
-  setup: function setup() {
-    var popupTriggers = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
-      buttonTrigger: false
-    });
-
-    var TogglePopup = function TogglePopup(trigger) {
-      popupTriggers.value[trigger] = !popupTriggers.value[trigger];
-    };
-  },
-  data: function data() {
-    var popupTriggers = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
-      buttonTrigger: false
-    });
-    return {
-      popupTriggers: popupTriggers,
-      TogglePopup: TogglePopup
-    };
   }
 });
 
@@ -15602,12 +15585,11 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_15 = [_hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14];
-var _hoisted_16 = {
+var _hoisted_15 = {
   "class": "mb-3"
 };
 
-var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "dateTime",
     "class": "form-label"
@@ -15616,11 +15598,11 @@ var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_18 = {
+var _hoisted_17 = {
   "class": "mb-3"
 };
 
-var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "pickup",
     "class": "form-label"
@@ -15629,11 +15611,11 @@ var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_20 = {
+var _hoisted_19 = {
   "class": "mb-3"
 };
 
-var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "dropoff",
     "class": "form-label"
@@ -15642,11 +15624,11 @@ var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_22 = {
+var _hoisted_21 = {
   "class": "mb-3"
 };
 
-var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "notes",
     "class": "form-label"
@@ -15655,7 +15637,7 @@ var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "btn btn-primary",
@@ -15665,18 +15647,9 @@ var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    to: "/calendar",
-    "class": "btn btn-secondary"
-  }, "Back", -1
-  /* HOISTED */
-  );
-});
-
+var _hoisted_24 = ["to"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\r\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     }, ["prevent"]))
@@ -15713,9 +15686,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.driverName = $event;
     }),
     required: ""
-  }, _hoisted_15, 512
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: replace with driver lookup request "), _hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14], 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.driverName]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{driverName}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{driverName}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: fix formatting for date and time when not editing "), $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.driverName]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{driverName}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{driverName}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: fix formatting for date and time when not editing "), $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
     key: 0,
     id: "dateTime",
     name: "dateTime",
@@ -15727,7 +15700,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.appDate]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{appDate}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{appDate}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.appDate]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{appDate}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{appDate}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
     key: 0,
     id: "pickup",
     name: "pickup",
@@ -15738,7 +15711,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pickupAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{pickupAddress}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{pickupAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pickupAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{pickupAddress}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{pickupAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
     key: 0,
     id: "dropoff",
     name: "dropoff",
@@ -15749,7 +15722,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.dropoffAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{dropoffAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.dropoffAddress]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{dropoffAddress}}</p> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, $data.editing ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("textarea", {
     key: 0,
     id: "notes",
     name: "notes",
@@ -15759,9 +15732,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 512
   /* NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.clientNotes]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{clientNotes}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{clientNotes}}</p> ")]), _hoisted_24], 32
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.clientNotes]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-if=\"!editing\">{{clientNotes}}</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>{{clientNotes}}</p> ")]), _hoisted_23], 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\r\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\r\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\r\n       clientNotes: {{clientNotes}}</p> ")])]);
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    to: $props.redirect,
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+      display: $props.activeBack
+    }),
+    "class": "btn btn-secondary"
+  }, "Back", 12
+  /* STYLE, PROPS */
+  , _hoisted_24), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\n       clientNotes: {{clientNotes}}</p> ")])]);
 }
 
 /***/ }),
@@ -15789,13 +15771,33 @@ var _hoisted_1 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FullCalendar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FullCalendar");
 
+  var _component_Appointment = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Appointment");
+
   var _component_CalendarPopup = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CalendarPopup");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FullCalendar, {
     options: $data.calendarOptions
   }, null, 8
   /* PROPS */
-  , ["options"]),  false ? (0) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  , ["options"]), $data.popupTriggers.buttonTrigger ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CalendarPopup, {
+    key: 0,
+    TogglePopup: function TogglePopup() {
+      return $data.TogglePopup('buttonTrigger');
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Appointment, {
+        editMode: true,
+        redirect: '/calendar',
+        activeBack: 'none'
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["TogglePopup"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -15821,10 +15823,18 @@ var _hoisted_1 = {
   "class": "CalendarPopup"
 };
 var _hoisted_2 = {
+  type: "submit",
+  id: "appointSubmit"
+};
+var _hoisted_3 = {
   "class": "popup-inner"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])]);
+function render(_ctx, _cache) {
+  var _component_font_awesome_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("font-awesome-icon");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_font_awesome_icon, {
+    icon: "far fa-times"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])]);
 }
 
 /***/ }),
@@ -15942,7 +15952,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cMonthView[data-v-00bae70e] {\r\n        margin: 5%;\r\n        padding: 2px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cMonthView[data-v-00bae70e] {\n        margin: 5%;\n        padding: 2px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15988,7 +15998,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".flexy[data-v-acb49820] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.appointment[data-v-acb49820] {\n  width: 75%;\n  margin: auto;\n}\n#appointSubmit[data-v-acb49820] {\n  margin-bottom: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".flexy[data-v-acb49820] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n#appointSubmit[data-v-acb49820] {\n  margin-bottom: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16011,7 +16021,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".CalendarPopup[data-v-c4419b24] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.CalendarPopup .popup-inner[data-v-c4419b24] {\n  background: #FFF;\n  padding: 80px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".CalendarPopup[data-v-c4419b24] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.CalendarPopup .popup-inner[data-v-c4419b24] {\n  border-radius: 16px;\n  background: #FFF;\n  padding: 10px;\n  min-width: 30%;\n  min-height: 30%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16676,17 +16686,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=template&id=c4419b24&scoped=true */ "./resources/components/calendar/CalendarPopup.vue?vue&type=template&id=c4419b24&scoped=true");
-/* harmony import */ var _CalendarPopup_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=script&lang=js */ "./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js");
-/* harmony import */ var _CalendarPopup_vue_vue_type_style_index_0_id_c4419b24_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true */ "./resources/components/calendar/CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _CalendarPopup_vue_vue_type_style_index_0_id_c4419b24_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true */ "./resources/components/calendar/CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true");
+/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-
-
+const script = {}
 
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_CalendarPopup_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-c4419b24"],['__file',"resources/components/calendar/CalendarPopup.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-c4419b24"],['__file',"resources/components/calendar/CalendarPopup.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -16751,21 +16759,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Calendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Calendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Calendar.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/components/calendar/Calendar.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js":
-/*!*********************************************************************************!*\
-  !*** ./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendarPopup_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendarPopup_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CalendarPopup.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/components/calendar/CalendarPopup.vue?vue&type=script&lang=js");
  
 
 /***/ }),
