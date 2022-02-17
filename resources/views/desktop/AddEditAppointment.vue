@@ -4,9 +4,7 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-                <div class="appWrap">
-                    <Appointment :editMode="true" :redirect="'/calendar'"></Appointment>
-                </div>
+                <Appointment :editMode="true"></Appointment>
             </div>
         </div>
     </div>
@@ -26,10 +24,5 @@
 <style lang="scss" scoped>
     .row {
         margin: 0;
-    }
-
-    .appWrap {
-        width: 75%;
-        margin: auto;
     }
 </style>

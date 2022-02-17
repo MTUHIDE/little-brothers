@@ -12,7 +12,7 @@ export default {
 
 <template>
     <transition name="fade">
-        <router-link type="button" class="btn btn-sm link" :to="to" :style="{ float: floatDir}" value="link">
+          <router-link type="button" class="btn btn-sm link" :to="to" :style="{ float: floatDir}" value="link">
           <span>
             <i class="icon" :class="icon" />
             {{text}}

@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+// import store from "./store";
 import "mutationobserver-shim";
 import '@fortawesome/fontawesome-free/js/all';
 import axios from 'axios';
@@ -14,4 +14,4 @@ import "bootstrap";
 // import VCalendar from 'v-calendar';
 
 
-createApp(App).use(router).use(store).use(VueAxios, { $axios: axios, axios2: axios2 }).mount('#app');
+createApp(App).use(router).use(VueAxios, { $axios: axios, axios2: axios2 }).mount('#app');
