@@ -247,7 +247,7 @@ var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_24 = ["to"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\r\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     }, ["prevent"]))
@@ -341,7 +341,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-secondary"
   }, "Back", 12
   /* STYLE, PROPS */
-  , _hoisted_24), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\n       clientNotes: {{clientNotes}}</p> ")])]);
+  , _hoisted_24), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\r\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\r\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\r\n       clientNotes: {{clientNotes}}</p> ")])]);
 }
 
 /***/ }),
@@ -500,7 +500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Appointment.vue?vue&type=template&id=acb49820&scoped=true */ "./resources/components/busforms/Appointment.vue?vue&type=template&id=acb49820&scoped=true");
 /* harmony import */ var _Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Appointment.vue?vue&type=script&lang=js */ "./resources/components/busforms/Appointment.vue?vue&type=script&lang=js");
 /* harmony import */ var _Appointment_vue_vue_type_style_index_0_id_acb49820_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Appointment.vue?vue&type=style&index=0&id=acb49820&lang=scss&scoped=true */ "./resources/components/busforms/Appointment.vue?vue&type=style&index=0&id=acb49820&lang=scss&scoped=true");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -508,7 +508,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-acb49820"],['__file',"resources/components/busforms/Appointment.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-acb49820"],['__file',"resources/components/busforms/Appointment.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -530,7 +530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddEditAppointment_vue_vue_type_template_id_0da88180_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddEditAppointment.vue?vue&type=template&id=0da88180&scoped=true */ "./resources/views/desktop/AddEditAppointment.vue?vue&type=template&id=0da88180&scoped=true");
 /* harmony import */ var _AddEditAppointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddEditAppointment.vue?vue&type=script&lang=js */ "./resources/views/desktop/AddEditAppointment.vue?vue&type=script&lang=js");
 /* harmony import */ var _AddEditAppointment_vue_vue_type_style_index_0_id_0da88180_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddEditAppointment.vue?vue&type=style&index=0&id=0da88180&lang=scss&scoped=true */ "./resources/views/desktop/AddEditAppointment.vue?vue&type=style&index=0&id=0da88180&lang=scss&scoped=true");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -538,7 +538,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_AddEditAppointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AddEditAppointment_vue_vue_type_template_id_0da88180_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-0da88180"],['__file',"resources/views/desktop/AddEditAppointment.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_AddEditAppointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AddEditAppointment_vue_vue_type_template_id_0da88180_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-0da88180"],['__file',"resources/views/desktop/AddEditAppointment.vue"]])
 /* hot reload */
 if (false) {}
 

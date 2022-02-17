@@ -15649,7 +15649,7 @@ var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_24 = ["to"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Top bar with back and save/edit button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Button buttonText=\"Back\" to=\"\\calendar\"/>\r\n      <b-button to=\"/calendar\">Back</b-button> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     }, ["prevent"]))
@@ -15743,7 +15743,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-secondary"
   }, "Back", 12
   /* STYLE, PROPS */
-  , _hoisted_24), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\n       clientNotes: {{clientNotes}}</p> ")])]);
+  , _hoisted_24), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button v-if=!editing v-on:click=\"editing = !editing\">Edit</b-button>\r\n        <b-button v-if=\"editing\" v-on:click=\"editing = !editing\">Save</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flexy\">\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Edit</button>\r\n          <button type=\"button\" to=\"/calendar\" class=\"btn btn-secondary\">Save</button>\r\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p>clientName: {{clientName}} driverName: {{driverName}} appDate: {{appDate}}<br>\r\n       pickupAddress: {{pickupAddress}} dropoff: {{dropoffAddress}}<br>\r\n       clientNotes: {{clientNotes}}</p> ")])]);
 }
 
 /***/ }),
@@ -15952,7 +15952,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cMonthView[data-v-00bae70e] {\n        margin: 5%;\n        padding: 2px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cMonthView[data-v-00bae70e] {\r\n        margin: 5%;\r\n        padding: 2px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16628,7 +16628,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Appointment.vue?vue&type=template&id=acb49820&scoped=true */ "./resources/components/busforms/Appointment.vue?vue&type=template&id=acb49820&scoped=true");
 /* harmony import */ var _Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Appointment.vue?vue&type=script&lang=js */ "./resources/components/busforms/Appointment.vue?vue&type=script&lang=js");
 /* harmony import */ var _Appointment_vue_vue_type_style_index_0_id_acb49820_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Appointment.vue?vue&type=style&index=0&id=acb49820&lang=scss&scoped=true */ "./resources/components/busforms/Appointment.vue?vue&type=style&index=0&id=acb49820&lang=scss&scoped=true");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -16636,7 +16636,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-acb49820"],['__file',"resources/components/busforms/Appointment.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Appointment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Appointment_vue_vue_type_template_id_acb49820_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-acb49820"],['__file',"resources/components/busforms/Appointment.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -16658,7 +16658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Calendar_vue_vue_type_template_id_00bae70e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Calendar.vue?vue&type=template&id=00bae70e&scoped=true */ "./resources/components/calendar/Calendar.vue?vue&type=template&id=00bae70e&scoped=true");
 /* harmony import */ var _Calendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Calendar.vue?vue&type=script&lang=js */ "./resources/components/calendar/Calendar.vue?vue&type=script&lang=js");
 /* harmony import */ var _Calendar_vue_vue_type_style_index_0_id_00bae70e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Calendar.vue?vue&type=style&index=0&id=00bae70e&scoped=true&lang=css */ "./resources/components/calendar/Calendar.vue?vue&type=style&index=0&id=00bae70e&scoped=true&lang=css");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -16666,7 +16666,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Calendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Calendar_vue_vue_type_template_id_00bae70e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-00bae70e"],['__file',"resources/components/calendar/Calendar.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Calendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Calendar_vue_vue_type_template_id_00bae70e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-00bae70e"],['__file',"resources/components/calendar/Calendar.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -16687,14 +16687,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=template&id=c4419b24&scoped=true */ "./resources/components/calendar/CalendarPopup.vue?vue&type=template&id=c4419b24&scoped=true");
 /* harmony import */ var _CalendarPopup_vue_vue_type_style_index_0_id_c4419b24_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true */ "./resources/components/calendar/CalendarPopup.vue?vue&type=style&index=0&id=c4419b24&lang=scss&scoped=true");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-c4419b24"],['__file',"resources/components/calendar/CalendarPopup.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_CalendarPopup_vue_vue_type_template_id_c4419b24_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-c4419b24"],['__file',"resources/components/calendar/CalendarPopup.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -16716,7 +16716,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DesktopCalendar_vue_vue_type_template_id_1b6b773e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DesktopCalendar.vue?vue&type=template&id=1b6b773e&scoped=true */ "./resources/views/desktop/DesktopCalendar.vue?vue&type=template&id=1b6b773e&scoped=true");
 /* harmony import */ var _DesktopCalendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesktopCalendar.vue?vue&type=script&lang=js */ "./resources/views/desktop/DesktopCalendar.vue?vue&type=script&lang=js");
 /* harmony import */ var _DesktopCalendar_vue_vue_type_style_index_0_id_1b6b773e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DesktopCalendar.vue?vue&type=style&index=0&id=1b6b773e&scoped=true&lang=css */ "./resources/views/desktop/DesktopCalendar.vue?vue&type=style&index=0&id=1b6b773e&scoped=true&lang=css");
-/* harmony import */ var C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -16724,7 +16724,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Work_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_DesktopCalendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DesktopCalendar_vue_vue_type_template_id_1b6b773e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1b6b773e"],['__file',"resources/views/desktop/DesktopCalendar.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_tomal_www_HIDE_little_brothers_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_DesktopCalendar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DesktopCalendar_vue_vue_type_template_id_1b6b773e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-1b6b773e"],['__file',"resources/views/desktop/DesktopCalendar.vue"]])
 /* hot reload */
 if (false) {}
 
