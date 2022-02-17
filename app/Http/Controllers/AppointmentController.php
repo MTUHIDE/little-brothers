@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Appointment;
+use App\Models\Driver;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
@@ -16,9 +19,30 @@ class AppointmentController extends Controller
     {
       // if($request->ajax())
       // {
-        $data = Appointment::whereDate('appointment_date_time', '>=', $request->start)
-                       ->whereDate('appointment_date_time',   '<=', $request->end)
-                       ->get(['appointment_notes', 'client_id', 'driver_id', 'appointment_date_time']);
+      $validated = $request->validate([
+          'start' => 'required|date_format:Y-m-d\TH:i:sP',
+          'end' => 'required|date_format:Y-m-d\TH:i:sP',
+      ]);
+
+      $start_date_time = $request["start"];
+      $end_date_time = $request["end"];
+
+      // Format the date_time to fit MS SQL Server standard
+     $start_date_time = Carbon::parse($start_date_time);
+     $start_date_time->setTimezone('UTC');
+     $start_date_time = $start_date_time->format('Y-m-d H:i:s.v');
+
+     $end_date_time = Carbon::parse($end_date_time);
+     $end_date_time->setTimezone('UTC');
+     $end_date_time = $end_date_time->format('Y-m-d H:i:s.v');
+
+        $data = DB::table('appointments')
+                       ->join('drivers', 'appointments.driver_id', '=', 'drivers.id')
+                       ->join('clients', 'appointments.client_id', '=', 'clients.id')
+                       ->whereDate('appointment_date_time', '>=', $start_date_time)
+                       ->whereDate('appointment_date_time', '<=', $end_date_time)
+                       // ->get(['client_name as title', 'appointment_date_time as start']);
+                       ->get(['appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
             return response()->json($data);
       // }
     // return view('full-calender');
@@ -45,9 +69,10 @@ class AppointmentController extends Controller
 
       // Ensure user data is provided and within length requirement
       $validated = $request->validate([
-          'clientNotes' => 'required|max:255',
+          'clientNotes' => 'max:255',
           'appDate' => 'required|date_format:Y-m-d\TH:i',
           'pickupAddress' => 'required|max:255',
+          'title' => 'required|max:100',
           'dropoffAddress' => 'required|max:255',
       ]);
 
@@ -65,6 +90,7 @@ class AppointmentController extends Controller
       // return $appointment_date_time;
 
       // $newAppointment->appointment_date_time;
+      $newAppointment->appointment_title = $request["title"];
       $newAppointment->pickup_address = $request["pickupAddress"];
       $newAppointment->destination_address = $request["dropoffAddress"];
       // $newAppointment->driver_id = $request->appointment["driverName"];
