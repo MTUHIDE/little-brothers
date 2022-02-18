@@ -20,6 +20,9 @@ export default {
         const popupTriggers = ref({
     			buttonTrigger: false
     		});
+      const TogglePopup = (trigger) => {
+          popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+      }
         return {
             calendarOptions: {
             plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
@@ -45,7 +48,8 @@ export default {
             */
             events: 'api/appointments'
             },
-            popupTriggers
+            popupTriggers,
+            TogglePopup,
         }
     },
     methods: {
@@ -53,8 +57,7 @@ export default {
             confirm('Mega test! - you clicked the date')
         },
         handleEventClick(clickInfo) {
-            confirm(`Are you sure you want to look at the event '${clickInfo.event.title}'`)
-            //TogglePopup=() => TogglePopup('buttonTrigger')
+            this.TogglePopup('buttonTrigger')
         },
         handleEvents(events) {
             this.currentEvents = events
@@ -66,9 +69,9 @@ export default {
 <template>
     <div class="cMonthView">
         <FullCalendar :options="calendarOptions"/>
-        <CalendarPopup
-			v-if="false"
-        />
+        <CalendarPopup v-if="popupTriggers.buttonTrigger" :TogglePopup="() => TogglePopup('buttonTrigger')">
+            <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/>
+        </CalendarPopup>
     </div>
 </template>
 
