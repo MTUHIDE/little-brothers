@@ -11,25 +11,25 @@ export default {};
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button type="button" to="/driver/calendar" class="btn btn-primary btn-lg">Calendar</button>
+        <router-link tag="button" to="/driver/calendar" class="btn btn-primary btn-lg">Calendar</router-link>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button type="button" to="/driver/update" class="btn btn-primary btn-lg">Update</button>
+        <router-link tag="button" to="/driver/update" class="btn btn-primary btn-lg">Update</router-link>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button type="button" to="/driver/prev-updates" class="btn btn-primary btn-lg">Previous Updates</button>
+        <router-link tag="button" to="/driver/prev-updates" class="btn btn-primary btn-lg">Previous Updates</router-link>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button type="button" to="/driver/about" class="btn btn-primary btn-lg">About</button>
+        <router-link tag="button" to="/driver/about" class="btn btn-primary btn-lg">About</router-link>
       </div>
       <div class="col-md-12">
-        <button type="button" to="/" class="btn btn-danger btn-lg">Logout</button>
+        <router-link tag="button" to="/" class="btn btn-danger btn-lg">Logout</router-link>
       </div>
     </div>
   </div>
