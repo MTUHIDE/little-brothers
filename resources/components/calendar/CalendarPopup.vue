@@ -1,39 +1,18 @@
-<script>
-export default {
-	props: ['TogglePopup'],
-    setup () {
-		const popupTriggers = ref({
-			buttonTrigger: false,
-		});
-		const TogglePopup = (trigger) => {
-			popupTriggers.value[trigger] = !popupTriggers.value[trigger]
-		}
-    },
-    data() {
-        const popupTriggers = ref({
-                buttonTrigger: false
-        });
-
-        return {
-            popupTriggers
-        }
-    }
-}
-</script>
+<script></script>
 
 <template>
 	<div class="CalendarPopup">
-		<div class="popup-inner">
-			<slot />
-			<button class="popup-close" @click="TogglePopup()">
-				Close Popup
-			</button>
+        <button type="submit" id="appointSubmit">
+            <font-awesome-icon icon="far fa-times" />
+        </button>
+        <div class="popup-inner">
+            <slot/>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.popup {
+.CalendarPopup {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -41,13 +20,16 @@ export default {
 	bottom: 0;
 	z-index: 99;
 	background-color: rgba(0, 0, 0, 0.2);
-	
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	.popup-inner {
+        border-radius: 16px;
 		background: #FFF;
-		padding: 32px;
+		padding: 10px;
+        min-width: 30%;
+        min-height: 30%;
 	}
 }
 </style>

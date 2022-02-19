@@ -11,12 +11,19 @@
 
       <!-- <Button buttonText="Back" to="\calendar"/>
       <b-button to="/calendar">Back</b-button> -->
-      
+
 
       <h1>Appointment</h1>
       <form @submit.prevent="submitForm">
-        
+
         <br/>
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title: </label>
+          <input name="title" type="text" class="form-control" v-if="editing" id="title" v-model="title" required>
+          <!-- <p v-if="!editing">{{clientName}}</p> -->
+          <!-- <p>{{clientName}}</p> -->
+        </div>
 
         <div class="mb-3">
           <label for="name" class="form-label">Client: </label>
@@ -29,7 +36,8 @@
         <div class="mb-3">
           <label for="driver" class="form-label" >Driver: </label>
           <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName" required>
-            <option disabled>--Select a Driver--</option>
+              <!-- TODO: replace with driver lookup request -->
+              <option disabled>--Select a Driver--</option>
             <option>Driver 1</option>
             <option>Driver 2</option>
             <option>Driver 3</option>
@@ -69,7 +77,7 @@
         <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button>
       </form>
 
-      <button type="button" to="/calendar" class="btn btn-secondary">Back</button>
+      <button type="button" :to="redirect" :style="{ display: activeBack }" class="btn btn-secondary">Back</button>
 
       <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
         <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
@@ -90,12 +98,15 @@
     components: {
     },
     props: {
-        editMode: Boolean,
+        editMode:   { type: Boolean, required: false, default: false},
+        activeBack: { type: String, required: false, default: "flex" },
+        redirect:   { type: String,  required: true },
     },
     data() {
       return {
         editing: this.editMode,
         clientName: "",
+        title: "",
         driverName: "",
         appDate: "",
         pickupAddress: "",
@@ -106,6 +117,7 @@
     methods: {
       submitForm() {
         this.$axios.post('/api/appointment/store', {
+          title: this.title,
           clientName: this.clientName,
           driverName: this.driverName,
           appDate: this.appDate,
@@ -128,11 +140,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .appointment {
-      width: 75%;
-      margin: auto;
   }
 
   #appointSubmit {
