@@ -25,25 +25,34 @@ export default {
     <h1>Update</h1>
     <div class="form-grid">
       <label for="driverName">Driver Name</label>
-      <b-form-input v-model="driverName" id="driverName" />
+      <input type="text" class="form-control" v-model="driverName" id="driverName">
+      <!-- <b-form-input v-model="driverName" id="driverName" /> -->
       <label for="clientName">Client Name</label>
-      <b-form-input v-model="clientName" id="clientName" />
+      <input type="text" class="form-control" v-model="clientName" id="clientName">
+      <!-- <b-form-input v-model="clientName" id="clientName" /> -->
       <label for="status">Status Update</label>
-      <b-form-select v-model="status" :options="statusOptions" id="status" />
+      <select class="form-select" v-model="status" :options="statusOptions" id="status">
+        <option selected>Example option</option>
+      </select>
+      <!-- <b-form-select v-model="status" :options="statusOptions" id="status" /> -->
     </div>
     <div class="btn-grid">
-      <b-button
+      <button type="button" class="btn btn-primary">
+      <!-- <b-button
         v-for="(option, i) of statusOptions"
         :variant="status === option ? 'primary' : 'outline-primary'"
         @click="status = option"
         :key="'a' + i"
-      >
+      > -->
         {{ option }}
-      </b-button>
+      <!-- </b-button> -->
+    </button>
     </div>
     <div class="save-btn-area">
-      <b-button variant="secondary" to="/driver">Back</b-button>
-      <b-button variant="primary">Save</b-button>
+      <router-link tag="button" class="btn btn-secondary" to="/driver">Back</router-link>
+      <!-- <b-button variant="secondary" to="/driver">Back</b-button> -->
+      <button type="button" class="btn btn-primary">Save</button>
+      <!-- <b-button variant="primary">Save</b-button> -->
     </div>
   </div>
 </template>

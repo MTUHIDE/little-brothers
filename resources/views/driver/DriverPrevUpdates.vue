@@ -42,12 +42,18 @@ export default {
 <template>
   <div>
     <h1>Previous Updates</h1>
-    <b-table striped hover :items="prevUpdates">
-      <template #cell(driver)="row">
-        <b>{{ row.item.driver }}</b>
+    <!-- <b-table striped hover :items="prevUpdates"> -->
+    <table class="table table-striped">
+      <template>
+        <b>
+          <!-- {{ row.item.driver }} -->
+
+        </b>
       </template>
-    </b-table>
-    <b-button href="#" to="/driver" variant="primary">Back</b-button>
+    <!-- </b-table> -->
+  </table>
+    <router-link tag="button" to="/driver" class="btn btn-primary">Back</router-link>
+    <!-- <b-button href="#" to="/driver" variant="primary">Back</b-button> -->
   </div>
 </template>
 

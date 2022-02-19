@@ -17,7 +17,7 @@ export default {
         <h5 class="card-title">About</h5>
         <p class="card-text">{{message}}</p>
         <p class="card-text">{{contact}}</p>
-        <button type="button" to="/driver" class="btn btn-primary">Back</button>
+        <router-link tag="button" to="/driver" class="btn btn-primary">Back</router-link>
       </div>
   </div>
   </div>
