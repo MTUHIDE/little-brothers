@@ -26,3 +26,4 @@ public/js/resources_views_driver_DriverPrevUpdates_vue.js
 public/js/resources_views_driver_DriverUpdate_vue.js
 public/js/resources_views_Login_vue.js
 *.js
+*.js
