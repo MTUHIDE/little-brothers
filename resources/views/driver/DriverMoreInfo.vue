@@ -12,16 +12,14 @@ export default {
 
 <template>
   <div class="d-flex justify-content-center">
-    <b-card 
-      title="DriverMoreInfo"
-      style="max-width: 20rem;"
-      class="justify-center"
-      bg-variant="red-400"
-    >
-      <b-table class="drivetbl" stacked selectable @select="selected" hover sticky-header :items="items">    
-      </b-table>
-      <b-button href="#" to="/driver" variant="primary">Back</b-button>
-    </b-card>
+    <div class="card justify-center" style="max-width: 20rem; background-color: red">
+      <h5 class="card-title">Driver More Info</h5>
+      <table class="table drivetbl" stacked selectable @select="selected" hover sticky-header :items="items">
+      <!-- <b-table class="drivetbl" stacked selectable @select="selected" hover sticky-header :items="items">
+      </b-table> -->
+    </table>
+      <router-link tag="button" to="/driver"  class="btn btn-secondary btn-lg" >Back</router-link>
+    </div>
   </div>
 </template>
 
@@ -40,4 +38,3 @@ h1 {
   margin-top: 0;
 }
 </style>
-
