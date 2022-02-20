@@ -44,10 +44,12 @@ export default {
 
 .link:hover {
   background-color: var(--nb-color-hover);
+  color: var(--nb-text-color-hover)
 }
 
 .link.active {
   background-color: var(--nb-color-active);
+  color: var(--nb-text-color-active);
 }
 
 .link .icon {

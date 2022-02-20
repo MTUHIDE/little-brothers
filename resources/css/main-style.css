@@ -19,8 +19,8 @@
     --secondary-accent-color: #2e2e2e;
 
     /* -- Default Schema -- */
-    --nb-color: red;
-    --nb-color-hover: #af4949;
+    --nb-color: #d31534;
+    --nb-color-hover: #af102a;
     --nb-color-active: #7e2c2c;
 
     /* -- Admin Schema -- */
@@ -29,8 +29,8 @@
     --nb-a-color-active: #043250;
 
     /* -- Text -- */
-    --nb-text-color: white;
-    --nb-text-color-hover: #6a6a6a;
+    --nb-text-color: #ffffff;
+    --nb-text-color-hover: #ffffff;
     --nb-text-color-active: #2e2e2e;
 
 }
