@@ -13,7 +13,7 @@ export default {
 
 <template>
   <ul class="navbar flexbox" id="collapsable-navbar">
-      <img class="img" contain alt="LBFE logo" src="/../../../../images/LBFE_white_upmichigan.png" />
+      <img class="img" contain alt="LBFE logo" src="/../../../../images/LBFE_white_upmichigan.png"/>
 
       <!-- Navbar - Admin Items -->
       <form v-if="$route.meta.admin">
@@ -23,7 +23,6 @@ export default {
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
         <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
         <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/>
-        <!-- <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/> -->
       </form>
 
       <!-- Navbar - Driver Items -->
@@ -63,7 +62,7 @@ export default {
 
   .img {
     display: -inline-flexbox;
-    height: 50px;
+    height: 37px;
     width: auto;
     float: left;
   }

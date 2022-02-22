@@ -11,6 +11,9 @@
         <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header" style="{ border: none }">
+                    <button type="button" class="btn btn-danger" style="{ margin-right: 5px; }" data-bs-dismiss="" aria-label="Delete">
+                        <i class="icon fas fa-solid fa-trash"/>
+                    </button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                 </div>
                 <div class="modal-body">

@@ -7,11 +7,12 @@ export default {
     Navbar
   },
 };
+
 </script>
 
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar v-if="!$route.meta.hideNavbar" />
     <div class="main-content">
       <router-view />
     </div>
