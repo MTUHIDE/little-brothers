@@ -23,7 +23,6 @@ export default {
 <style>
 html,
 body {
-  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -53,6 +52,7 @@ label {
 footer,
 .main-content:after {
   height: 32px;
+
 }
 
 </style>
