@@ -39,11 +39,12 @@ export default {
 </template>
 
 <style scoped>
-  .flexbox {
+  #collapsable-navbar.flexbox {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+ 
   .navbar {
     color: var(--nb-text-color);
     background-color: var(--nb-color);
