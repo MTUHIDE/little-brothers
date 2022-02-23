@@ -7,11 +7,12 @@ export default {
     Navbar
   },
 };
+
 </script>
 
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar v-if="!$route.meta.hideNavbar" />
     <div class="main-content">
       <router-view />
     </div>
@@ -22,7 +23,6 @@ export default {
 <style>
 html,
 body {
-  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -52,6 +52,7 @@ label {
 footer,
 .main-content:after {
   height: 32px;
+
 }
 
 </style>
