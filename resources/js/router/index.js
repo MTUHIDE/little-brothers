@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  /*
+  
   {
     path: '/',
     name: 'Login',
     component: () => import('../../views/Login.vue'),
     meta: { hideNavbar: true },
   },
-  */
+  
   {
-    path: '/',
+    path: '/login-test',
     name: 'HelloWorld',
     component: () => import('../../views/HelloWorld.vue')
   },

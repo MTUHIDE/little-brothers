@@ -1,6 +1,6 @@
 <script>
-//import Navbar from '../components/navbar/Navbar.vue';
-//require('../css/main-style.css');
+import Navbar from '../components/navbar/Navbar.vue';
+require('../css/main-style.css');
 import HeaderBar from '../views/header-bar.vue';
 import HelloWorld from '../views/HelloWorld';
 import store from './store';
@@ -8,15 +8,15 @@ import store from './store';
 export default {
   name: 'App',
   store,
-  components: { HeaderBar, HelloWorld },
+  components: { HeaderBar, HelloWorld, Navbar },
 };
 
 </script>
 
 <template>
   <div id="app">
-    <HeaderBar />
-    <HelloWorld />
+    <!-- <HeaderBar /> -->
+    <!-- <HelloWorld /> -->
     <Navbar v-if="!$route.meta.hideNavbar" />
     <div class="main-content">
       <router-view />
