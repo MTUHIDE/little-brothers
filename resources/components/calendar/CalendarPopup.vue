@@ -1,14 +1,27 @@
 <script></script>
 
 <template>
-	<div class="CalendarPopup">
-        <button type="submit" id="appointSubmit">
-            <font-awesome-icon icon="far fa-times" />
-        </button>
-        <div class="popup-inner">
-            <slot/>
-		</div>
-	</div>
+    <div class="modal fade"
+         id="appointmentModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header" style="{ border: none }">
+                    <button type="button" class="btn btn-danger" style="{ margin-right: 5px; }" data-bs-dismiss="" aria-label="Delete">
+                        <i class="icon fas fa-solid fa-trash"/>
+                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                </div>
+                <div class="modal-body">
+                    <slot/>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>

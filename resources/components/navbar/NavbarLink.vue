@@ -40,14 +40,18 @@ export default {
   text-decoration: none;
   text-align: left;
 
+  transition: all 0.3s ease-in-out;
 }
 
 .link:hover {
   background-color: var(--nb-color-hover);
+  color: var(--nb-text-color-hover);
+  text-shadow: Red 0 0 5px;
 }
 
 .link.active {
   background-color: var(--nb-color-active);
+  color: var(--nb-text-color-active);
 }
 
 .link .icon {

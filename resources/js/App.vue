@@ -10,19 +10,24 @@ export default {
   store,
   components: { HeaderBar, HelloWorld },
 };
+
 </script>
 
 <template>
   <div id="app">
     <HeaderBar />
     <HelloWorld />
+    <Navbar v-if="!$route.meta.hideNavbar" />
+    <div class="main-content">
+      <router-view />
+    </div>
+    <footer>Brought to you by HIDE (MTU)</footer>
   </div>
 </template>
 
 <style>
 html,
 body {
-  background-color: var(--bg-color);
   min-height: 100vh;
 }
 
@@ -52,6 +57,7 @@ label {
 footer,
 .main-content:after {
   height: 32px;
+
 }
 
 </style>

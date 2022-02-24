@@ -5,7 +5,8 @@ const routes = [
   {
     path: '/',
     name: 'Login',
-    component: () => import('../../views/Login.vue')
+    component: () => import('../../views/Login.vue'),
+    meta: { hideNavbar: true },
   },
   */
   {
@@ -86,11 +87,6 @@ const routes = [
     meta: { driver: true },
   },
 ];
-
-// const router = createRouter({
-//   history: createWebHistory(process.env.BASE_URL),
-//   routes
-// })
 
 const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
