@@ -1,21 +1,21 @@
 <script>
-import Navbar from '../components/navbar/Navbar.vue';
-require('../css/main-style.css');
+//import Navbar from '../components/navbar/Navbar.vue';
+//require('../css/main-style.css');
+import HeaderBar from '../views/header-bar.vue';
+import HelloWorld from '../views/HelloWorld';
+import store from './store';
 
 export default {
-  components: {
-    Navbar
-  },
+  name: 'App',
+  store,
+  components: { HeaderBar, HelloWorld },
 };
 </script>
 
 <template>
   <div id="app">
-    <Navbar />
-    <div class="main-content">
-      <router-view />
-    </div>
-    <footer>Brought to you by HIDE (MTU)</footer>
+    <HeaderBar />
+    <HelloWorld />
   </div>
 </template>
 
