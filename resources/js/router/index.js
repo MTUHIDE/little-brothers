@@ -1,18 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  
+
   {
     path: '/',
     name: 'Login',
     component: () => import('../../views/Login.vue'),
     meta: { hideNavbar: true },
   },
-  
+
   {
     path: '/login-test',
-    name: 'HelloWorld',
-    component: () => import('../../views/HelloWorld.vue')
+    name: 'HelloWorldAndNavbarTest',
+    component: () => import('../../views/HelloWorldAndNavbarTest.vue'),
+    meta: { hideNavbar: true },
   },
   {
     path: '/appointment',

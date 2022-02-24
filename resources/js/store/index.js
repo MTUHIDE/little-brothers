@@ -22,9 +22,9 @@ const store = createStore({
     return {
       msalConfig: {
         auth: {
-          clientId: 'f034fede-6795-41e5-ada3-8bb043375d39',
+          clientId: 'cbdf74e4-e6b8-45b7-8df7-9747a1f5593e',
           authority:
-            'https://login.microsoftonline.com/29ecf84e-930b-4bba-b1ea-0b2715ca3852',
+            'https://login.microsoftonline.com/0be552a2-732e-472f-afc7-3937e2a4d0e1',
         },
         cache: {
           cacheLocation: 'localStorage',

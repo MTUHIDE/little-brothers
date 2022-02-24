@@ -29,7 +29,7 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { mapMutations } from 'vuex';
 
-const storageAccountName = '';
+const storageAccountName = 'lbfebackup';
 
 export default {
   name: 'HelloWorld',
