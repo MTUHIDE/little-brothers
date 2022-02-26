@@ -5,12 +5,25 @@
 
       <!-- <Button buttonText="Back" to="\calendar"/>
         <b-button to="/calendar">Back</b-button> -->
+        <h1>Client</h1>
 
-      <h1>Client</h1>
+        <div class="button-container">
+          <button type="button" :to="redirect" :style="{ display: activeBack }" class="btn btn-primary">Back</button>
+          <button type="edit" class="btn btn-primary" id="clientEdit">Edit</button>
+        </div>
 
+        <!-- TODO Update this so that it can be populated with data from the backend-->
+        <div class="card border-dark m-3">
+          <div class="card-header">Name</div>
+          <div class="card-body">
+            <address class="card-text">Address:</address>
+            <p class="card-text">Phone:</p>
+            <p class="card-text">Mobility:</p> 
+          </div>
 
-      <button type="button" :to="redirect" :style="{ display: activeBack }" class="btn btn-primary">Back</button>
-      <button type="edit" class="btn btn-primary" id="clientEdit">Edit</button>
+        
+        </div>
+      
 
     </div>
   </div>
@@ -40,9 +53,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.flexy {
+.button-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
+
+
 </style>
