@@ -14,7 +14,7 @@ class DriverController extends Controller
      */
     public function index()
     {
-        return Driver::orderBy('driver_id', 'DESC')->get();
+        return Driver::orderBy('id', 'DESC')->get();
     }
 
     /**
