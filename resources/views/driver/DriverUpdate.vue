@@ -4,8 +4,8 @@ export default {
     return {
       clientName: '',
       status: '',
-      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way'],
-    };
+      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way']
+    }
   },
   computed: {
     driverName: {
@@ -37,16 +37,15 @@ export default {
       <!-- <b-form-select v-model="status" :options="statusOptions" id="status" /> -->
     </div>
     <div class="btn-grid">
-      <button type="button" class="btn btn-primary">
-      <!-- <b-button
-        v-for="(option, i) of statusOptions"
+      <button type="button" class="btn btn-primary"
+         v-for="(option, i) of statusOptions"
         :variant="status === option ? 'primary' : 'outline-primary'"
         @click="status = option"
-        :key="'a' + i"
-      > -->
+        :key="'a' + i">
+        <b-button> 
         {{ option }}
-      <!-- </b-button> -->
-    </button>
+        </b-button>
+      </button>
     </div>
     <div class="save-btn-area">
       <router-link tag="button" class="btn btn-secondary" to="/driver">Back</router-link>

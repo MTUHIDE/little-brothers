@@ -26,31 +26,36 @@ export default {
         return {
             cpModal: null,
             calendarOptions: {
+              height: '80vh',
+              scrollTime :  "09:00:00",
+              nowIndicator: true,
               // views: {
               //    timeGridFourDay: {
               //      type: 'timeGrid',
               //      dayCount: 4
               //    }
               //  }
-              timeGridFourDay: {
-                   type: 'timeGrid',
-                   dayCount: 3,
-                   buttonText: '3 day',
-                   duration: { days: 3 },
-                 },
+              views: {
+                timeGridThreeDay: {
+                     type: 'timeGrid',
+                     dayCount: 3,
+                     buttonText: '3 day',
+                     duration: { days: 3 },
+                   },
+              },
+
                   // agendaThreeDay: {
                   //   type: 'agenda',
                   //   duration: { days: 3 },
                   //   buttonText: '3 day'
                   // },
-                  initialView: 'timeGrid',
-                 dayCount: 3,
+                  initialView: 'timeGridThreeDay',
 
                 plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'timeGridThreeDay,timeGridWeek,timeGridDay'
+                    right: 'timeGridThreeDay,timeGridDay'
                 },
                 // initialView: 'timeGridWeek',
                 editable: true,
@@ -60,11 +65,7 @@ export default {
                 weekends: true,
                 dateClick: this.handleDateClick,
                 //select: this.handleDateSelect,
-                eventClick: (clickData) => {
-                    this.cpModal.show();
 
-                    //TODO : add appointment info param, pass info in here based on clickData.id??? idk. Data dump happen here you cylon
-                },
                 eventsSet: this.handleEvents,
                 /* you can update a remote database when these fire:
                 eventAdd:
@@ -93,6 +94,7 @@ export default {
 </script>
 
 <template>
+  <div class="container-fluid">
     <CalendarPopup>
         <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/>
     </CalendarPopup>
@@ -100,6 +102,8 @@ export default {
     <div class="cMonthView">
         <FullCalendar :options="calendarOptions"/>
     </div>
+  </div>
+
 </template>
 
 <style scoped>
