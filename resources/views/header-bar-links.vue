@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       account: undefined,
-      signin: 'https://microsoft.com',
+      signin: 'https://login.microsoftonline.com/0be552a2-732e-472f-afc7-3937e2a4d0e1',
     };
   },
   async created() {
@@ -50,9 +50,11 @@ export default {
       await this.$msalInstance
         .loginPopup({})
         .then(() => {
+
           const myAccounts = this.$msalInstance.getAllAccounts();
           this.account = myAccounts[0];
           this.$emitter.emit('login', this.account);
+          
         })
         .catch(error => {
           console.error(`error during authentication: ${error}`);
