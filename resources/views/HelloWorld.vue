@@ -80,7 +80,7 @@ export default {
     },
     async getAccessToken(){
       let request = {
-        scopes: ['https://storage.azure.chttp://localhost:8000/om/user_impersonation'],
+        scopes: ['https://storage.azure.chttp://127.0.0.1:8000/om/user_impersonation'],
       };
       const msalInstance = new PublicClientApplication(
         this.$store.state.msalConfig,
