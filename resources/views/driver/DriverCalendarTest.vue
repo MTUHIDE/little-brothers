@@ -1,5 +1,4 @@
 <script>
-
 import '@fullcalendar/core/vdom' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -8,7 +7,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 import { ref } from 'vue';
 import { Modal } from 'bootstrap';
-import CalendarPopup from './CalendarPopup.vue';
+import CalendarPopup from '../../components/calendar/CalendarPopup.vue';
 import Appointment from '../../components/busforms/Appointment.vue';
 
 export default {
@@ -27,13 +26,13 @@ export default {
         return {
             cpModal: null,
             calendarOptions: {
-                plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
+                plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'timeGridWeek,timeGridDay'
                 },
-                initialView: 'dayGridMonth',
+                initialView: 'timeGridWeek',
                 editable: true,
                 selectable: true,
                 selectMirror: true,

@@ -49,4 +49,3 @@ Route::prefix('client')->group( function() {
   Route::put('\{id}', [ClientController::class, 'update']);
   Route::delete('\{id}', [ClientController::class, 'destroy']);
 });
-
