@@ -33,6 +33,8 @@ export default {
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
+                scrollTime :  "09:00:00",
+                nowIndicator: true,
                 initialView: 'dayGridMonth',
                 editable: true,
                 selectable: true,

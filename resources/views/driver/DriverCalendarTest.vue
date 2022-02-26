@@ -28,6 +28,7 @@ export default {
             calendarOptions: {
               height: '80vh',
               scrollTime :  "09:00:00",
+              nowIndicator: true,
               // views: {
               //    timeGridFourDay: {
               //      type: 'timeGrid',
