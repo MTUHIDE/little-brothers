@@ -26,13 +26,33 @@ export default {
         return {
             cpModal: null,
             calendarOptions: {
+              // views: {
+              //    timeGridFourDay: {
+              //      type: 'timeGrid',
+              //      dayCount: 4
+              //    }
+              //  }
+              timeGridFourDay: {
+                   type: 'timeGrid',
+                   dayCount: 3,
+                   buttonText: '3 day',
+                   duration: { days: 3 },
+                 },
+                  // agendaThreeDay: {
+                  //   type: 'agenda',
+                  //   duration: { days: 3 },
+                  //   buttonText: '3 day'
+                  // },
+                  initialView: 'timeGrid',
+                 dayCount: 3,
+
                 plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'timeGridWeek,timeGridDay'
+                    right: 'timeGridThreeDay,timeGridWeek,timeGridDay'
                 },
-                initialView: 'timeGridWeek',
+                // initialView: 'timeGridWeek',
                 editable: true,
                 selectable: true,
                 selectMirror: true,
