@@ -35,12 +35,12 @@
 
         <div class="mb-3">
           <label for="driver" class="form-label" >Driver: </label>
-          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="driverName" required>
+          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="selected.driverName" required>
               <!-- TODO: replace with driver lookup request -->
               <option disabled>--Select a Driver--</option>
-            <option>Driver 1</option>
-            <option>Driver 2</option>
-            <option>Driver 3</option>
+              <option v-for="driverName in drivers" :key="driverName.driver_name">
+                  {{driverName.driver_name}}
+              </option>
           </select>
           <!-- <p v-if="!editing">{{driverName}}</p> -->
           <!-- <p>{{driverName}}</p> -->
@@ -111,8 +111,15 @@
         appDate: "",
         pickupAddress: "",
         dropoffAddress: "",
-        clientNotes: ""
+        clientNotes: "",
+        drivers: [],
+        selected:{
+            driverName:""
+        }
       }
+    },
+    mounted() {
+      this.getDrivers();
     },
     methods: {
       submitForm() {
@@ -130,7 +137,17 @@
         .catch((error) => {
           console.log(error)
         })
-      }
+      },
+
+      getDrivers(){
+        this.$axios.get('/api/drivers')
+            .then((driversdata) => {
+                console.log(driversdata);
+                this.drivers = driversdata.data;
+            }).catch((error) => {
+                console.log(error)
+            })
+        },
     }
   }
 </script>
