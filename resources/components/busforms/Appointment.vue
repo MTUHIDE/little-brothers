@@ -27,7 +27,13 @@
 
         <div class="mb-3">
           <label for="name" class="form-label">Client: </label>
-          <input name="name" type="text" class="form-control" v-if="editing" id="name" v-model="clientName" required>
+          <select id="name" name="name" class="form-select" v-if="editing" v-model="selectedClient.clientName" required>
+            <option disabled>--Select a Client--</option>
+            <option v-for="clientName in clients" :key="clientName.client_name">
+                {{ clientName.client_name }}
+            </option>
+          </select>
+          
           <!-- <p v-if="!editing">{{clientName}}</p> -->
           <!-- <p>{{clientName}}</p> -->
         </div>
@@ -35,11 +41,11 @@
 
         <div class="mb-3">
           <label for="driver" class="form-label" >Driver: </label>
-          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="selected.driverName" required>
+          <select id="driver" name="driver" class="form-select" v-if="editing" v-model="selectedDriver.driverName" required>
               <!-- TODO: replace with driver lookup request -->
               <option disabled>--Select a Driver--</option>
               <option v-for="driverName in drivers" :key="driverName.driver_name">
-                  {{driverName.driver_name}}
+                  {{ driverName.driver_name }}
               </option>
           </select>
           <!-- <p v-if="!editing">{{driverName}}</p> -->
@@ -105,21 +111,26 @@
     data() {
       return {
         editing: this.editMode,
-        clientName: "",
+        // clientName: "",
         title: "",
-        driverName: "",
+        // driverName: "",
         appDate: "",
         pickupAddress: "",
         dropoffAddress: "",
         clientNotes: "",
         drivers: [],
-        selected:{
+        clients: [],
+        selectedDriver:{
             driverName:""
+        },
+        selectedClient:{
+          clientName: ""
         }
       }
     },
     mounted() {
       this.getDrivers();
+      this.getClients();
     },
     methods: {
       submitForm() {
@@ -141,13 +152,23 @@
 
       getDrivers(){
         this.$axios.get('/api/drivers')
-            .then((driversdata) => {
-                console.log(driversdata);
-                this.drivers = driversdata.data;
-            }).catch((error) => {
-                console.log(error)
-            })
-        },
+          .then((driversdata) => {
+              console.log(driversdata);
+              this.drivers = driversdata.data;
+          }).catch((error) => {
+              console.log(error)
+          })
+      },
+
+      getClients(){
+        this.$axios.get('/api/clients')
+          .then((clientdata) => {
+              console.log(clientdata);
+              this.clients = clientdata.data;
+          }).catch((error) => {
+              console.log(error)
+          })
+      }
     }
   }
 </script>
