@@ -13,15 +13,13 @@
         </div>
 
         <!-- TODO Update this so that it can be populated with data from the backend-->
-        <div class="card border-dark m-3">
+        <div class="card text-start border-dark m-3">
           <div class="card-header">Name</div>
           <div class="card-body">
             <address class="card-text">Address:</address>
             <p class="card-text">Phone:</p>
             <p class="card-text">Mobility:</p> 
           </div>
-
-        
         </div>
       
 
