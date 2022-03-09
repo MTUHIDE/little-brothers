@@ -8,13 +8,11 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { ref } from 'vue';
 import { Modal } from 'bootstrap';
 import DriverCalendarPopup from './DriverCalendarPopup.vue';
-import Appointment from '../busforms/Appointment.vue';
 
 export default {
     components: {
         FullCalendar, // make the <FullCalendar> tag available
         DriverCalendarPopup,
-        Appointment
     },
     data() {
         const popupTriggers = ref({
@@ -24,6 +22,14 @@ export default {
             popupTriggers.value[trigger] = !popupTriggers.value[trigger]
         }
         return {
+            appointmentNotes: '',
+            clientName: '',
+            driverName: '',
+            startDateTime: '',
+            pickupAddress: '',
+            destinationAddress: '',
+            appointmentTitle: '',
+            mobility: '',
             cpModal: null,
             calendarOptions: {
               height: '80vh',
@@ -51,11 +57,17 @@ export default {
                 selectMirror: true,
                 dayMaxEvents: true,
                 weekends: true,
-                dateClick: this.handleDateClick,
+                // dateClick: this.handleDateClick,
                 eventClick: (clickData) => {
-                    this.cpModal.show();
-
-                    //TODO : add appointment info param, pass info in here based on clickData.id??? idk. Data dump happen here you cylon
+                    this.cpModal.show(clickData);
+                    this.appointmentNotes = clickData.event.extendedProps['appointment_notes'];
+                    this.clientName = clickData.event.extendedProps['client_name'];
+                    this.driverName = clickData.event.extendedProps['driver_name'];
+                    this.pickupAddress = clickData.event.extendedProps['pickup_address'];
+                    this.destinationAddress = clickData.event.extendedProps['destination_address'];
+                    this.appointmentTitle = clickData.event.extendedProps['appointment_title'];
+                    this.mobility = clickData.event.extendedProps['mobility'];
+                    this.startDateTime = clickData.event.start;
                 },
                 //select: this.handleDateSelect,
 
@@ -73,12 +85,12 @@ export default {
     },
     // get access to modal for manipulation
     mounted() {
-        this.cpModal = new Modal(document.getElementById('appointmentModal'), null);
+        this.cpModal = new Modal(document.getElementById('driverAppointmentModal'), null);
     },
     methods: {
-        handleDateClick: function(arg) {
-            confirm('Mega test! - you clicked the date')
-        },
+        // handleDateClick: function(arg) {
+        //     confirm('Mega test! - you clicked the date')
+        // },
         handleEvents(events) {
             this.currentEvents = events
         },
@@ -88,9 +100,9 @@ export default {
 
 <template>
   <div class="container-fluid">
-    <CalendarPopup>
-        <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/>
-    </CalendarPopup>
+    <DriverCalendarPopup :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
+        <!-- <DriverAppointmentInfo :redirect="'/calendar'" :activeBack="'none'"/> -->
+    </DriverCalendarPopup>
 
     <div class="cMonthView">
         <FullCalendar :options="calendarOptions"/>

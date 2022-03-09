@@ -42,7 +42,7 @@ class AppointmentController extends Controller
                        ->whereDate('appointment_date_time', '>=', $start_date_time)
                        ->whereDate('appointment_date_time', '<=', $end_date_time)
                        // ->get(['client_name as title', 'appointment_date_time as start']);
-                       ->get(['appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
+                       ->get(['appointments.id', 'appointment_title', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
             return response()->json($data);
       // }
     // return view('full-calender');
