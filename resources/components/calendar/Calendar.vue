@@ -66,7 +66,16 @@ export default {
     },
     methods: {
         handleDateClick: function(arg) {
-            confirm('Mega test! - you clicked the date')
+          console.log("hello");
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + arg.dateStr);
+
+            // confirm('Mega test! - you clicked the date');
+
+            let calendarApi = this.$refs.fullCalendar.getApi()
+            let newDate = arg['dateStr'];
+            // console.log(newDate);
+            calendarApi.changeView('timeGridDay', newDate);
+            // calendarApi.gotoDate(arg.date["dateStr"]);
         },
         handleEvents(events) {
             this.currentEvents = events
@@ -81,7 +90,7 @@ export default {
     </CalendarPopup>
 
     <div class="cMonthView">
-        <FullCalendar :options="calendarOptions"/>
+        <FullCalendar ref="fullCalendar" :options="calendarOptions"/>
     </div>
 </template>
 

@@ -57,9 +57,8 @@ export default {
                 selectMirror: true,
                 dayMaxEvents: true,
                 weekends: true,
-                // dateClick: this.handleDateClick,
                 eventClick: (clickData) => {
-                    this.cpModal.show(clickData);
+                    this.cpModal.show();
                     this.appointmentNotes = clickData.event.extendedProps['appointment_notes'];
                     this.clientName = clickData.event.extendedProps['client_name'];
                     this.driverName = clickData.event.extendedProps['driver_name'];
@@ -88,9 +87,6 @@ export default {
         this.cpModal = new Modal(document.getElementById('driverAppointmentModal'), null);
     },
     methods: {
-        // handleDateClick: function(arg) {
-        //     confirm('Mega test! - you clicked the date')
-        // },
         handleEvents(events) {
             this.currentEvents = events
         },
