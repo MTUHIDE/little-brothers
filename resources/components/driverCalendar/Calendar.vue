@@ -7,13 +7,13 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 import { ref } from 'vue';
 import { Modal } from 'bootstrap';
-import CalendarPopup from '../../components/calendar/CalendarPopup.vue';
-import Appointment from '../../components/busforms/Appointment.vue';
+import DriverCalendarPopup from './DriverCalendarPopup.vue';
+import Appointment from '../busforms/Appointment.vue';
 
 export default {
     components: {
         FullCalendar, // make the <FullCalendar> tag available
-        CalendarPopup,
+        DriverCalendarPopup,
         Appointment
     },
     data() {
@@ -29,12 +29,6 @@ export default {
               height: '80vh',
               scrollTime :  "09:00:00",
               nowIndicator: true,
-              // views: {
-              //    timeGridFourDay: {
-              //      type: 'timeGrid',
-              //      dayCount: 4
-              //    }
-              //  }
               views: {
                 timeGridThreeDay: {
                      type: 'timeGrid',
@@ -43,13 +37,7 @@ export default {
                      duration: { days: 3 },
                    },
               },
-
-                  // agendaThreeDay: {
-                  //   type: 'agenda',
-                  //   duration: { days: 3 },
-                  //   buttonText: '3 day'
-                  // },
-                  initialView: 'timeGridThreeDay',
+                  initialView: 'timeGridDay',
 
                 plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
@@ -64,6 +52,11 @@ export default {
                 dayMaxEvents: true,
                 weekends: true,
                 dateClick: this.handleDateClick,
+                eventClick: (clickData) => {
+                    this.cpModal.show();
+
+                    //TODO : add appointment info param, pass info in here based on clickData.id??? idk. Data dump happen here you cylon
+                },
                 //select: this.handleDateSelect,
 
                 eventsSet: this.handleEvents,

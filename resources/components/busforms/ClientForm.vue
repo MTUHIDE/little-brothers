@@ -23,21 +23,21 @@
               <div class="col-4">
                 <p class="card-text fw-bold">Address: </p>
                 <p class="card-text fw-bold">Phone number:</p>
-                <p class="card-text fw-bold">Mobility:</p> 
-                <p class="card-text fw-bold">Number of cancels:</p> 
-                <p class="card-text fw-bold">Additional notes:</p> 
+                <p class="card-text fw-bold">Mobility:</p>
+                <p class="card-text fw-bold">Number of cancels:</p>
+                <p class="card-text fw-bold">Additional notes:</p>
               </div>
               <div class="col">
                 <p class="card-text">TMP 713 Road St Apt 2 </p>
                 <p class="card-text">TMP (906) 333-1542</p>
-                <p class="card-text">TMP Wheelchair</p> 
-                <p class="card-text">TMP 2</p> 
-                <p class="card-text">TMP Is partially deaf</p> 
+                <p class="card-text">TMP Wheelchair</p>
+                <p class="card-text">TMP 2</p>
+                <p class="card-text">TMP Is partially deaf</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -47,6 +47,14 @@
               </div>
               <div class="modal-body">
                 <!-- TODO Update these to be poulated with data from the backend -->
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
                 <div class="mb-3 row">
                   <label for="name" class="col-sm-2 col-form-label">Name:</label>
                   <div class="col-sm-10">
@@ -64,16 +72,16 @@
                   <div class="col-sm-10">
                     <input type="text" class="form-control-plaintext border rounded" id="phoneNumber" value=" TMP (906) 333-1542">
                   </div>
-                </div> 
+                </div>
                 <div class="mb-3 row">
                   <label for="mobility" class="col-sm-2 col-form-label">Mobility:</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control-plaintext border rounded" id="mobility" value=" TMP Wheelchair">
                   </div>
-                </div> 
+                </div>
                 <div class="mb-3 row">
                   <label for="numberOfCancels" class="col-sm-5 col-form-label text-start">Number of Cancels:</label>
-                  <div class="col-sm-5"> 
+                  <div class="col-sm-5">
                     <input type="number" class="border rounded mt-2" id="numberOfCancels" min="0">
                   </div>
                 </div>
@@ -113,6 +121,21 @@ export default {
       clientNotes: "",
     };
   },
+  mounted() {
+    this.getClients();
+  },
+  methods: {
+    getClients() {
+      this.$axios.get('/api/clients')
+        .then((clientsdata) => {
+            console.log(clientsdata);
+            // this.clients = clientsdata.data;
+        }).catch((error) => {
+            console.log(error)
+        })
+    },
+  },
+
 };
 </script>
 
