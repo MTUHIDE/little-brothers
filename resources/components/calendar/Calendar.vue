@@ -28,8 +28,16 @@ export default {
             cpModal: null,
             calendarOptions: {
                 plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
+                customButtons: {
+                  addAppointmentButton: {
+                    text: '+ Create',
+                    hint: 'Create appointment',
+                    // icon: 'fa fas fa-plus',
+                    click: this.showModal,
+                  }
+                },
                 headerToolbar: {
-                    left: 'prev,next today',
+                    left: 'addAppointmentButton prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
@@ -66,11 +74,18 @@ export default {
     },
     methods: {
         handleDateClick: function(arg) {
-            confirm('Mega test! - you clicked the date')
+            // Get api instance
+            let calendarApi = this.$refs.fullCalendar.getApi();
+            let newDate = arg['dateStr'];
+            // go to clicked on date and switch to day view
+            calendarApi.changeView('timeGridDay', newDate);
         },
         handleEvents(events) {
             this.currentEvents = events
         },
+        showModal() {
+          this.cpModal.show();
+        }
     }
 }
 </script>
@@ -81,7 +96,7 @@ export default {
     </CalendarPopup>
 
     <div class="cMonthView">
-        <FullCalendar :options="calendarOptions"/>
+        <FullCalendar ref="fullCalendar" :options="calendarOptions"/>
     </div>
 </template>
 
@@ -89,5 +104,9 @@ export default {
 .cMonthView {
     margin: 5%;
     padding: 2px;
+}
+
+.fc-icon-fa {
+  font-family: FontAwesome;
 }
 </style>
