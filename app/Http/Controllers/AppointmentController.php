@@ -123,7 +123,12 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Find id
+        $existingAppointment= Appointment::find( $id );
+        if(!$existingAppointment){
+            return "Appointment not found.";
+        }
+        
     }
 
     /**
@@ -135,7 +140,40 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validate
+        $validated = $request->validate([
+            'clientNotes' => 'max:255',
+            'appDate' => 'required|date_format:Y-m-d\TH:i',
+            'pickupAddress' => 'required|max:255',
+            'title' => 'required|max:100',
+            'dropoffAddress' => 'required|max:255',
+        ]);
+
+        //Find id
+        $existingAppointment = Appointment::find( $id );
+        if(!$existingAppointment){
+            return "Appointment not found.";
+        }
+        //Update data
+        if(isset($request['clientNotes'])){
+            $existingAppointment->clientNotes = $request['clientNotes'];
+        }
+        if(isset($request['appDate'])){
+            $existingAppointment->appDate = $request['appDate'];
+        }
+        if(isset($request['pickedupAddress'])){
+            $existingAppointment->pickedupAddress = $request['pickedupAddress'];
+        }
+        if(isset($request['title'])){
+            $existingAppointment->title = $request['title'];
+        }
+        if(isset($request['dropoffAddress'])){
+            $existingAppointment->dropoffAddress = $request['dropoffAddress'];
+        }
+
+        $existingAppointment->save();
+        return $existingAppointment;
+
     }
 
     /**
@@ -146,6 +184,12 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $existingAppointment = Appointment::find($id);
+
+        if($existingAppointment){
+            $existingAppointment->delete();
+            return "Appointment successfully deleted.";
+        }
+        return "Item not found.";
     }
 }
