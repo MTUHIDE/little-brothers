@@ -17,9 +17,8 @@ export default {
 
       <!-- Navbar - Admin Items -->
       <form v-if="$route.meta.admin">
-        
+
         <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
-        <NavbarLink to="/appointment" icon="fas fa-plus-square" floatDir="left" text="Add Appointment"/>
         <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
         <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
@@ -43,7 +42,7 @@ export default {
     align-items: center;
     justify-content: space-between;
   }
- 
+
   .navbar {
     color: var(--nb-text-color);
     background-color: var(--nb-color);

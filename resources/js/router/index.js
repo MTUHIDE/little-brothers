@@ -16,12 +16,6 @@ const routes = [
     meta: { hideNavbar: true },
   },
   {
-    path: '/appointment',
-    name: 'AddEditAppointment',
-    component: () => import('../../views/desktop/AddEditAppointment.vue'),
-    meta: { admin: true },
-  },
-  {
     path: '/calendar',
     name: 'DesktopCalendar',
     component: () => import('../../views/desktop/DesktopCalendar.vue'),

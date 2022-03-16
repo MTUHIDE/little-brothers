@@ -33,7 +33,7 @@
                 {{ clientName.client_name }}
             </option>
           </select>
-          
+
           <!-- <p v-if="!editing">{{clientName}}</p> -->
           <!-- <p>{{clientName}}</p> -->
         </div>
@@ -106,7 +106,7 @@
     props: {
         editMode:   { type: Boolean, required: false, default: false},
         activeBack: { type: String, required: false, default: "flex" },
-        redirect:   { type: String,  required: true },
+        redirect:   { type: String,  required: false },
     },
     data() {
       return {
