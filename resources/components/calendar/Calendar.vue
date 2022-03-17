@@ -10,13 +10,13 @@ import { ref } from 'vue';
 import { Modal } from 'bootstrap';
 import CalendarPopup from './CalendarPopup.vue';
 import DriverCalendarPopup from '../driverCalendar/DriverCalendarPopup.vue';
-// import Appointment from '../busforms/Appointment.vue';
+import SuccessAlert from '../busforms/SuccessAlert.vue';
 
 export default {
     components: {
         FullCalendar, // make the <FullCalendar> tag available
         CalendarPopup,
-        // Appointment
+        SuccessAlert,
     },
     data() {
         const popupTriggers = ref({
@@ -26,6 +26,7 @@ export default {
             popupTriggers.value[trigger] = !popupTriggers.value[trigger]
         }
         return {
+            isShow: false,
             addTitle: "",
             addAppDate: "",
             addPickupAddress: "",
@@ -121,6 +122,9 @@ export default {
         hideModal() {
           this.cpAddModal.hide();
         },
+        showAlert() {
+          this.isShow = true;
+        },
         submitForm() {
           this.$axios.post('/api/appointment/store', {
             title: this.addTitle,
@@ -133,6 +137,7 @@ export default {
           }).then(response => {
             // this.$bvModal.hide('modal-2')
             this.hideModal();
+            this.showAlert();
             console.log(response);
           })
           .catch((error) => {
@@ -164,6 +169,7 @@ export default {
 </script>
 
 <template>
+    <SuccessAlert v-show="isShow" alertStrongText="Success!" alertBodyText="Appointment information saved"/>
     <CalendarPopup :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
         <!-- <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/> -->
     </CalendarPopup>
