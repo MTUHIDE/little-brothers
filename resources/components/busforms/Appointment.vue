@@ -83,7 +83,7 @@
         <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button>
       </form>
 
-      <button type="button" :to="redirect" :style="{ display: activeBack }" class="btn btn-secondary">Back</button>
+      <!-- <button type="button" :to="redirect" :style="{ display: activeBack }" class="btn btn-secondary">Back</button> -->
 
       <!-- <b-button v-if=!editing v-on:click="editing = !editing">Edit</b-button>
         <b-button v-if="editing" v-on:click="editing = !editing">Save</b-button> -->
@@ -143,6 +143,7 @@
           dropoffAddress: this.dropoffAddress,
           clientNotes: this.clientNotes
         }).then(response => {
+          this.$bvModal.hide('modal-2')
           console.log(response);
         })
         .catch((error) => {
