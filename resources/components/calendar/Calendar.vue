@@ -125,6 +125,10 @@ export default {
         showAlert() {
           this.isShow = true;
         },
+        refetchEvents() {
+          let calendarApi = this.$refs.fullCalendar.getApi();
+          calendarApi.refetchEvents();
+        },
         submitForm() {
           this.$axios.post('/api/appointment/store', {
             title: this.addTitle,
@@ -138,6 +142,7 @@ export default {
             // this.$bvModal.hide('modal-2')
             this.hideModal();
             this.showAlert();
+            this.refetchEvents();
             console.log(response);
           })
           .catch((error) => {
