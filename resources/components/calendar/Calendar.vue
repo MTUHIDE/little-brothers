@@ -123,9 +123,11 @@ export default {
           this.cpAddModal.hide();
         },
         showAlert() {
+          // show success alert
           this.isShow = true;
         },
         refetchEvents() {
+          // refresh calendar appointments
           let calendarApi = this.$refs.fullCalendar.getApi();
           calendarApi.refetchEvents();
         },
@@ -193,7 +195,7 @@ export default {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                 </div>
                 <div class="modal-body">
-                  <form @submit.prevent="submitForm">
+                  <form id="submitForm" @submit.prevent="submitForm">
 
                     <br/>
 
@@ -259,8 +261,12 @@ export default {
                       <!-- <p>{{clientNotes}}</p> -->
                     </div>
 
-                    <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button>
+                    <!-- <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button> -->
                   </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" id="appointSubmit" form="submitForm" class="btn btn-primary">Add</button>
                 </div>
             </div>
         </div>
