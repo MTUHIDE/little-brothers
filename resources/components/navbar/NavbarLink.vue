@@ -8,6 +8,8 @@ export default {
     floatDir: { type: String, required: false}
   },
 }
+
+
 </script>
 
 <template>
@@ -15,7 +17,7 @@ export default {
         <router-link type="button" class="btn btn-sm link" :to="to" :style="{ float: floatDir}" value="link">
           <span>
             <i class="icon" :class="icon" />
-            {{text}}
+            <span class ="linkText">{{text}}</span>
           </span>
         </router-link>
     </transition>

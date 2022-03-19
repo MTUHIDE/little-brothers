@@ -17,7 +17,6 @@ export default {
 
       <!-- Navbar - Admin Items -->
       <form v-if="$route.meta.admin">
-
         <NavbarLink to="/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
         <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
