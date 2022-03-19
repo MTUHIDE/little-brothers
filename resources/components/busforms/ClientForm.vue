@@ -48,19 +48,21 @@
               <div class="modal-body">
                 <!-- TODO Update these to be poulated with data from the backend -->
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <label for="name">Name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
+                <!--
                 <div class="mb-3 row">
                   <label for="name" class="col-sm-2 col-form-label">Name:</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control-plaintext border rounded" id="name" value=" TMP Carl Wheezer">
                   </div>
                 </div>
+                -->
                 <div class="mb-3 row">
                   <label for="address" class="col-sm-2 col-form-label">Address:</label>
                   <div class="col-sm-10">
