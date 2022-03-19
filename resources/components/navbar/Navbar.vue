@@ -31,7 +31,8 @@ export default {
         <NavbarLink to="/driver" icon="fas fa-user" floatDir="left" text="Clients"/>
       </form>
 
-      <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/>
+      <!-- <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/> -->
+      <NavbarLink to="/" icon="fas fa-sign-out-alt" floatDir="right" text="Log Out"/>
   </ul>
 </template>
 

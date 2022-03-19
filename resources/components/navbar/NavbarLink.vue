@@ -25,6 +25,12 @@ export default {
 
 <style scoped>
 
+@media only screen and (max-width: 660px) {
+  .linkText {
+    display: none;
+  }
+}
+
 .link {
   display: -inline-flexbox;
   align-items: left;
