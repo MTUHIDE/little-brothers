@@ -27,16 +27,16 @@ export default {
                   <button type="button" class="btn btn-primary me-1" aria-label="Edit">
                       <i class="fas fa-edit"></i> Edit
                   </button>
-                    <button type="button" class="btn btn-danger" aria-label="Delete">
-                        <i class="icon fas fa-solid fa-trash"/> Delete
-                    </button>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                  <button type="button" class="btn btn-danger" aria-label="Delete">
+                      <i class="icon fas fa-solid fa-trash"/> Delete
+                  </button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                 </div>
                 <div class="modal-body">
                   <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-clock"></i></span>Title:</div><p>{{ appointmentTitle }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-calendar"></i></span>Date/Time:</div><p>{{ eventStart }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-home"></i></span>Pickup Address:</div><p>{{ pickupAddress }}</p>
-                  <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-map-marker-alt"></i></span>Destination Address:</div><p>{{ destinationAddress }}</p>
+                    <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-map-marker-alt"></i></span>Destination Address:</div><p>{{ destinationAddress }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-clipboard"></i></span>Appointment Notes:</div><p>{{ appointmentNotes }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-wheelchair"></i></span>Mobility:</div><p>{{ mobility }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-user"></i></span>Client Name:</div><p>{{ clientName }}</p>
