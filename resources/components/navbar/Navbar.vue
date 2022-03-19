@@ -21,14 +21,12 @@ export default {
         <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
         <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
-        <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/>
       </form>
 
       <!-- Navbar - Driver Items -->
       <form v-else-if="$route.meta.driver">
         <NavbarLink to="/driver/calendar" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
         <NavbarLink to="/driver/update" icon="fas fa-edit" floatDir="left" text="Update"/>
-        <NavbarLink to="/driver" icon="fas fa-user" floatDir="left" text="Clients"/>
       </form>
 
       <!-- <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/> -->

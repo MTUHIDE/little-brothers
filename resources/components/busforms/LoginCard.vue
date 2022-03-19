@@ -36,7 +36,7 @@ export default {
               <ButtonBlock class="mt-3 mb-3" buttonBlockText="Log in" />
             <!-- <button to="/driver" class="btn btn-primary my-2"></button>
             <button to="/calendar" class="btn btn-primary mt-2"></button> -->
-            <router-link class="btn btn-primary mt-2" to="/driver">Go to Driver site</router-link>
+            <router-link class="btn btn-primary mt-2" to="/driver/calendar">Go to Driver site</router-link>
             <router-link class="btn btn-primary mt-2" to="/calendar">Go to Admin site</router-link>
           </form>
         </div>
