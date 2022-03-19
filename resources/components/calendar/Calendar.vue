@@ -141,11 +141,9 @@ export default {
             dropoffAddress: this.addDropoffAddress,
             clientNotes: this.addClientNotes
           }).then(response => {
-            // this.$bvModal.hide('modal-2')
             this.hideModal();
             this.showAlert();
             this.refetchEvents();
-            console.log(response);
           })
           .catch((error) => {
             console.log(error)
@@ -155,7 +153,6 @@ export default {
         getDrivers(){
           this.$axios.get('/api/drivers')
             .then((driversdata) => {
-                console.log(driversdata);
                 this.addDrivers = driversdata.data;
             }).catch((error) => {
                 console.log(error)
@@ -165,7 +162,6 @@ export default {
         getClients(){
           this.$axios.get('/api/clients')
             .then((clientdata) => {
-                console.log(clientdata);
                 this.addClients = clientdata.data;
             }).catch((error) => {
                 console.log(error)
