@@ -1,23 +1,18 @@
 <script>
-import Navbar from '../components/navbar/Navbar.vue';
-require('../css/main-style.css');
-import HeaderBar from '../views/header-bar.vue';
-import HelloWorld from '../views/HelloWorld';
-import store from './store';
+import Navbar from "../components/navbar/Navbar.vue";
+require("../css/main-style.css");
+import store from "./store";
 
 export default {
-  name: 'App',
+  name: "App",
   store,
-  components: { HeaderBar, HelloWorld, Navbar },
+  components: { Navbar },
 };
-
 </script>
 
 <template>
   <div id="app">
-    <!-- <HeaderBar /> -->
-    <!-- <HelloWorld /> -->
-    <Navbar v-if="!$route.meta.hideNavbar" />
+    <Navbar v-if="!$route.meta.hideNavbar"/>
     <div class="main-content">
       <router-view />
     </div>
@@ -50,14 +45,12 @@ label {
 }
 
 .main-content:after {
-  content: '';
+  content: "";
   display: block;
 }
 
 footer,
 .main-content:after {
   height: 32px;
-
 }
-
 </style>

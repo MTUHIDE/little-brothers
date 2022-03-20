@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import LoginCard from '../components/busforms/LoginCard.vue';
+import LoginCard from '../components/login/LoginCard.vue';
 export default {
   name: 'Login',
   components: {

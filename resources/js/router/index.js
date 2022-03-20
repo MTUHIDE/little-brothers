@@ -1,18 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-
   {
     path: '/',
     name: 'Login',
     component: () => import('../../views/Login.vue'),
-    meta: { hideNavbar: true },
-  },
-
-  {
-    path: '/login-test',
-    name: 'HelloWorldAndNavbarTest',
-    component: () => import('../../views/HelloWorldAndNavbarTest.vue'),
     meta: { hideNavbar: true },
   },
   {
@@ -44,12 +36,12 @@ const routes = [
     name: 'DriverList',
     component: () => import('../../views/desktop/DriverList.vue'),
     meta: { admin: true },
-  },
-  {
-    path: '/driver',
-    name: 'DriverHome',
-    component: () => import('../../views/driver/DriverHome.vue'),
-    meta: { driver: true },
+  // },
+  // {    This component was removed, but the route still existed so commented out until this gets resolved
+  //   path: '/driver',
+  //   name: 'DriverHome',
+  //   component: () => import('../../views/driver/DriverHome.vue'),
+  //   meta: { driver: true },
   },
   {
     path: '/driver/about',
