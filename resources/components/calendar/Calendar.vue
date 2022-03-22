@@ -163,6 +163,7 @@ export default {
           this.$axios.get('/api/clients')
             .then((clientdata) => {
                 this.addClients = clientdata.data;
+                console.log(this.addClients);
             }).catch((error) => {
                 console.log(error)
             })
@@ -206,13 +207,12 @@ export default {
                       <label for="name" class="form-label">Client: </label>
                       <select id="name" name="name" class="form-select" v-model="selectedClient.addClientName" required>
                         <option disabled>--Select a Client--</option>
-                        <option v-for="addClientName in addClients" :key="clientName.client_name">
+                        <option v-for="addClientName in addClients" :key="addClientName.id" v-bind:value="addClientName.id">
                             {{ addClientName.client_name }}
                         </option>
                       </select>
-
+                      <!-- <p>client id: {{ selectedClient.addClientName }}</p> -->
                       <!-- <p v-if="!editing">{{clientName}}</p> -->
-                      <!-- <p>{{clientName}}</p> -->
                     </div>
 
 
@@ -221,12 +221,12 @@ export default {
                       <select id="driver" name="driver" class="form-select" v-model="selectedDriver.addDriverName" required>
                           <!-- TODO: replace with driver lookup request -->
                           <option disabled>--Select a Driver--</option>
-                          <option v-for="addDriverName in addDrivers" :key="driverName.driver_name">
+                          <option v-for="addDriverName in addDrivers" :key="addDriverName.id" v-bind:value="addDriverName.id">
                               {{ addDriverName.driver_name }}
                           </option>
                       </select>
+                      <!-- <p>Driver id: {{ selectedDriver.addDriverName }}</p> -->
                       <!-- <p v-if="!editing">{{driverName}}</p> -->
-                      <!-- <p>{{driverName}}</p> -->
                     </div>
 
                     <div class="mb-3">
