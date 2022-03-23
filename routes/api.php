@@ -30,6 +30,7 @@ Route::prefix('/item')->group(function() {
 });
 
 Route::get('/appointments', [AppointmentController::class, 'index']);
+Route::get('/appointments/{id}/edit', [AppointmentController::class, 'edit']);
 Route::prefix('/appointment')->group(function() {
   Route::post('/store', [AppointmentController::class, 'store']);
   Route::put('/{id}', [AppointmentController::class, 'update']);

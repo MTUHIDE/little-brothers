@@ -125,10 +125,14 @@ class AppointmentController extends Controller
     {
         //Find id
         $existingAppointment= Appointment::find( $id );
+        //Check appointment existence
         if(!$existingAppointment){
             return "Appointment not found.";
         }
-        
+        // show the edit form and pass the appointment
+        return View::make('Appointment.edit')
+            ->with('Appointment', $existingAppointment);
+
     }
 
     /**
