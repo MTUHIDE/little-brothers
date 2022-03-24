@@ -50,7 +50,7 @@ const routes = [
     meta: { driver: true },
   },
   {
-    path: '/driver/calendar',
+    path: '/driver',
     name: 'DriverCalendar',
     component: () => import('../../views/driver/DriverCalendar.vue'),
     // component: () => import('../../views/driver/DriverCalendar.vue'),
