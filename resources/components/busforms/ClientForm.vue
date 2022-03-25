@@ -15,8 +15,14 @@
           <button type="button" class="btn btn-primary px-3" id="clientEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
-       
-        <AccordionList v-show="1" title="Worm" content="this works"/>
+        
+        <AccordionList 
+          v-show="1" 
+          v-for="client in clients"
+          :key="client.id"
+          :name="client.client_name"
+          :client_address="client.client_address"
+        ></AccordionList>
 
         <!-- TODO Update this so that it can be populated with data from the backend-->
         <div class="card text-start border-dark mx-auto w-50" >
@@ -120,6 +126,7 @@ export default {
   },
   data() {
     return {
+      //TODO Remove any un-used items from here
       editing: this.editMode,
       clientName: "",
       title: "",
@@ -128,6 +135,7 @@ export default {
       pickupAddress: "",
       dropoffAddress: "",
       clientNotes: "",
+      clients: [],
     };
   },
   mounted() {
@@ -138,7 +146,7 @@ export default {
       this.$axios.get('/api/clients')
         .then((clientsdata) => {
             console.log(clientsdata);
-            // this.clients = clientsdata.data;
+            this.clients = clientsdata.data;
         }).catch((error) => {
             console.log(error)
         })

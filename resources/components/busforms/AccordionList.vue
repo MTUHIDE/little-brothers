@@ -1,5 +1,5 @@
 <template>
-  <div class="accordion" id="accordionFlushExample">
+  <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
         <button
@@ -10,16 +10,16 @@
           aria-expanded="false"
           aria-controls="flush-collapseOne"
         >
-          {{title}}
+          {{name}}
         </button>
       </h2>
       <div
         id="flush-collapseOne"
         class="accordion-collapse collapse"
         aria-labelledby="flush-headingOne"
-        data-bs-parent="#accordionFlushExample"
+        data-bs-parent="#accordionExample"
       >
-        <div class="accordion-body">{{content}}</div>
+        <div class="accordion-body">{{client_address}}</div>
       </div>
     </div>
   </div>
@@ -30,8 +30,8 @@ export default {
   name: "AccordionList",
 
   props: {
-    title: { type: String, required: true },
-    content: { type: String, required: true }
+    name: { type: String, required: true },
+    client_address: { type: String, required: true }
   }
 };
 </script>
