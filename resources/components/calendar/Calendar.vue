@@ -139,7 +139,9 @@ export default {
             appDate: this.addAppDate,
             pickupAddress: this.addPickupAddress,
             dropoffAddress: this.addDropoffAddress,
-            clientNotes: this.addClientNotes
+            clientNotes: this.addClientNotes,
+            // clientId: this.,
+            // driverId: this.,
           }).then(response => {
             this.hideModal();
             this.showAlert();
@@ -204,9 +206,9 @@ export default {
                     </div>
 
                     <div class="mb-3">
-                      <label for="name" class="form-label">Client: </label>
+                      <label for="name" class="form-label">Elder: </label>
                       <select id="name" name="name" class="form-select" v-model="selectedClient.addClientName" required>
-                        <option disabled>--Select a Client--</option>
+                        <option disabled>--Select an Elder--</option>
                         <option v-for="addClientName in addClients" :key="addClientName.id" v-bind:value="addClientName.id">
                             {{ addClientName.client_name }}
                         </option>

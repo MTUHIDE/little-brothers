@@ -27,7 +27,7 @@ export default {
       <label for="driverName">Driver Name</label>
       <input type="text" class="form-control" v-model="driverName" id="driverName">
       <!-- <b-form-input v-model="driverName" id="driverName" /> -->
-      <label for="clientName">Client Name</label>
+      <label for="clientName">Elder Name</label>
       <input type="text" class="form-control" v-model="clientName" id="clientName">
       <!-- <b-form-input v-model="clientName" id="clientName" /> -->
       <label for="status">Status Update</label>
@@ -42,7 +42,7 @@ export default {
         :variant="status === option ? 'primary' : 'outline-primary'"
         @click="status = option"
         :key="'a' + i">
-        <b-button> 
+        <b-button>
         {{ option }}
         </b-button>
       </button>
