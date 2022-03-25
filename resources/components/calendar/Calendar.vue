@@ -139,7 +139,9 @@ export default {
             appDate: this.addAppDate,
             pickupAddress: this.addPickupAddress,
             dropoffAddress: this.addDropoffAddress,
-            clientNotes: this.addClientNotes
+            clientNotes: this.addClientNotes,
+            // clientId: this.,
+            // driverId: this.,
           }).then(response => {
             this.hideModal();
             this.showAlert();

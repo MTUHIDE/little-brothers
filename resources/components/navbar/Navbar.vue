@@ -21,8 +21,8 @@ export default {
         <NavbarLink to="/reports" icon="fas fa-chart-bar" floatDir="left" text="Reports"/>
         <NavbarLink to="/updates" icon="fas fa-edit" floatDir="left" text="Updates Log"/>
         <NavbarLink to="/drivers" icon="fas fa-shuttle-van" floatDir="left" text="Drivers"/>
-        <NavbarLink to="/clients" icon="fas fa-user" floatDir="left" text="Clients"/>
-        
+        <NavbarLink to="/elders" icon="fas fa-user" floatDir="left" text="Elders"/>
+
       </form>
 
       <!-- Navbar - Driver Items -->

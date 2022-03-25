@@ -26,8 +26,8 @@ const routes = [
     meta: { admin: true },
   },
   {
-    path: '/clients',
-    name: 'Clients',
+    path: '/elders',
+    name: 'Elders',
     component: () => import('../../views/desktop/Clients.vue'),
     meta: { admin: true },
   },
