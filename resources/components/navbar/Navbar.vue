@@ -30,6 +30,7 @@ export default {
         <NavbarLink to="/driver" icon="fas fa-calendar-alt" floatDir="left" text="Calendar"/>
         <NavbarLink to="/driver/update" icon="fas fa-edit" floatDir="left" text="Update"/>
         <NavbarLink to="/driver/prev-updates" icon="fas fa-folder-open" floatDir="left" text="Log"/>
+        <NavbarLink to="/driver/about" icon="fas fa-info-circle" floatDir="left" text="About"/>
       </form>
       <!-- <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/> -->
       <NavbarLink to="/" icon="fas fa-sign-out-alt" floatDir="right" text="Log Out"/>
