@@ -9,6 +9,16 @@ export default {
     destinationAddress: String,
     appointmentTitle: String,
     mobility: String,
+  },
+  data() {
+    return {
+      editing: false,
+    }
+  },
+  methods: {
+    setEditingMode() {
+      this.editing = true;
+    }
   }
 }
 </script>
@@ -24,7 +34,7 @@ export default {
         <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header" style="{ border: none }">
-                  <button type="button" class="btn btn-primary me-1" aria-label="Edit">
+                  <button type="button" @click="this.setEditingMode()" class="btn btn-primary me-1" aria-label="Edit">
                       <i class="fas fa-edit"></i> Edit
                   </button>
                   <button type="button" class="btn btn-danger" aria-label="Delete">
@@ -32,7 +42,10 @@ export default {
                   </button>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                 </div>
-                <div class="modal-body">
+                <div v-if="editing" class="modal-body">
+                  <p>Editing mode</p>
+                </div>
+                <div v-else class="modal-body">
                   <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-clock"></i></span>Title:</div><p>{{ appointmentTitle }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-calendar"></i></span>Date/Time:</div><p>{{ eventStart }}</p>
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-home"></i></span>Pickup Address:</div><p>{{ pickupAddress }}</p>
@@ -43,6 +56,11 @@ export default {
                     <div class="iconTitleflex"><span class="iconWrap"><i class="fas fa-shuttle-van"></i></span>Driver Name:</div><p>{{ driverName }}</p>
                     <!-- <slot/> -->
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  v-if="editing" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
             </div>
         </div>
     </div>
