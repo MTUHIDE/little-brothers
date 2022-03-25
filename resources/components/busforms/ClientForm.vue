@@ -15,6 +15,8 @@
           <button type="button" class="btn btn-primary px-3" id="clientEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
+        <AccordionList v-show="isShow"/>
+
         <!-- TODO Update this so that it can be populated with data from the backend-->
         <div class="card text-start border-dark mx-auto w-50" >
           <div class="card-header text-center fw-bold">Name: TMP Carl Wheezer </div>
@@ -104,8 +106,12 @@
 </template>
 
 <script>
+import AccordionList from './AccordionList.vue';
+
 export default {
-  components: {},
+  components: {
+    AccordionList
+  },
   props: {
     editMode: { type: Boolean, required: false, default: false },
     activeBack: { type: String, required: false, default: "flex" },
