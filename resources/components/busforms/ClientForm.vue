@@ -15,7 +15,8 @@
           <button type="button" class="btn btn-primary px-3" id="clientEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
-        <AccordionList v-show="isShow"/>
+       
+        <AccordionList v-show="1" title="Worm" content="this works"/>
 
         <!-- TODO Update this so that it can be populated with data from the backend-->
         <div class="card text-start border-dark mx-auto w-50" >
