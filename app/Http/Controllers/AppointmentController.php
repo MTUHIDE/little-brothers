@@ -93,10 +93,8 @@ class AppointmentController extends Controller
       $newAppointment->appointment_title = $request["title"];
       $newAppointment->pickup_address = $request["pickupAddress"];
       $newAppointment->destination_address = $request["dropoffAddress"];
-      // $newAppointment->driver_id = $request->appointment["driverName"];
-      // $newAppointment->client_id = $request->appointment["clientName"];
-      $newAppointment->driver_id = 1;
-      $newAppointment->client_id = 1;
+      $newAppointment->driver_id = $request["driverId"];
+      $newAppointment->client_id = $request["clientId"];
       $newAppointment->is_cancelled = 0;
       $newAppointment->save();
 
