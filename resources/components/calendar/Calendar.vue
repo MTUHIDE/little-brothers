@@ -35,12 +35,14 @@ export default {
             addDrivers: [],
             addClients: [],
             selectedDriver:{
-                addDriverName:""
+                addDriverId:""
             },
             selectedClient:{
-              addClientName: ""
+              addClientId: ""
             },
             appointmentNotes: '',
+            clientId: '',
+            driverId: '',
             clientName: '',
             driverName: '',
             startDateTime: '',
@@ -132,10 +134,11 @@ export default {
           calendarApi.refetchEvents();
         },
         submitForm() {
+          // console.log(this);
           this.$axios.post('/api/appointment/store', {
             title: this.addTitle,
-            clientName: this.addClientName,
-            driverName: this.addDriverName,
+            clientId: this.selectedClient.addClientId,
+            driverId: this.selectedDriver.addDriverId,
             appDate: this.addAppDate,
             pickupAddress: this.addPickupAddress,
             dropoffAddress: this.addDropoffAddress,
@@ -146,9 +149,10 @@ export default {
             this.hideModal();
             this.showAlert();
             this.refetchEvents();
+            // console.log(this);
           })
           .catch((error) => {
-            console.log(error)
+            console.error(error.response.data);
           })
         },
 
@@ -207,27 +211,26 @@ export default {
 
                     <div class="mb-3">
                       <label for="name" class="form-label">Elder: </label>
-                      <select id="name" name="name" class="form-select" v-model="selectedClient.addClientName" required>
+                      <select id="name" name="name" class="form-select" v-model="selectedClient.addClientId" required>
                         <option disabled>--Select an Elder--</option>
-                        <option v-for="addClientName in addClients" :key="addClientName.id" v-bind:value="addClientName.id">
-                            {{ addClientName.client_name }}
+                        <option v-for="addClientId in addClients" :key="addClientId.id" v-bind:value="addClientId.id">
+                            {{ addClientId.client_name }}
                         </option>
                       </select>
-                      <!-- <p>client id: {{ selectedClient.addClientName }}</p> -->
+                      <p>Client id: {{ selectedClient.addClientId }}</p>
                       <!-- <p v-if="!editing">{{clientName}}</p> -->
                     </div>
 
-
                     <div class="mb-3">
                       <label for="driver" class="form-label" >Driver: </label>
-                      <select id="driver" name="driver" class="form-select" v-model="selectedDriver.addDriverName" required>
+                      <select id="driver" name="driver" class="form-select" v-model="selectedDriver.addDriverId" required>
                           <!-- TODO: replace with driver lookup request -->
                           <option disabled>--Select a Driver--</option>
-                          <option v-for="addDriverName in addDrivers" :key="addDriverName.id" v-bind:value="addDriverName.id">
-                              {{ addDriverName.driver_name }}
+                          <option v-for="addDriverId in addDrivers" :key="addDriverId.id" v-bind:value="addDriverId.id">
+                              {{ addDriverId.driver_name }}
                           </option>
                       </select>
-                      <!-- <p>Driver id: {{ selectedDriver.addDriverName }}</p> -->
+                      <p>Driver id: {{ selectedDriver.addDriverId }}</p>
                       <!-- <p v-if="!editing">{{driverName}}</p> -->
                     </div>
 
