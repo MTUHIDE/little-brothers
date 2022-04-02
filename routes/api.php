@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProgressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,11 @@ Route::prefix('client')->group( function() {
   Route::post('\store', [ClientController::class, 'store']);
   Route::put('\{id}', [ClientController::class, 'update']);
   Route::delete('\{id}', [ClientController::class, 'destroy']);
+});
+
+Route::get('progresses', [ProgressController::class, 'index']);
+Route::prefix('progress')->group(function(){
+  Route::post('/store', [ProgressController::class, 'store']);
+  Route::put('/{id}', [ProgressController::class, 'update']);
+  Route::delete('/{id}', [ProgressController::class, 'destroy']);
 });

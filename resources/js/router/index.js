@@ -65,7 +65,7 @@ const routes = [
   {
     path: '/driver/update',
     name: 'DriverUpdate',
-    component: () => import('../../views/driver/DriverUpdate.vue'),
+    component: () => import('../../views/driver/DriverUpdate_Ver2.vue'),
     meta: { driver: true },
   },
   {
