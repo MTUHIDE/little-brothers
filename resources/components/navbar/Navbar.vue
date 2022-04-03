@@ -1,11 +1,23 @@
 <script>
 import NavbarLink from './NavbarLink'
+import * as Msal from 'msal'; 
+import msalConfig from '../../js/msal/msalConfig'
 
 export default {
   props: {},
   components: { NavbarLink },
-  setup() {
-    return { }
+  data() {
+    async function logout() {
+      // Load config
+      console.dir('hello....');
+      let client = new Msal.UserAgentApplication(msalConfig);
+      let status = await client.logout();
+      console.dir(status);
+    }
+
+    return {
+      logout
+    }
   }
 }
 
@@ -33,7 +45,8 @@ export default {
         <NavbarLink to="/driver/about" icon="fas fa-info-circle" floatDir="left" text="About"/>
       </form>
       <!-- <NavbarLink to="/" icon="fas fa-bars" floatDir="right" text="Log Out"/> -->
-      <NavbarLink to="/" icon="fas fa-sign-out-alt" floatDir="right" text="Log Out"/>
+      <NavbarLink to="/" icon="fas fa-sign-out-alt" v-on:click="logout" floatDir="right" text="Log Out" />
+      <!-- <button id="test" class="btn btn-danger"  value="test logout" text="test logout">Worm</button> -->
   </ul>
 </template>
 
