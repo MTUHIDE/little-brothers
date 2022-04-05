@@ -109,7 +109,18 @@ export default {
 
 <style scoped>
 .cMonthView {
-    margin: 5%;
+    margin: 10%;
     padding: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+   .cMonthView {
+    margin: 0;
+    padding: 0.1em;
+    } 
+
+    .fc .fc-toolbar-title {
+      font-size: 10px !important;
+    }
 }
 </style>
