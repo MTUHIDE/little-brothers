@@ -29,7 +29,7 @@
     --nb-a-color-active: #043250;
 
     /* -- Text -- */
-    --nb-text-color: #ffffff;
+    --nb-text-color: rgba(255, 255, 255, 0.8);
     --nb-text-color-hover: #ffffff;
     --nb-text-color-active: #2e2e2e;
 
