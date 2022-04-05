@@ -15,15 +15,22 @@
           <button type="button" class="btn btn-primary px-3" id="clientEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
-        
-        <AccordionList 
-          v-show="1" 
-          v-for="client in clients"
-          :key="client.id"
-          :name="client.client_name"
-          :client_address="client.client_address"
+        <div class="accordion" id="anAccordion">
+          <AccordionList 
+            v-show="1" 
+            v-for="client in clients"
+            :key="client.id"
+            :collapseId="client.id"
+            :name="client.client_name"
+            :address="client.client_address" 
+            :phone_number="client.client_phone_number"
+            :mobility="client.mobility"
+            :notes="client.client_notes"
+            :numofcancels="client.number_of_cancels" 
         ></AccordionList>
+        </div>
 
+        
         <!-- TODO Update this so that it can be populated with data from the backend-->
         <div class="card text-start border-dark mx-auto w-50" >
           <div class="card-header text-center fw-bold">Name: TMP Carl Wheezer </div>
