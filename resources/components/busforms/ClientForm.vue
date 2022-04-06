@@ -30,30 +30,6 @@
         ></AccordionList>
         </div>
 
-        
-        <!-- TODO Update this so that it can be populated with data from the backend-->
-        <div class="card text-start border-dark mx-auto w-50" >
-          <div class="card-header text-center fw-bold">Name: TMP Carl Wheezer </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4">
-                <p class="card-text fw-bold">Address: </p>
-                <p class="card-text fw-bold">Phone number:</p>
-                <p class="card-text fw-bold">Mobility:</p>
-                <p class="card-text fw-bold">Number of cancels:</p>
-                <p class="card-text fw-bold">Additional notes:</p>
-              </div>
-              <div class="col">
-                <p class="card-text">TMP 713 Road St Apt 2 </p>
-                <p class="card-text">TMP (906) 333-1542</p>
-                <p class="card-text">TMP Wheelchair</p>
-                <p class="card-text">TMP 2</p>
-                <p class="card-text">TMP Is partially deaf</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -63,6 +39,7 @@
               </div>
               <div class="modal-body">
                 <!-- TODO Update these to be poulated with data from the backend -->
+                
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -114,7 +91,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> 
     </div>
   </div>
 </template>
