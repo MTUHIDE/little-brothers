@@ -32,6 +32,7 @@ Route::prefix('/item')->group(function() {
 Route::get('/appointments', [AppointmentController::class, 'index']);
 Route::get('/appointments/{id}/edit', [AppointmentController::class, 'edit']);
 Route::prefix('/appointment')->group(function() {
+  Route::get('/{id}', [AppointmentController::class, 'fetch']);
   Route::post('/store', [AppointmentController::class, 'store']);
   Route::put('/{id}', [AppointmentController::class, 'update']);
   Route::delete('/{id}', [AppointmentController::class, 'destroy']);

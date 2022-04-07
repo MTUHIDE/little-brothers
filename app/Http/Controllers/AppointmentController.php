@@ -42,10 +42,31 @@ class AppointmentController extends Controller
                        ->whereDate('appointment_date_time', '>=', $start_date_time)
                        ->whereDate('appointment_date_time', '<=', $end_date_time)
                        // ->get(['client_name as title', 'appointment_date_time as start']);
-                       ->get(['appointments.id', 'appointment_title', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
+                       ->get(['appointments.id', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
             return response()->json($data);
       // }
     // return view('full-calender');
+    }
+
+    /**
+     * Fetch data for a single appointment specified by the id.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fetch(Request $request, $id)
+    {
+      // $validated = $request->validate([
+      //     'id' => 'required',
+      // ]);
+      // return "yep";
+      $data = DB::table('appointments')
+                     ->join('drivers', 'appointments.driver_id', '=', 'drivers.id')
+                     ->join('clients', 'appointments.client_id', '=', 'clients.id')
+                     ->where('appointments.id', '=', $id)
+                     ->get(['appointments.id', 'clients.id as elder_id', 'drivers.id as driver_id', 'appointment_title', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
+
+      return response()->json($data);
     }
 
     /**
