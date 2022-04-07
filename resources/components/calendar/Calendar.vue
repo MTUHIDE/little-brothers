@@ -49,6 +49,7 @@ export default {
             pickupAddress: '',
             destinationAddress: '',
             appointmentTitle: '',
+            appointmentId: '',
             mobility: '',
             cpModal: null,
             calendarOptions: {
@@ -83,8 +84,9 @@ export default {
                     this.driverName = clickData.event.extendedProps['driver_name'];
                     this.pickupAddress = clickData.event.extendedProps['pickup_address'];
                     this.destinationAddress = clickData.event.extendedProps['destination_address'];
-                    this.appointmentTitle = clickData.event.extendedProps['appointment_title'];
+                    this.appointmentTitle = clickData.event['title'];
                     this.mobility = clickData.event.extendedProps['mobility'];
+                    this.appointmentId = clickData.event['id'];
                     this.startDateTime = clickData.event.start;
                     //TODO : add appointment info param, pass info in here based on clickData.id??? idk. Data dump happen here you cylon
                 },
@@ -180,7 +182,7 @@ export default {
 
 <template>
     <SuccessAlert v-show="isShow" alertStrongText="Success!" alertBodyText="Appointment information saved"/>
-    <CalendarPopup :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
+    <CalendarPopup :appointment-id="appointmentId" :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
         <!-- <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/> -->
     </CalendarPopup>
 
