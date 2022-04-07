@@ -46,15 +46,14 @@ export default {
 
   color:  var(--nb-text-color);
   text-decoration: none;
-  text-align: left;
+  text-align: center;
 
   transition: all 0.3s ease-in-out;
 }
 
 .link:hover {
-  background-color: var(--nb-color-hover);
+  /* background-color: var(--nb-color-hover); */
   color: var(--nb-text-color-hover);
-  text-shadow: Red 0 0 5px;
 }
 
 .link.active {
@@ -65,5 +64,23 @@ export default {
 .link .icon {
   flex-shrink: 0;
   width: 25px;
+}
+
+.link:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '';
+  background: var(--nb-text-color);
+  height: 3px;
+  transition: 0.3s;
+}
+
+.link:hover:after {
+  width: 100%;
+  background: var(--nb-text-color-hover);
 }
 </style>

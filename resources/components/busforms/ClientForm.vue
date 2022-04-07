@@ -15,55 +15,19 @@
           <button type="button" class="btn btn-primary px-3" id="clientEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
-        <div class="accordion" id="accordionTest">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Accordion Item #1
-              </button>
-            </h2>
-           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionTest">
-          <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-  </div>
-
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="anAccordion">
           <AccordionList 
             v-show="1" 
             v-for="client in clients"
             :key="client.id"
-            :headingId="client.id"
             :collapseId="client.id"
             :name="client.client_name"
-            :client_address="client.client_address"
+            :address="client.client_address" 
+            :phone_number="client.client_phone_number"
+            :mobility="client.mobility"
+            :notes="client.client_notes"
+            :numofcancels="client.number_of_cancels" 
         ></AccordionList>
-        </div>
-
-        
-        <!-- TODO Update this so that it can be populated with data from the backend-->
-        <div class="card text-start border-dark mx-auto w-50" >
-          <div class="card-header text-center fw-bold">Name: TMP Carl Wheezer </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4">
-                <p class="card-text fw-bold">Address: </p>
-                <p class="card-text fw-bold">Phone number:</p>
-                <p class="card-text fw-bold">Mobility:</p>
-                <p class="card-text fw-bold">Number of cancels:</p>
-                <p class="card-text fw-bold">Additional notes:</p>
-              </div>
-              <div class="col">
-                <p class="card-text">TMP 713 Road St Apt 2 </p>
-                <p class="card-text">TMP (906) 333-1542</p>
-                <p class="card-text">TMP Wheelchair</p>
-                <p class="card-text">TMP 2</p>
-                <p class="card-text">TMP Is partially deaf</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" >
@@ -75,6 +39,7 @@
               </div>
               <div class="modal-body">
                 <!-- TODO Update these to be poulated with data from the backend -->
+                
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -126,7 +91,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> 
     </div>
   </div>
 </template>

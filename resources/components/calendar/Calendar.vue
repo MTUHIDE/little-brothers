@@ -283,7 +283,7 @@ export default {
 
 <style scoped>
 .cMonthView {
-    margin: 5%;
+    margin: 8%;
     padding: 2px;
 }
 
