@@ -4,7 +4,11 @@ export default {
     return {
       clientName: '',
       status: '',
-      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way']
+      statusOptions: ['Picked Up', 'Dropped Off', 'On My Way'],
+      addClients: [],
+      selectedClient: {
+        addClientName: "",
+      },
     }
   },
   computed: {
@@ -17,6 +21,60 @@ export default {
       },
     },
   },
+  mounted() {
+    this.getDrivers();
+    this.getClients();
+  },
+  methods: {
+    submitForm() {
+      this.$axios
+        .post("/api/driver/store", {
+          clientName: this.clientName,
+          driverName: this.driverName,
+          status: this.status,
+          statusOptions: this.statusOptions,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    getDrivers() {
+      this.$axios
+        .get("/api/drivers")
+        .then((driversdata) => {
+          console.log(driversdata);
+          this.drivers = driversdata.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getClients() {
+      this.$axios
+        .get("/api/clients")
+        .then((clientdata) => {
+          this.addClients = clientdata.data;
+          console.log(this.addClients);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    selectPickUp(event){
+      if(this.count == 5){
+        //Should bring to log
+      }
+      if(this.count <= 4){
+        alert(this.count);
+        this.count++;
+        
+      }
+    }
+  },
 };
 </script>
 
@@ -24,17 +82,52 @@ export default {
   <div class="driver-update">
     <h1>Update</h1>
     <div class="form-grid">
-      <label for="driverName">Driver Name</label>
-      <input type="text" class="form-control" v-model="driverName" id="driverName">
-      <!-- <b-form-input v-model="driverName" id="driverName" /> -->
-      <label for="clientName">Elder Name</label>
-      <input type="text" class="form-control" v-model="clientName" id="clientName">
+      <form id="submitForm" @submit.prevent="submitForm">
+      <div class="mb-3">
+        <label for="driverName" class="form-label">Driver:</label>
+        <input type="text" class="form-control" v-model="driverName" id="driverName" />
+        <!-- <b-form-input v-model="driverName" id="driverName" /> -->
+      </div>
+      
+      <div class="mb-3">
+        <label for="name" class="form-label">Elder: </label>
+        <br/>
+        <select
+          id="name"
+          name="name"
+          class="form-select"
+          v-model="selectedClient.addClientName"
+          required
+        >
+          <option disabled>--Select an Elder--</option>
+          <option
+            v-for="addClientName in addClients"
+            :key="addClientName.id"
+            v-bind:value="addClientName.id"
+          >
+            {{ addClientName.client_name }}
+          </option>
+        </select>
+      </div>
+      <!-- <input
+          type="text"
+          class="form-control"
+          v-model="clientName"
+          id="clientName" />-->
       <!-- <b-form-input v-model="clientName" id="clientName" /> -->
-      <label for="status">Status Update</label>
-      <select class="form-select" v-model="status" :options="statusOptions" id="status">
-        <option selected>Example option</option>
-      </select>
-      <!-- <b-form-select v-model="status" :options="statusOptions" id="status" /> -->
+      <div class="mb-3">
+        <label for="status" class="form-label">Status Update:</label>
+        <select
+          class="form-select"
+          v-model="status"
+          :options="statusOptions"
+          id="status"
+        >
+          <option selected>Example option</option>
+        </select>
+      </div>
+      <b-form-select v-model="status" :options="statusOptions" id="status" /> 
+      </form>
     </div>
     <div class="btn-grid">
       <button type="button" class="btn btn-primary"

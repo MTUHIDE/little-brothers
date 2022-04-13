@@ -18,8 +18,9 @@ class CreateProgressTable extends Migration
             $table->unsignedBigInteger('driver_id');
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('appointment_id');
-            $table->string('status')->nullable();
-            $table->boolean('completed')->default(false);
+            $table->string('progressStatus');
+            $table->boolean('progressCompleted')->default(false);
+            $table->timpstamp('updatedAt')->useCurrent();
             $table->timestamps();
 
             $table->foreign('driver_id')->references('id')->on('drivers');
