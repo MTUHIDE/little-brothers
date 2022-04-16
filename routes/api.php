@@ -45,9 +45,10 @@ Route::prefix('/driver')->group( function(){
     Route::delete('{id}', [DriverController::class, 'destroy']);
 });
 
-Route::get('clients', [ClientController::class, 'index']);
-Route::prefix('client')->group( function() {
-  Route::post('\store', [ClientController::class, 'store']);
-  Route::put('\{id}', [ClientController::class, 'update']);
-  Route::delete('\{id}', [ClientController::class, 'destroy']);
+Route::get('/clients', [ClientController::class, 'index']);
+Route::prefix('/client')->group( function() {
+  Route::get('/{id}', [ClientController::class, 'fetch']);
+  Route::post('/store', [ClientController::class, 'store']);
+  Route::put('/{id}', [ClientController::class, 'update']);
+  Route::delete('/{id}', [ClientController::class, 'destroy']);
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -42,6 +43,26 @@ class ClientController extends Controller
         $newClient->mobility = $request->client["mobility"];
         $newClient->client_notes = $request->client["client_notes"];
         $newClient->is_cancelled = 0;
+    }
+
+     /**
+     * Fetch data for a single client specified by the id.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fetch(Request $request, $id)
+    {
+        // Be sure to add validation
+    //   $validated = $request->validate([
+    //       'id' => 'required|integer|size:5',
+    //   ]);
+      
+      $data = DB::table('clients')
+                    ->where('clients.id', '=', $id)
+                    ->get(['clients.id', 'clients.client_name', 'clients.client_address','clients.client_phone_number', 'clients.mobility', 'clients.client_notes','clients.#ofcancels as number_of_cancels']);
+                                  
+      return response()->json($data);
     }
 
     /**

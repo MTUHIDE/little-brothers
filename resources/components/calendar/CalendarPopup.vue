@@ -1,5 +1,4 @@
 <script>
-import moment from 'moment';
 
 export default {
   props: {
@@ -209,7 +208,7 @@ export default {
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button v-if="editing" type="submit" form="editForm" class="btn btn-primary">Save changes</button>
+                  <button v-if="editing" type="submit" form="editForm" class="btn btn-primary">Save changes </button>
                 </div>
 
             </div>
