@@ -33,6 +33,10 @@
     --nb-text-color-hover: #ffffff;
     --nb-text-color-active: #2e2e2e;
 
+    /* -- Reports Filter -- */
+    --fb-btn-radius: 10px;
+    --fb-btn-spacing: 0.1em;
+
 }
 
 /*

@@ -5,7 +5,6 @@ import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-
 import { ref } from 'vue';
 import { Modal } from 'bootstrap';
 import CalendarPopup from './CalendarPopup.vue';
