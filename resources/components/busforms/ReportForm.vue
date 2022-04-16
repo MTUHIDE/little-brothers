@@ -99,8 +99,16 @@ export default {
 
     label :checked + div {
         background: #0d6efd;
-        padding: 1.25em;
+        /* padding: 1.25em; */
         color: white;
+    }
+
+    label :checked + div:hover {
+        background: #0c60df;
+        /* padding: 1.25em; */
+        color: white;
+        box-shadow: 0 0.5em 0.5em -0.4em black;
+        transform: translateY(-0.25em);
     }
 
     label div{
@@ -110,6 +118,12 @@ export default {
         padding: 1em;
         text-align: center;
         transition: all 0.3s;
+    }
+
+    label div:hover {
+        background: rgb(177, 175, 175);
+        box-shadow: 0 0.5em 0.5em -0.4em black;
+        transform: translateY(-0.25em);
     }
 
     label {
@@ -168,6 +182,16 @@ export default {
         max-width: 350px;
         padding: 0.75em;
         margin-bottom: 10px;
+        transition: all 0.3s;
+        background: lightgrey;
+        color: rgb(39, 39, 39);
+        border: none;
+    }
+
+    .generateButton:hover,
+    .generateButton:focus {
+        box-shadow: inset 0 -3.25em 0 0 #0d6efd;
+        color: white;
     }
 
     .generateRow {
@@ -180,6 +204,7 @@ export default {
         padding-left: 2em;
         margin: 0;
         background-color: rgb(155, 155, 155);
+        color: rgb(39, 39, 39);
         font-size: 1.5em;
     }
 
