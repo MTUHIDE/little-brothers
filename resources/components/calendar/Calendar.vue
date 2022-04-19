@@ -218,7 +218,6 @@ export default {
                             {{ addClientId.client_name }}
                         </option>
                       </select>
-                      <p>Client id: {{ selectedClient.addClientId }}</p>
                       <!-- <p v-if="!editing">{{clientName}}</p> -->
                     </div>
 
@@ -231,7 +230,6 @@ export default {
                               {{ addDriverId.driver_name }}
                           </option>
                       </select>
-                      <p>Driver id: {{ selectedDriver.addDriverId }}</p>
                       <!-- <p v-if="!editing">{{driverName}}</p> -->
                     </div>
 
