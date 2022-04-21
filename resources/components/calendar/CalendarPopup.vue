@@ -1,4 +1,5 @@
 <script>
+import moment from 'moment';
 
 export default {
   props: {
@@ -49,14 +50,16 @@ export default {
       this.editing = false;
     },
     getPreviousValues() { // this function gets the values for a particular appointment
-      console.log(this.appointmentId);
-      const getUrl = '/api/appointment/' + this.appointmentId;
-      console.log(getUrl);
-      this.$axios.get('/api/appointment/' + this.appointmentId)
+        console.log("HELLO WORLD---------------------------------------------------\n");
+        this.$axios.get('/api/appointment/' + this.appointmentId)
         .then((appointmentData) => {
+          
             console.log(appointmentData.data['0']);
             this.oldTitle = appointmentData.data['0'].appointment_title;
-            this.oldAppDate = appointmentData.data['0'].start;
+            let formattedDate = moment(appointmentData.data['0'].start).format('YYYY-MM-DDTHH:mm');
+            console.log("formattedDate: " + formattedDate);
+            // this.oldAppDate = appointmentData.data['0'].start;
+            this.oldAppDate = formattedDate;
             this.oldPickupAddress = appointmentData.data['0'].pickup_address;
             this.oldDropoffAddress = appointmentData.data['0'].destination_address;
             this.oldClientNotes = appointmentData.data['0'].appointment_notes;
@@ -85,25 +88,31 @@ export default {
       },
       editForm() {
         console.log(this);
-        // this.$axios.post('/api/appointment/', {
-        //   title: this.addTitle,
-        //   clientId: this.selectedClient.addClientId,
-        //   driverId: this.selectedDriver.addDriverId,
-        //   appDate: this.addAppDate,
-        //   pickupAddress: this.addPickupAddress,
-        //   dropoffAddress: this.addDropoffAddress,
-        //   clientNotes: this.addClientNotes,
-        //   // clientId: this.,
-        //   // driverId: this.,
-        // }).then(response => {
-        //   this.hideModal();
-        //   this.showAlert();
-        //   this.refetchEvents();
-        //   // console.log(this);
-        // })
-        // .catch((error) => {
-        //   console.error(error.response.data);
-        // })
+        console.log(this.oldDriverId);
+        this.$axios.put('/api/appointment/' + this.appointmentId, {
+            driverId: this.oldDriverId,
+            clientId: this.oldElderId,
+            title: this.oldTitle,
+            appDate: this.oldAppDate,
+            pickupAddress: this.oldPickupAddress,
+            dropoffAddress: this.oldDropoffAddress,
+            clientNotes: this.oldClientNotes,
+          // title: this.addTitle,
+          // clientId: this.selectedClient.addClientId,
+          // driverId: this.selectedDriver.addDriverId,
+          // appDate: this.addAppDate,
+          // pickupAddress: this.addPickupAddress,
+          // dropoffAddress: this.addDropoffAddress,
+          // clientNotes: this.addClientNotes,
+        }).then(response => {
+          this.hideModal();
+          this.showAlert();
+          this.refetchEvents();
+          // console.log(this);
+        })
+        .catch((error) => {
+          console.error(error.response.data);
+        })
       },
   }
 }

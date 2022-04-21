@@ -171,6 +171,8 @@ class AppointmentController extends Controller
             'title' => 'required|max:100',
             'dropoffAddress' => 'required|max:255',
         ]);
+        
+       
 
         //Find id
         $existingAppointment = Appointment::find( $id );
@@ -179,19 +181,24 @@ class AppointmentController extends Controller
         }
         //Update data
         if(isset($request['clientNotes'])){
-            $existingAppointment->clientNotes = $request['clientNotes'];
+            $existingAppointment->appointment_notes = $request['clientNotes'];
         }
         if(isset($request['appDate'])){
-            $existingAppointment->appDate = $request['appDate'];
+            $date_time = $request["appDate"];
+            // Format the date_time to fit MS SQL Server standard
+           $date_time = Carbon::createFromFormat('Y-m-d\TH:i', $date_time, 'America/Detroit');
+           $date_time->setTimezone('UTC');
+           $date_time = $date_time->format('Y-m-d H:i:s.v');
+        $existingAppointment->appointment_date_time = $date_time;
         }
         if(isset($request['pickedupAddress'])){
-            $existingAppointment->pickedupAddress = $request['pickedupAddress'];
+            $existingAppointment->pickup_address = $request['pickupAddress'];
         }
         if(isset($request['title'])){
-            $existingAppointment->title = $request['title'];
+            $existingAppointment->appointment_title = $request['title'];
         }
         if(isset($request['dropoffAddress'])){
-            $existingAppointment->dropoffAddress = $request['dropoffAddress'];
+            $existingAppointment->destination_address = $request['dropoffAddress'];
         }
 
         $existingAppointment->save();
