@@ -97,17 +97,12 @@ export default {
             pickupAddress: this.oldPickupAddress,
             dropoffAddress: this.oldDropoffAddress,
             clientNotes: this.oldClientNotes,
-          // title: this.addTitle,
-          // clientId: this.selectedClient.addClientId,
-          // driverId: this.selectedDriver.addDriverId,
-          // appDate: this.addAppDate,
-          // pickupAddress: this.addPickupAddress,
-          // dropoffAddress: this.addDropoffAddress,
-          // clientNotes: this.addClientNotes,
         }).then(response => {
-          this.hideModal();
-          this.showAlert();
-          this.refetchEvents();
+          // this.$bvModal.hide('modal-1');
+          this.$emit('success-alert'); // emit success to parent which will catch it and hide modal/show alert
+          // this.hideModal();
+          // this.showAlert();
+          // this.refetchEvents();
           // console.log(this);
         })
         .catch((error) => {
@@ -126,7 +121,7 @@ export default {
          aria-labelledby="exampleModalLabel"
          aria-hidden="true"
     >
-        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+        <div id="modal-1" class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header" style="{ border: none }">
                   <button v-if="editing" type="button" @click="this.setViewingMode()" class="btn btn-secondary me-1" aria-label="View">

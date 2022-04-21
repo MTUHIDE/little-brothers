@@ -125,6 +125,9 @@ export default {
         hideModal() {
           this.cpAddModal.hide();
         },
+        hideEditModal() {
+          this.cpModal.hide();
+        },
         showAlert() {
           // show success alert
           this.isShow = true;
@@ -174,14 +177,20 @@ export default {
             }).catch((error) => {
                 console.log(error)
             })
-          }
+          },
+
+        editSuccess() {
+          this.hideEditModal();
+          this.showAlert();
+          this.refetchEvents();
+        }
     },
 }
 </script>
 
 <template>
     <SuccessAlert v-show="isShow" alertStrongText="Success!" alertBodyText="Appointment information saved"/>
-    <CalendarPopup :appointment-id="appointmentId" :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
+    <CalendarPopup @success-alert="editSuccess" :appointment-id="appointmentId" :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
         <!-- <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/> -->
     </CalendarPopup>
 
