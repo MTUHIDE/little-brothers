@@ -13,10 +13,14 @@ class AppointmentFactory extends Factory
      */
     public function definition()
     {
+      $start = $this->faker->dateTimeBetween($startDate = '-2 months', $endDate = '+2 months', $timezone = null);
+      $start_date_clone = clone $start;
+
+      $end = $this->faker->dateTimeBetween($start, $start_date_clone->modify('+5 hours'));
         return [
           'appointment_title' => $this->faker->sentence(3),
-          'appointment_date_time' => $this->faker->dateTimeBetween($startDate = '-2 months', $endDate = '+2 months', $timezone = null),
-          // 'appointment_date_time' => $this->faker->dateTimeThisMonth()->format('Y-m-d H:i:s.v'),
+          'appointment_date_time' => $start,
+          'appointment_end_date_time' => $end,
           'appointment_notes' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
           'pickup_address' => $this->faker->address(),
           'destination_address' => $this->faker->address(),
