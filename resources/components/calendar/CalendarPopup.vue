@@ -4,10 +4,11 @@ import moment from 'moment';
 export default {
   props: {
     appointmentNotes: String,
-    appointmentId: Number,
+    appointmentId: String,
     clientName: String,
     driverName: String,
     eventStart: String,
+    eventEnd: String,
     pickupAddress: String,
     destinationAddress: String,
     appointmentTitle: String,
@@ -18,16 +19,12 @@ export default {
       editing: false,
       oldTitle: "",
       oldAppDate: "",
+      oldAppEndDate: "",
       oldPickupAddress: "",
       oldDropoffAddress: "",
       oldClientNotes: "",
       oldElderId: "",
       oldDriverId: "",
-      // addTitle: "",
-      // addAppDate: "",
-      // addPickupAddress: "",
-      // addDropoffAddress: "",
-      // addClientNotes: "",
       addDrivers: [],
       addClients: [],
       selectedDriver:{
@@ -44,22 +41,29 @@ export default {
   },
   methods: {
     setEditingMode() {
+      this.oldTitle = "";
+      this.oldAppDate = "";
+      this.oldAppEndDate = "";
+      this.oldPickupAddress = "";
+      this.oldDropoffAddress = "";
+      this.oldElderId = "";
+      this.oldDriverId = "";
+      this.addDriverId = "";
+      this.addClientId = "";
       this.editing = true;
     },
     setViewingMode() {
       this.editing = false;
     },
     getPreviousValues() { // this function gets the values for a particular appointment
-        console.log("HELLO WORLD---------------------------------------------------\n");
         this.$axios.get('/api/appointment/' + this.appointmentId)
         .then((appointmentData) => {
           
-            console.log(appointmentData.data['0']);
             this.oldTitle = appointmentData.data['0'].appointment_title;
-            let formattedDate = moment(appointmentData.data['0'].start).format('YYYY-MM-DDTHH:mm');
-            console.log("formattedDate: " + formattedDate);
-            // this.oldAppDate = appointmentData.data['0'].start;
+            let formattedDate = moment(appointmentData.data['0'].start).format('YYYY-MM-DDTHH:mm'); // use moment.js to format date to datetime-local format standard
             this.oldAppDate = formattedDate;
+            let formattedEndDate = moment(appointmentData.data['0'].end).format('YYYY-MM-DDTHH:mm'); // use moment.js to format date to datetime-local format standard
+            this.oldAppEndDate = formattedEndDate;
             this.oldPickupAddress = appointmentData.data['0'].pickup_address;
             this.oldDropoffAddress = appointmentData.data['0'].destination_address;
             this.oldClientNotes = appointmentData.data['0'].appointment_notes;
@@ -81,34 +85,30 @@ export default {
       this.$axios.get('/api/clients')
         .then((clientdata) => {
             this.addClients = clientdata.data;
-            console.log(this.addClients);
         }).catch((error) => {
             console.log(error)
         })
       },
       editForm() {
-        console.log(this);
-        console.log(this.oldDriverId);
         this.$axios.put('/api/appointment/' + this.appointmentId, {
             driverId: this.oldDriverId,
             clientId: this.oldElderId,
             title: this.oldTitle,
             appDate: this.oldAppDate,
+            appEndDate: this.oldAppEndDate,
             pickupAddress: this.oldPickupAddress,
             dropoffAddress: this.oldDropoffAddress,
             clientNotes: this.oldClientNotes,
         }).then(response => {
-          // this.$bvModal.hide('modal-1');
           this.$emit('success-alert'); // emit success to parent which will catch it and hide modal/show alert
-          // this.hideModal();
-          // this.showAlert();
-          // this.refetchEvents();
-          // console.log(this);
         })
         .catch((error) => {
           console.error(error.response.data);
         })
       },
+      emitDelete() {
+        this.$emit('delete-clicked')// emit that delete button was clicked to parent
+      }
   }
 }
 </script>
@@ -124,27 +124,31 @@ export default {
         <div id="modal-1" class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header" style="{ border: none }">
-                  <button v-if="editing" type="button" @click="this.setViewingMode()" class="btn btn-secondary me-1" aria-label="View">
-                      Cancel
-                  </button>
-                  <button v-else type="button" @click="this.setEditingMode(); this.getPreviousValues()" class="btn btn-primary me-1" aria-label="Edit">
+                  <div v-if="editing" class="iconTitleflex">
+                    <button type="button" @click="this.setViewingMode()" class="btn btn-secondary me-1" aria-label="View">
+                      Back
+                    </button> 
+                    <h5 class="modal-title">Edit appointment</h5>
+
+                  </div>
+                  <div v-else>
+                    <button type="button" @click="this.setEditingMode(); this.getPreviousValues()" class="btn btn-primary me-1" aria-label="Edit">
                       <i class="fas fa-edit"></i> Edit
                   </button>
-                  <button type="button" class="btn btn-danger" aria-label="Delete">
+                  <button type="button"  @click="this.emitDelete()" class="btn btn-danger" aria-label="Delete">
                       <i class="icon fas fa-solid fa-trash"/> Delete
                   </button>
+                  </div>
+                  
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                 </div>
                 <div v-if="editing" class="modal-body">
                   <form v-if="editing" id="editForm" @submit.prevent="editForm">
-                    <p>appt ID: {{appointmentId}}</p>
-                    <br/>
+                    
 
                     <div class="mb-3">
                       <label for="editTitle" class="form-label">Title: </label>
                       <input name="title" type="text" class="form-control" id="editTitle" v-model="oldTitle" required>
-                      <!-- <p v-if="!editing">{{clientName}}</p> -->
-                      <!-- <p>{{clientName}}</p> -->
                     </div>
 
                     <div class="mb-3">
@@ -160,7 +164,6 @@ export default {
                     <div class="mb-3">
                       <label for="editDriver" class="form-label" >Driver: </label>
                       <select id="editDriver" name="driver" class="form-select" v-model="oldDriverId" required>
-                          <!-- TODO: replace with driver lookup request -->
                           <option disabled>--Select a Driver--</option>
                           <option v-for="addDriverId in addDrivers" :key="addDriverId.id" v-bind:value="addDriverId.id">
                               {{ addDriverId.driver_name }}
@@ -169,46 +172,40 @@ export default {
                     </div>
 
                     <div class="mb-3">
-                     <label for="editDateTime" class="form-label">Date and Time: </label>
-                      <!-- TODO: fix formatting for date and time when not editing -->
+                     <label for="editDateTime" class="form-label">Start Date and Time: </label>
                       <input id="editDateTime" name="dateTime" class="form-control" type="datetime-local" v-model="oldAppDate" required>
-                      <!-- <p v-if="!editing">{{appDate}}</p> -->
-                      <!-- <p>{{appDate}}</p> -->
+                    </div>
+                    <div class="mb-3">
+                     <label for="editEndDateTime" class="form-label">End Date and Time: </label>
+                      <input id="editEndDateTime" name="dateTime" class="form-control" type="datetime-local" v-model="oldAppEndDate" required>
                     </div>
 
                     <div class="mb-3">
                       <label for="editPickup" class="form-label">Pick up address: </label>
                       <textarea id="editPickup" name="pickup" class="form-control" v-model="oldPickupAddress" required></textarea>
-                      <!-- <p v-if="!editing">{{pickupAddress}}</p> -->
-                      <!-- <p>{{pickupAddress}}</p> -->
                     </div>
 
                     <div class="mb-3">
                       <label for="editDropoff" class="form-label">Drop off address: </label>
                       <textarea id="editDropoff" name="dropoff" class="form-control" v-model="oldDropoffAddress" required></textarea>
-                      <!-- <p>{{dropoffAddress}}</p> -->
                     </div>
 
                     <div class="mb-3">
                       <label for="editNotes" class="form-label">Appointment Notes: </label>
                       <textarea id="editNotes" name="notes" class="form-control" v-model="oldClientNotes"></textarea>
-                      <!-- <p v-if="!editing">{{clientNotes}}</p> -->
-                      <!-- <p>{{clientNotes}}</p> -->
                     </div>
 
-                    <!-- <button type="submit" class="btn btn-primary" id="appointSubmit">Submit</button> -->
                   </form>
                 </div>
                 <div v-else class="modal-body">
                   <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-clock"></i></span>Title:</div><p>{{ appointmentTitle }}</p>
-                    <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-calendar"></i></span>Date/Time:</div><p>{{ eventStart }}</p>
+                    <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-calendar"></i></span>Date/Time:</div><p>{{ eventStart }} <strong>until</strong> {{ eventEnd }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-home"></i></span>Pickup Address:</div><p>{{ pickupAddress }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-map-marker-alt"></i></span>Destination Address:</div><p>{{ destinationAddress }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-clipboard"></i></span>Appointment Notes:</div><p>{{ appointmentNotes }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-wheelchair"></i></span>Mobility:</div><p>{{ mobility }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-user"></i></span>Elder Name:</div><p>{{ clientName }}</p>
                     <div class="iconTitleflex fw-bold"><span class="iconWrap"><i class="fas fa-shuttle-van"></i></span>Driver Name:</div><p>{{ driverName }}</p>
-                    <!-- <slot/> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -247,7 +244,6 @@ export default {
 }
 
 .iconWrap {
-  // width: 1.8rem;
   width: 1.5rem;
   margin-right: 1rem;
   text-align: center !important;

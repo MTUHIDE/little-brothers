@@ -8,7 +8,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { ref } from 'vue';
 import { Modal } from 'bootstrap';
 import CalendarPopup from './CalendarPopup.vue';
-import DriverCalendarPopup from '../driverCalendar/DriverCalendarPopup.vue';
+import DeleteModal from './DeleteModal.vue';
 import SuccessAlert from '../busforms/SuccessAlert.vue';
 
 export default {
@@ -16,6 +16,7 @@ export default {
         FullCalendar, // make the <FullCalendar> tag available
         CalendarPopup,
         SuccessAlert,
+        DeleteModal,
     },
     data() {
         const popupTriggers = ref({
@@ -26,8 +27,10 @@ export default {
         }
         return {
             isShow: false,
+            isShowDelete: false,
             addTitle: "",
             addAppDate: "",
+            addAppEndDate: "",
             addPickupAddress: "",
             addDropoffAddress: "",
             addClientNotes: "",
@@ -45,6 +48,7 @@ export default {
             clientName: '',
             driverName: '',
             startDateTime: '',
+            endDateTime: '',
             pickupAddress: '',
             destinationAddress: '',
             appointmentTitle: '',
@@ -75,8 +79,11 @@ export default {
                 dayMaxEvents: true,
                 weekends: true,
                 dateClick: this.handleDateClick,
+                eventDrop: this.handleEventDrop,
+                eventResize: this.eventResize,
                 //select: this.handleDateSelect,
                 eventClick: (clickData) => {
+                    this.resetModal();
                     this.cpModal.show();
                     this.appointmentNotes = clickData.event.extendedProps['appointment_notes'];
                     this.clientName = clickData.event.extendedProps['client_name'];
@@ -87,6 +94,7 @@ export default {
                     this.mobility = clickData.event.extendedProps['mobility'];
                     this.appointmentId = clickData.event['id'];
                     this.startDateTime = clickData.event.start;
+                    this.endDateTime = clickData.event.end;
                     //TODO : add appointment info param, pass info in here based on clickData.id??? idk. Data dump happen here you cylon
                 },
                 eventsSet: this.handleEvents,
@@ -103,12 +111,60 @@ export default {
     },
     // get access to modal for manipulation
     mounted() {
+        this.cpDeleteModal = new Modal(document.getElementById('deleteModal'), null);
         this.cpModal = new Modal(document.getElementById('appointmentModal'), null);
         this.cpAddModal = new Modal(document.getElementById('addAppointmentModal'), null);
+        // this.cpModal.addEventListener('hidden.bs.offcanvas', function () {
+        //   console.log("hidden edit modal");
+        // })
+        // this.$refs.appointmentModal.addEventListener("hidden.bs.modal", () => {
+        //   console.log("hidden edit modal");
+        // })
+        // $(this.$refs.my_modal).on('hidden.bs.modal', this.doSomething);
         this.getDrivers();
         this.getClients();
     },
     methods: {
+        deleteSuccess() {
+          this.hideDelete();
+          this.hideEditModal();
+          this.showDeleteAlert();
+          this.refetchEvents();
+        },
+        showDelete() {
+          this.cpDeleteModal.show();
+        },
+        hideDelete() {
+          this.cpDeleteModal.hide();
+        },
+        resetModal() {
+          this.$refs.editModal.setViewingMode();
+        },
+        handleEventDrop(e) {
+          this.$axios.put('/api/appointment/update-date/' + e.event.id, {
+            start: e.event.start,
+            end: e.event.end,
+          }).then(response => {
+            this.showAlert();
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          })
+        },
+        eventResize(e) {
+          this.$axios.put('/api/appointment/update-date/' + e.event.id, {
+            start: e.event.start,
+            end: e.event.end,
+          }).then(response => {
+            this.showAlert();
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          })
+        },
+        doSomething() {
+          console.log("edit modal closed");
+        },
         handleDateClick: function(arg) {
             // Get api instance
             let calendarApi = this.$refs.fullCalendar.getApi();
@@ -120,6 +176,14 @@ export default {
             this.currentEvents = events
         },
         showModal() {
+          this.addTitle = "",
+          this.selectedClient.addClientId = "",
+          this.selectedDriver.addDriverId = "",
+          this.addAppDate = "",
+          this.addAppEndDate = "",
+          this.addPickupAddress = "",
+          this.addDropoffAddress = "",
+          this.addClientNotes = "",
           this.cpAddModal.show();
         },
         hideModal() {
@@ -131,6 +195,17 @@ export default {
         showAlert() {
           // show success alert
           this.isShow = true;
+          setTimeout(() => {
+            this.isShow = false;
+          }, 4000);
+        },
+        showDeleteAlert() {
+          console.log("show delete alert");
+          // show success alert
+          this.isShowDelete = true;
+          setTimeout(() => {
+            this.isShowDelete = false;
+          }, 4000);
         },
         refetchEvents() {
           // refresh calendar appointments
@@ -144,6 +219,7 @@ export default {
             clientId: this.selectedClient.addClientId,
             driverId: this.selectedDriver.addDriverId,
             appDate: this.addAppDate,
+            appEndDate: this.addAppEndDate,
             pickupAddress: this.addPickupAddress,
             dropoffAddress: this.addDropoffAddress,
             clientNotes: this.addClientNotes,
@@ -183,17 +259,18 @@ export default {
           this.hideEditModal();
           this.showAlert();
           this.refetchEvents();
-        }
+        },
     },
 }
 </script>
 
 <template>
     <SuccessAlert v-show="isShow" alertStrongText="Success!" alertBodyText="Appointment information saved"/>
-    <CalendarPopup @success-alert="editSuccess" :appointment-id="appointmentId" :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime">
+    <SuccessAlert v-show="isShowDelete" alertStrongText="Success!" alertBodyText="Appointment deleted"/>
+    <CalendarPopup ref="editModal" @delete-clicked="showDelete" @success-alert="editSuccess" :appointment-id="appointmentId" :mobility="mobility" :appointment-title="appointmentTitle" :pickup-address="pickupAddress" :destination-address="destinationAddress" :driver-name="driverName" :client-name="clientName" :appointment-notes="appointmentNotes" :event-start="startDateTime" :event-end="endDateTime">
         <!-- <Appointment :editMode="true" :redirect="'/calendar'" :activeBack="'none'"/> -->
     </CalendarPopup>
-
+    <DeleteModal @delete-success-alert="deleteSuccess" :appointment-id="appointmentId" />
     <div class="modal fade"
          id="addAppointmentModal"
          tabindex="-1"
@@ -210,7 +287,6 @@ export default {
                 <div class="modal-body">
                   <form id="submitForm" @submit.prevent="submitForm">
 
-                    <br/>
 
                     <div class="mb-3">
                       <label for="title" class="form-label">Title: </label>
@@ -243,11 +319,15 @@ export default {
                     </div>
 
                     <div class="mb-3">
-                     <label for="dateTime" class="form-label">Date and Time: </label>
+                     <label for="dateTime" class="form-label">Start Date and Time: </label>
                       <!-- TODO: fix formatting for date and time when not editing -->
                       <input id="dateTime" name="dateTime" class="form-control" type="datetime-local" v-model="addAppDate" required>
-                      <!-- <p v-if="!editing">{{appDate}}</p> -->
-                      <!-- <p>{{appDate}}</p> -->
+                    </div>
+
+                    <div class="mb-3">
+                     <label for="dateEndTime" class="form-label">End Date and Time: </label>
+                      <!-- TODO: fix formatting for date and time when not editing -->
+                      <input id="dateEndTime" name="dateEndTime" class="form-control" type="datetime-local" v-model="addAppEndDate" required>
                     </div>
 
                     <div class="mb-3">

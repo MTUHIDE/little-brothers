@@ -53,4 +53,8 @@ footer,
 .main-content:after {
   height: 32px;
 }
+
+.modal-backdrop.show:nth-of-type(odd) {
+    z-index: 1061 !important;
+}
 </style>

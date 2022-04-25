@@ -42,7 +42,7 @@ class AppointmentController extends Controller
                        ->whereDate('appointment_date_time', '>=', $start_date_time)
                        ->whereDate('appointment_date_time', '<=', $end_date_time)
                        // ->get(['client_name as title', 'appointment_date_time as start']);
-                       ->get(['appointments.id', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
+                       ->get(['appointments.id', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start', 'appointment_end_date_time as end']);
             return response()->json($data);
       // }
     // return view('full-calender');
@@ -64,7 +64,7 @@ class AppointmentController extends Controller
                      ->join('drivers', 'appointments.driver_id', '=', 'drivers.id')
                      ->join('clients', 'appointments.client_id', '=', 'clients.id')
                      ->where('appointments.id', '=', $id)
-                     ->get(['appointments.id', 'clients.id as elder_id', 'drivers.id as driver_id', 'appointment_title', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start']);
+                     ->get(['appointments.id', 'clients.id as elder_id', 'drivers.id as driver_id', 'appointment_title', 'clients.mobility as mobility', 'pickup_address', 'destination_address', 'appointment_notes', 'appointment_title as title', 'client_name', 'driver_name', 'appointment_date_time as start', 'appointment_end_date_time as end']);
 
       return response()->json($data);
     }
@@ -90,8 +90,11 @@ class AppointmentController extends Controller
 
       // Ensure user data is provided and within length requirement
       $validated = $request->validate([
+        'driverId' => 'required',
+        'clientId' => 'required',
           'clientNotes' => 'max:255',
           'appDate' => 'required|date_format:Y-m-d\TH:i',
+          'appEndDate' => 'required|date_format:Y-m-d\TH:i',
           'pickupAddress' => 'required|max:255',
           'title' => 'required|max:100',
           'dropoffAddress' => 'required|max:255',
@@ -104,13 +107,19 @@ class AppointmentController extends Controller
       $date_time = Carbon::createFromFormat('Y-m-d\TH:i', $date_time, 'America/Detroit');
       $date_time->setTimezone('UTC');
       $date_time = $date_time->format('Y-m-d H:i:s.v');
-      $newAppointment->appointment_notes = $request["clientNotes"];
 
-      // return $date_time;
       $newAppointment->appointment_date_time = $date_time;
-      // return $appointment_date_time;
 
-      // $newAppointment->appointment_date_time;
+
+      $end_date_time = $request["appEndDate"];
+      // Format the date_time to fit MS SQL Server standard
+      $end_date_time = Carbon::createFromFormat('Y-m-d\TH:i', $end_date_time, 'America/Detroit');
+      $end_date_time->setTimezone('UTC');
+      $end_date_time = $end_date_time->format('Y-m-d H:i:s.v');
+
+      $newAppointment->appointment_end_date_time = $end_date_time;
+
+      $newAppointment->appointment_notes = $request["clientNotes"];
       $newAppointment->appointment_title = $request["title"];
       $newAppointment->pickup_address = $request["pickupAddress"];
       $newAppointment->destination_address = $request["dropoffAddress"];
@@ -155,6 +164,49 @@ class AppointmentController extends Controller
     }
 
     /**
+     * Update the specified date in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateDate(Request $request, $id)
+    {
+        //Validate
+        $validated = $request->validate([
+            'start' => 'required',
+            'end' => 'required',
+        ]);
+
+        //Find id
+        $existingAppointment = Appointment::find( $id );
+        if(!$existingAppointment){
+            return "Appointment not found.";
+        }
+        //Update data
+        if(isset($request['start'])){
+            $date_time = $request["start"];
+            // Format the date_time to fit MS SQL Server standard
+            $date_time = Carbon::parse($date_time);
+            $date_time->setTimezone('UTC');
+            $date_time = $date_time->format('Y-m-d H:i:s.v');
+            $existingAppointment->appointment_date_time = $date_time;
+        }
+        if(isset($request['end'])){
+            $end_date_time = $request["end"];
+            // Format the date_time to fit MS SQL Server standard
+            $end_date_time = Carbon::parse($end_date_time);
+            $end_date_time->setTimezone('UTC');
+            $end_date_time = $end_date_time->format('Y-m-d H:i:s.v');
+        $existingAppointment->appointment_end_date_time = $end_date_time;
+        }
+
+        $existingAppointment->save();
+        return $existingAppointment;
+
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -165,8 +217,11 @@ class AppointmentController extends Controller
     {
         //Validate
         $validated = $request->validate([
+            'driverId' => 'required',
+            'clientId' => 'required',
             'clientNotes' => 'max:255',
             'appDate' => 'required|date_format:Y-m-d\TH:i',
+            'appEndDate' => 'required|date_format:Y-m-d\TH:i',
             'pickupAddress' => 'required|max:255',
             'title' => 'required|max:100',
             'dropoffAddress' => 'required|max:255',
@@ -191,7 +246,15 @@ class AppointmentController extends Controller
            $date_time = $date_time->format('Y-m-d H:i:s.v');
         $existingAppointment->appointment_date_time = $date_time;
         }
-        if(isset($request['pickedupAddress'])){
+        if(isset($request['appEndDate'])){
+            $end_date_time = $request["appEndDate"];
+            // Format the date_time to fit MS SQL Server standard
+           $end_date_time = Carbon::createFromFormat('Y-m-d\TH:i', $end_date_time, 'America/Detroit');
+           $end_date_time->setTimezone('UTC');
+           $end_date_time = $end_date_time->format('Y-m-d H:i:s.v');
+        $existingAppointment->appointment_end_date_time = $end_date_time;
+        }
+        if(isset($request['pickupAddress'])){
             $existingAppointment->pickup_address = $request['pickupAddress'];
         }
         if(isset($request['title'])){
@@ -199,6 +262,12 @@ class AppointmentController extends Controller
         }
         if(isset($request['dropoffAddress'])){
             $existingAppointment->destination_address = $request['dropoffAddress'];
+        }
+        if(isset($request['driverId'])){
+            $existingAppointment->driver_id = $request['driverId'];
+        }
+        if(isset($request['clientId'])){
+            $existingAppointment->client_id = $request['clientId'];
         }
 
         $existingAppointment->save();
