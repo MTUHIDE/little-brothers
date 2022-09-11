@@ -14,13 +14,12 @@ const Sequelize = require('sequelize')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const CONFIG = require('./config/config')
-const models = require('./models')
 const logger = require('./logger/logger')
+const models = require('./models')
 
 logger.info(`Environment: ${CONFIG.app}`) // Checking Environment
 
 const app = express()
-
 app.use(helmet())
 
 // view engine setup
@@ -65,7 +64,7 @@ const sequelize = new Sequelize(CONFIG.db_name, CONFIG.db_user, CONFIG.db_passwo
     },
 })
 
-// For Passport
+// Passport
 const myStore = new SequelizeStore({
     db: sequelize,
     expiration: 24 * 60 * 60 * 1000, // The maximum age (in milliseconds) of a valid session.
@@ -92,7 +91,7 @@ app.use(passport.initialize())
 app.use(passport.session()) // persistent login sessions
 
 const corsOptions = {
-    origin(origin, callback) {
+    origin(origin, callback) { // Change the domain once we get one setup
         if (!origin || origin.match(/\.lbfe-driverscheduler\.com$/) || CONFIG.disable_cors) {
             callback(null, true)
         } else {
@@ -114,14 +113,21 @@ app.use(
     }),
 )
 app.options('*', cors())
-//app.use('/v1', v1)
-// router
+
+// Build Router, tagged with a v1 incase we need to run multiple versions of the API in the future
 const directoryPath = path.join(__dirname, './routes');
 fs.readdirSync(directoryPath).forEach((route) => {
     app.use('/v1', require(`./routes/${route}`))
 })
+
+// For checking the state of the API
+app.use("/status", (req, res) => {
+    return res.status(200).json({ status: 'Active', message: "API is running" })
+})
+
+// Default message for invalid routes
 app.use((req, res) => {
-    return res.status(404).json({ status: 'not found', message: "API endpoint provided doesn't exist" })
+    return res.status(404).json({ status: 'Not found', message: "API endpoint provided doesn't exist" })
 })
 
 // Error logger goes after router
@@ -132,6 +138,7 @@ app.use(
     }),
 )
 
+// Currently always set to disabled
 if (CONFIG.enable_user_notifications === 'true') {
     logger.info(`User Notifications are enabled`)
 } else {
