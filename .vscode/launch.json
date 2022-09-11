@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "name": "Express API ",
+            "request": "launch",
+            "outputCapture": "std",
+            "runtimeArgs": ["run", "start"],
+            "runtimeExecutable": "npm",
+            "skipFiles": ["<node_internals>/**"],
+            "cwd": "${workspaceFolder}/express-api"
+          },
+          {
+            "type": "node",
+            "name": "Vue Frontend",
+            "request": "launch",
+            "outputCapture": "std",
+            "runtimeArgs": ["run","serve"],
+            "runtimeExecutable": "npm",
+            "skipFiles": ["<node_internals>/**"],
+            "cwd": "${workspaceFolder}/vue-frontend"
+          },
+    ]
+}
