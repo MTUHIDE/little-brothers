@@ -1,5 +1,5 @@
 <script>
-
+/* eslint-disable */
 export default {
   props: {
     appointmentId: String,
