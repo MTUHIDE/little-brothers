@@ -1,0 +1,20 @@
+# This file is used for running the api against mssql locally for development
+version: '1'
+services:
+    mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        restart: always
+        volumes:
+            - mssql-volume:/var/opt/mssql
+        working_dir: /usr/src/app
+        command: sh -c 'chmod +x ./prepare.sh & /opt/mssql/bin/sqlservr;'
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Test@123
+            - NODE_ENV
+        ports:
+            - '1433:1433'
+        container_name: lbfe-express-api-dev-test
+
+volumes:
+    mssql-volume:
