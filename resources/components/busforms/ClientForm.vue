@@ -7,7 +7,7 @@
   <div class="client">
     <div class="container-fluid">
 
-        <h1>Elders</h1>
+        <h1>Elders But New</h1>
 
         <div class="accordion" id="anAccordion">
           <AccordionList 
