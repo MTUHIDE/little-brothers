@@ -1,7 +1,7 @@
 <script>
 // @ is an alias to /src - TODO, fix that..
 // TODO - build the form, remove this comment when it is done
-import UpdateForm from '../../components/busforms/UpdateForm.vue';
+import UpdateForm from '../../components/busforms/updatelog/UpdateForm.vue';
 export default {
   components: { UpdateForm },
 };
