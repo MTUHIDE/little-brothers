@@ -47,8 +47,6 @@ export default {
 
                 plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
-                    left: '',
-                    center: 'title',
                     right: 'timeGridThreeDay,timeGridDay'
                 },
                 footerToolbar: {
