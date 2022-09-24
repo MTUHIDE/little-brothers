@@ -47,9 +47,10 @@ export default {
 
                 plugins: [ timeGridPlugin, interactionPlugin ],
                 headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
                     right: 'timeGridThreeDay,timeGridDay'
+                },
+                footerToolbar: {
+                    right: 'prev,next today',
                 },
                 // initialView: 'timeGridWeek',
                 editable: true,
